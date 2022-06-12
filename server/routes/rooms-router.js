@@ -1,6 +1,7 @@
 const express = require('express');
 const { route } = require('./todos-router');
 const router = express.Router();
+const db = require('../configs/db.config');
 
 const rooms = {
   a: {
@@ -26,8 +27,13 @@ const rooms = {
 }
 
 router.get('/', (req, res) => {
-  const roomsArray = Object.values(rooms);
-  res.send(roomsArray);
+  const command = "SELECT * FROM rooms";
+  db.query(command).then(data => {
+    console.log(data.rows)
+    res.send(data.rows);
+  })
+  // const roomsArray = Object.values(rooms);
+  // res.send(roomsArray);
 })
 
 module.exports = router;

@@ -32,7 +32,7 @@ export default function Nav({user, onClick, socket, state}) {
       <div>
         {roomsList.map(thisRoom => {
           return (
-            <button onClick={changeRoom} value={thisRoom.name} type="button" class={ room === thisRoom.name ? "btn btn-success" : "btn btn-primary"}>{thisRoom.name}</button>
+            <button onClick={changeRoom} value={thisRoom} type="button" class={ room === thisRoom.name ? "btn btn-success" : "btn btn-primary"}>{thisRoom.name}</button>
           )
         })}
       </div>
