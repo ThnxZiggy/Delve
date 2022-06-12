@@ -8,7 +8,7 @@ export default function Dashboard({user, room, socket}) {
 
   const [url, setUrl] = useState("");
 
-  const handleChange = (event) => {
+  const handleURLChange = (event) => {
     setUrl(event.target.value);
     console.log(url)
   }
@@ -22,7 +22,7 @@ export default function Dashboard({user, room, socket}) {
         <div className={"me-4"}>
           <input 
             style={{width: "640px", marginBottom: "20px", height: "30px", fontSize: "17px", borderRadius: "5px"}} 
-            onChange={handleChange} 
+            onChange={handleURLChange} 
             type="text" 
             placeholder="Input video url" 
           />

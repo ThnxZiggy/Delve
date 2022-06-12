@@ -7,15 +7,15 @@ export default function Chat({socket, user, room}) {
   const [messageList, setMessageList] = useState([])
 
   useEffect(() => {
-    axios.get(`/messages/${room}`)
+    axios.get(`/messages/${room.name}`)
       .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
         setMessageList((prev) => [...res.data]); 
       })
     }, [room])
     
   const sendMessage = async () => {
-    console.log(room);
+    // console.log(room);
     if (currentMessage !== '') {
       const messageData = {
         room: room,

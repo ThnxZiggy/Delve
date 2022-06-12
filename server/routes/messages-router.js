@@ -7,35 +7,35 @@ const messages = {
     id: "a",
     author: "Ziggy", 
     message: "Hey guys how's it going", 
-    room: "sewing",
+    room: "Sewing",
     time: "14:30"
   },
   b: {
     id: "b",
     author: "Nadya", 
     message: "good good", 
-    room: "sewing",
+    room: "Sewing",
     time: "14:30"
   },
   c: {
     id: "c",
     author: "Ziggy", 
     message: "nice", 
-    room: "sewing",
+    room: "Sewing",
     time: "14:30",
   },
   d: {
     id: "d",
     author: "Ziggy", 
     message: "Let's do this!", 
-    room: "dancing",
+    room: "Plumbing",
     time: "14:30"
   },
   e: {
     id: "e",
     author: "Nadya", 
-    message: "woot wooooot", 
-    room: "dancing",
+    message: "woot wooooot",
+    room: "Plumbing",
     time: "14:30"
   },
 }
