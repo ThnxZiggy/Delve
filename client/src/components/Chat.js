@@ -7,7 +7,7 @@ export default function Chat({socket, user, room}) {
   const [messageList, setMessageList] = useState([])
 
   useEffect(() => {
-    axios.get(`/messages/${room.name}`)
+    axios.get(`/messages/${room.id}`)
       .then(res => {
         // console.log(res.data);
         setMessageList((prev) => [...res.data]); 
@@ -25,6 +25,7 @@ export default function Chat({socket, user, room}) {
       };
 
       await socket.emit('send_message', messageData);
+      
       setMessageList((prev) => [...prev, messageData]);
       setCurrentMessage('');
     }
