@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReactPlayer from 'react-player';
 import Nav from './Nav';
 import Chat from './Chat';
-import Video from './Video';
+// import Video from './Video';
 
 export default function Dashboard({user, room, socket}) {
 
@@ -17,7 +17,7 @@ export default function Dashboard({user, room, socket}) {
 
   return (
     <div>
-      <h1>{room}</h1>
+      <h1>{room.name}</h1>
       <div style={{display: "flex"}}>
         <div className={"me-4"}>
           <input 
@@ -30,7 +30,7 @@ export default function Dashboard({user, room, socket}) {
         </div>
         <Chat socket={socket} user={user} room={room}/>
       </div>
-      <Video socket={socket} room={room}/>
+      {/* <Video socket={socket} room={room}/> */}
     </div>
   )
 }

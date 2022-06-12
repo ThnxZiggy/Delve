@@ -23,14 +23,14 @@ const socket = io.connect(socketURL, {secure: true});
 function App() {
   const [state, setState] = useState({
     user: {},
-    room: '',
+    room: {},
   });
   
   useEffect(() =>{
     axios.get('/rooms')
       .then(res => {
         socket.emit('join_room', res.data[0].name);
-        setState(prev => ({...prev, room:res.data[0].name}));
+        setState(prev => ({...prev, room:res.data[0]}));
       })
   }, [state.user])
 
