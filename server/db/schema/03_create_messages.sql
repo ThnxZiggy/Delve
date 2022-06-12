@@ -8,3 +8,5 @@ CREATE TABLE messages (
   content VARCHAR(255) NOT NULL,
   time TIMESTAMP NOT NULL DEFAULT current_timestamp
 );
+
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO labber;

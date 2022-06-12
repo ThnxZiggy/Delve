@@ -11,3 +11,5 @@ CREATE TABLE rooms (
   session_number integer,
   date_time VARCHAR(255)
 );
+
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO labber;
