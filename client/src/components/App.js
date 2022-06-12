@@ -29,7 +29,7 @@ function App() {
   useEffect(() =>{
     axios.get('/rooms')
       .then(res => {
-        socket.emit('join_room', res.data[0].name);
+        socket.emit('join_room', res.data[0].id);
         setState(prev => ({...prev, room:res.data[0]}));
       })
   }, [state.user])

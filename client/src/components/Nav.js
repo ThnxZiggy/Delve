@@ -21,8 +21,8 @@ export default function Nav({user, onClick, socket, state}) {
     console.log('This room', thisRoom);
     console.log('Target value', e.target.value);
     console.log(roomsList);
-    socket.emit('leave_room', state.room.name);
-    socket.emit('join_room', thisRoom.name);
+    socket.emit('leave_room', state.room.id);
+    socket.emit('join_room', thisRoom.id);
     onClick(prev => ({...prev, room: thisRoom}));
   }
 
