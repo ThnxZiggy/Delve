@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import axios from 'axios';
-import './App.css';
+import '../styles/App.scss';
+
 import Nav from './Nav';
 
 
