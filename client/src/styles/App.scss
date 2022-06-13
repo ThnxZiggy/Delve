@@ -1,31 +1,31 @@
 .App {
   width: 100vw;
   height: 100vh;
-  // background: rgb(237, 244, 250);
-  // color: #212121;
+  background: rgb(237, 244, 250);
+  color: #212121;
   // background: #212121;
   // color: rgb(237, 244, 250);
-  animation-name: colorChange;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  background: rgb(141, 38, 196);
-  color:rgb(211, 255, 84);
+  // animation-name: colorChange;
+  // animation-duration: 2s;
+  // animation-iteration-count: infinite;
+  // background: rgb(141, 38, 196);
+  // color:rgb(211, 255, 84);
 
   font-family: "Open Sans", sans-serif;
   display: grid;
   place-items: center;
 }
 
-@keyframes colorChange {
-  0% {
-    background: rgb(141, 38, 196);
-    color:rgb(211, 255, 84); 
-  }
-  50% {
-    color: rgb(141, 38, 196);
-    background:rgb(211, 255, 84);    
-  }
-}
+// @keyframes colorChange {
+//   0% {
+//     background: rgb(141, 38, 196);
+//     color:rgb(211, 255, 84); 
+//   }
+//   50% {
+//     color: rgb(141, 38, 196);
+//     background:rgb(211, 255, 84);    
+//   }
+// }
 
 body {
   margin: 0%;
