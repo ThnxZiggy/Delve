@@ -21,6 +21,15 @@
     color: $teal-000;
 
   }
+  .form-label {
+    color: $teal-000;
+
+  }
+
+  .form-control {
+    background-color: $teal-000;
+
+  }
 
   .chat-window .chat-body {
     background-color: $dark-000;
@@ -60,6 +69,17 @@
   h1 {
     color: $white;
   }
+
+  .form-label {
+    color: $white;
+
+  }
+
+  .form-control {
+    background-color: $white;
+
+  }
+  
 
   .chat-window .chat-body {
     background-color: $yellow-000;

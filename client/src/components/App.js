@@ -26,6 +26,8 @@ function App() {
     user: {},
     room: {},
   });
+
+  const [theme, setTheme] = useState('App light')
   
   useEffect(() =>{
     axios.get('/rooms')
@@ -50,7 +52,10 @@ function App() {
   // }, [])
 
   return (
-    <div className="App light">
+    <div className={theme}>
+      <button onClick={() => setTheme('App light')}>Light</button>
+      <button onClick={() => setTheme('App dark')}>Dark</button>
+      <button onClick={() => setTheme('App party')}>Party</button>
       {state.user.name && <Nav socket={socket} user={state.user} onClick={setState} state={state}/>}
       <header className="App-header">
         {state.user.name ? <Dashboard socket={socket} user={state.user} room={state.room} /> : <Login socket={socket} onSubmit={setState}/>}
