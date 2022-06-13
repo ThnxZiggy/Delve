@@ -29,13 +29,20 @@ export default function Nav({user, onClick, socket, state}) {
   const logout = () => {
     onClick(prev => ({...prev, user:{}}));
   }
+
   const makeRoom = () => {
     onClick(prev => ({...prev, makingRoom:true}));
   }
-  
+
+  const showAboutPage = () => {
+    onClick(prev => ({...prev, aboutPage: true}))
+  }
+
   return (
     <div class="d-flex justify-content-between">
-      <div><h1>Welcome {user.name}!</h1></div>
+      <div>
+        <h1>Welcome {user.name}!</h1>
+      </div>
       {/* //////// removed list of rooms, replaced in Sidebar ///////////// */}
       {/* //////// Keep for reference /////////// */}
       {/* <div>
@@ -51,6 +58,7 @@ export default function Nav({user, onClick, socket, state}) {
           )
         })}
       </div> */}
+      <div><button onClick={showAboutPage} type="button" class="btn btn-primary">About Us</button></div>
       <div><button onClick={makeRoom} type="button" class="btn btn-warning">Create New Room</button></div>
       <div><button onClick={logout} type="button" class="btn btn-danger">Logout</button></div>
     </div>

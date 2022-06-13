@@ -27,6 +27,7 @@ function App() {
     user: {},
     room: {},
     makingRoom: false,
+    aboutPage: false,
   });
   
   useEffect(() =>{
@@ -40,6 +41,7 @@ function App() {
   return (
     <div className="App">
       {state.user.name && <Nav socket={socket} user={state.user} onClick={setState} state={state}/>}
+      {state.aboutPage && <h1>state functioning</h1>}
       <header className="App-header" style={{display: 'flex',}}>
         {state.user.name&& !state.makingRoom && <Sidebar socket={socket} user={state.user} onClick={setState} state={state}/>}
         {state.user.name ? <Dashboard setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} /> : <Login socket={socket} onSubmit={setState}/>}
