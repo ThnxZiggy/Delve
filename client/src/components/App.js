@@ -50,7 +50,7 @@ function App() {
   // }, [])
 
   return (
-    <div className="App">
+    <div className="App light">
       {state.user.name && <Nav socket={socket} user={state.user} onClick={setState} state={state}/>}
       <header className="App-header">
         {state.user.name ? <Dashboard socket={socket} user={state.user} room={state.room} /> : <Login socket={socket} onSubmit={setState}/>}

@@ -1,16 +1,28 @@
-.App {
-  width: 100vw;
-  height: 100vh;
-  background: rgb(237, 244, 250);
-  color: #212121;
-  font-family: "Open Sans", sans-serif;
-  display: grid;
-  place-items: center;
-}
+@import './base/reset';
+
 body {
+  min-width: 100vh;
+  min-height: 100vh;
   margin: 0%;
   padding: 0%;
 }
+
+.App {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  // background: rgb(237, 244, 250);
+  // color: #212121;
+  font-family: "Open Sans", sans-serif;
+  // display: flex;
+  // place-items: center;
+}
+
+
+
+
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 
 .joinChatContainer {
@@ -53,6 +65,7 @@ body {
 .chat-window {
   width: 300px;
   height: 420px;
+
 }
 
 .chat-window p {
@@ -79,6 +92,7 @@ body {
   background: #fff;
 
   position: relative;
+  
 }
 .chat-window .chat-body .message-container {
   width: 100%;

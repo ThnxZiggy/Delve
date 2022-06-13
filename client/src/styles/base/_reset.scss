@@ -1,0 +1,89 @@
+@use '../abstracts/colors' as *;
+
+// .App {
+//   // background: $blue-600;
+//   // color: #212121;
+// }
+
+// .App {}
+.light {
+  background-color: $blue-000;
+  h1 {
+    color: $dark-700;
+  }
+
+}
+
+.dark {
+  background-color: $dark-400;
+
+  h1 {
+    color: $teal-000;
+
+  }
+
+  .chat-window .chat-body {
+    background-color: $dark-000;
+    
+  }
+  input {
+    background-color: $dark-000;
+  }
+
+}
+
+.party {
+  animation-name: colorChange;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  @keyframes colorChange {
+    0% {
+        background: $violet-800;    
+    }
+    20% {
+        background: $teal-700;    
+    }
+    40% {
+        background: $blue-800;    
+    }
+    60% {
+        background: $lime-500;    
+    }
+    80% {
+        background: $blue-800;    
+    }
+    100% {
+        background: $violet-800;    
+    }
+
+  }
+  h1 {
+    color: $white;
+  }
+
+  .chat-window .chat-body {
+    background-color: $yellow-000;
+  
+  }
+  input {
+  background-color: $yellow-000;
+  }
+
+}
+
+
+
+
+
+
+
+// @at-root #{&}--light {
+//   @at-root #{&}__text {
+//     color: $dark-700;
+//   }
+
+//   .background {
+//     background-color: $blue-000;
+//   }
+
+// }
