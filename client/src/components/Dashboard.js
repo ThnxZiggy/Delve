@@ -12,7 +12,7 @@ export default function Dashboard({user, room, socket, makingRoom, setState}) {
 
   const handleURLChange = (event) => {
     setUrl(event.target.value);
-    console.log(url)
+    console.log(url);
   }
 
   // const showForm = () => {
