@@ -20,8 +20,7 @@ router.post('/login', (req, res) => {
   
     if (correctUser.length <= 0) {
       res.send('error')
-    }
-    if(correctUser[0].password === password) {
+    }else if(correctUser[0].password === password) {
       res.send(correctUser)
     } else {
       res.send('error');
