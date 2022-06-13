@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 import Nav from './Nav';
 import Chat from './Chat';
@@ -14,6 +14,10 @@ export default function Dashboard({user, room, socket, makingRoom, setState}) {
     setUrl(event.target.value);
     console.log(url);
   }
+
+  useEffect(() => {
+    setUrl('');
+  },[room])
 
   // const showForm = () => {
   //   setState(prev => ({...prev, makingRoom: true}));
@@ -33,7 +37,8 @@ export default function Dashboard({user, room, socket, makingRoom, setState}) {
               <input 
                 style={{width: "640px", marginBottom: "20px", height: "30px", fontSize: "17px", borderRadius: "5px"}} 
                 onChange={handleURLChange} 
-                type="text" 
+                type="text"
+                value={url}
                 placeholder="Input video url" 
               />
               <ReactPlayer style={{border: "solid 2px black"}} url={url} controls={true}/>
