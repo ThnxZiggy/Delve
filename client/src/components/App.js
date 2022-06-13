@@ -104,21 +104,21 @@ function App() {
       });
 
       //top middle
-      confetti({
-        startVelocity: 30,
-        particleCount: 2,
-        angle: 120,
-        spread: 55,
-        origin: { x: .3, y: 0 },
-      });
+      // confetti({
+      //   startVelocity: 30,
+      //   particleCount: 2,
+      //   angle: 120,
+      //   spread: 55,
+      //   origin: { x: .3, y: 0 },
+      // });
 
-      confetti({
-        startVelocity: 30,
-        particleCount: 2,
-        angle: 120,
-        spread: 55,
-        origin: { x: .87, y: 0 },
-      });
+      // confetti({
+      //   startVelocity: 30,
+      //   particleCount: 2,
+      //   angle: 120,
+      //   spread: 55,
+      //   origin: { x: .87, y: 0 },
+      // });
 
       // confetti({
       //   particleCount: 2,
@@ -142,7 +142,7 @@ function App() {
     <div className={theme}>
       <span className="theme__icons">
       <i className="fa-solid fa-sun fa-3x" onClick={() => setTheme('App light')}></i>
-      <i className="fa-solid fa-moon fa-3x" onClick={() => {setTheme('App dark'); confetti.reset()}}></i>
+      <i className="fa-solid fa-moon fa-3x" onClick={() => {setTheme('App dark')}}></i>
       <i className="fa-solid fa-cake-candles fa-3x" onClick={() => {setTheme('App party'); partyConfetti()}}></i>
       </span>
 

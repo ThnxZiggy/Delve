@@ -16,6 +16,10 @@
     color: $dark-700;
   }
 
+  .fa-sun {
+    box-shadow: 0rem 0rem .8rem .5rem $blue-600;
+  }
+
 }
 
 .dark {
@@ -39,12 +43,21 @@
 
   }
 
+  .form-control:focus {
+    background-color: $teal-000;
+
+  }
+
   .chat-window .chat-body {
-    background-color: $dark-000;
+    background-color: $teal-000;
     
   }
   input {
-    background-color: $dark-000;
+    background-color: $teal-000;
+  }
+
+  .fa-moon {
+    box-shadow: 0rem 0rem .8rem .5rem $teal-100;
   }
 
 }
@@ -91,6 +104,11 @@
     background-color: $white;
 
   }
+
+  .form-control:focus {
+    background-color: $white;
+
+  }
   
 
   .chat-window .chat-body {
@@ -100,6 +118,24 @@
   input {
   background-color: $yellow-000;
   }
+
+  .fa-cake-candles {
+    box-shadow: 0rem 0rem .8rem .5rem $lime-500;
+    animation-name: spin;
+    animation-duration: 3000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+  }
+
+
+  @keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to  {
+        transform:rotate(360deg);
+    }
+}
 
 }
 
