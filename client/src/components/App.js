@@ -5,6 +5,7 @@ import axios from 'axios';
 import '../styles/App.scss';
 
 import Nav from './Nav';
+import Sidebar from './Sidebar';
 
 
 // all we need to do is CONNECT to the backend socket server!
@@ -25,6 +26,7 @@ function App() {
   const [state, setState] = useState({
     user: {},
     room: {},
+    makingRoom: false,
   });
   
   useEffect(() =>{
@@ -52,8 +54,9 @@ function App() {
   return (
     <div className="App">
       {state.user.name && <Nav socket={socket} user={state.user} onClick={setState} state={state}/>}
-      <header className="App-header">
-        {state.user.name ? <Dashboard socket={socket} user={state.user} room={state.room} /> : <Login socket={socket} onSubmit={setState}/>}
+      <header className="App-header" style={{display: 'flex',}}>
+        {state.user.name&& !state.makingRoom && <Sidebar socket={socket} user={state.user} onClick={setState} state={state}/>}
+        {state.user.name ? <Dashboard setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} /> : <Login socket={socket} onSubmit={setState}/>}
       </header>
     </div>
   );
