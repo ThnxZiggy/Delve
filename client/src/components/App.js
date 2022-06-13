@@ -27,7 +27,6 @@ function App() {
     user: {},
     room: {},
     makingRoom: false,
-    aboutPage: false,
   });
 
   const [theme, setTheme] = useState('App light')
@@ -42,11 +41,12 @@ function App() {
 
   return (
     <div className={theme}>
-      <button onClick={() => setTheme('App light')}>Light</button>
-      <button onClick={() => setTheme('App dark')}>Dark</button>
-      <button onClick={() => setTheme('App party')}>Party</button>
+      <span className="theme__icons">
+      <i className="fa-solid fa-sun fa-3x" onClick={() => setTheme('App light')}></i>
+      <i className="fa-solid fa-moon fa-3x" onClick={() => setTheme('App dark')}></i>
+      <i className="fa-solid fa-cake-candles fa-3x" onClick={() => setTheme('App party')}></i>
+      </span>
       {state.user.name && <Nav socket={socket} user={state.user} onClick={setState} state={state}/>}
-      {state.aboutPage && <h1>state functioning</h1>}
       <header className="App-header" style={{display: 'flex',}}>
         {state.user.name&& !state.makingRoom && <Sidebar socket={socket} user={state.user} onClick={setState} state={state}/>}
         {state.user.name ? <Dashboard setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} /> : <Login socket={socket} onSubmit={setState}/>}

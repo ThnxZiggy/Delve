@@ -12,6 +12,10 @@
     color: $dark-700;
   }
 
+  .fa-solid {
+    color: $dark-700;
+  }
+
 }
 
 .dark {
@@ -24,6 +28,10 @@
   .form-label {
     color: $teal-000;
 
+  }
+
+  .fa-solid {
+    color: $teal-000;
   }
 
   .form-control {
@@ -67,6 +75,10 @@
 
   }
   h1 {
+    color: $white;
+  }
+
+  .fa-solid {
     color: $white;
   }
 
