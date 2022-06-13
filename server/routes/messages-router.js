@@ -40,12 +40,13 @@ const messages = {
   },
 }
 
-router.get('/:room', (req, res) => {
-  const roomID = req.params.room;
-  const messagesArray = Object.values(messages);
-  const roomMessages = messagesArray.filter(message => message.room === roomID);
+router.get('/:roomID', (req, res) => {
+  const roomID = parseInt(req.params.roomID);
 
-  res.send(roomMessages);
+  const command = "SELECT messages.*, users.name AS author FROM messages JOIN users ON users.id = user_id WHERE room_id = $1";
+  db.query(command, [roomID]).then((data) => {
+    res.send(data.rows);
+  })
 })
 
 module.exports = router;

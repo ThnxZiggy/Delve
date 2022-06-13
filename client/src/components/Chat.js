@@ -10,9 +10,10 @@ export default function Chat({socket, user, room}) {
     axios.get(`/messages/${room.id}`)
       .then(res => {
         // console.log(res.data);
+        res.data.forEach(message => message.time = message.time.slice(14,19))
         setMessageList((prev) => [...res.data]); 
       })
-    }, [room])
+  }, [room])
     
   const sendMessage = async () => {
     // console.log(room);
@@ -20,12 +21,12 @@ export default function Chat({socket, user, room}) {
       const messageData = {
         room: room,
         author: user.name,
-        message: currentMessage,
+        content: currentMessage,
         time: new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes(),
       };
 
       await socket.emit('send_message', messageData);
-      
+
       setMessageList((prev) => [...prev, messageData]);
       setCurrentMessage('');
     }
@@ -52,10 +53,10 @@ export default function Chat({socket, user, room}) {
               <div className="message" id={user.name === messageContent.author ? "you" : "other"}>
                 <div>
                   <div className="message-content">
-                    <p>{messageContent.message}</p>
+                    <p>{messageContent.content}</p>
                   </div>
                   <div className="message-meta">
-                    <p style={{marginRight: "3px"}}>{messageContent.author}</p>
+                    <p style={{marginRight: "3px"}}>{user.name === messageContent.author ? "me" : messageContent.author}</p>
                     <p>{messageContent.time}</p>
                   </div>
                 </div>
