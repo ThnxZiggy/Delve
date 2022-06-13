@@ -14,8 +14,27 @@ export default function Chat({socket, user, room}) {
         setMessageList((prev) => [...res.data]); 
       })
   }, [room])
-    
-  const sendMessage = async () => {
+  
+  ////////////////////////// WORKING VERSION BEFORE POST REQUEST //////////////////////////
+  // const sendMessage = async () => {
+  //   // console.log(room);
+  //   if (currentMessage !== '') {
+  //     const messageData = {
+  //       room: room,
+  //       author: user.name,
+  //       content: currentMessage,
+  //       time: new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes(),
+  //     };
+
+  //     await socket.emit('send_message', messageData);
+
+  //     setMessageList((prev) => [...prev, messageData]);
+  //     setCurrentMessage('');
+  //   }
+  // }
+///////////////////////////////////////////////////////////////////////////////////////////
+
+  const sendMessage = () => {
     // console.log(room);
     if (currentMessage !== '') {
       const messageData = {
@@ -24,11 +43,13 @@ export default function Chat({socket, user, room}) {
         content: currentMessage,
         time: new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes(),
       };
-
-      await socket.emit('send_message', messageData);
+    
+    axios.post(`/messages/${room.id}/${user.id}`, {currentMessage}).then(res => {
+      socket.emit('send_message', messageData);
 
       setMessageList((prev) => [...prev, messageData]);
       setCurrentMessage('');
+    })
     }
   }
 
