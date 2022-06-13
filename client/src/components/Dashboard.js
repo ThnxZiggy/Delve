@@ -24,7 +24,7 @@ export default function Dashboard({user, room, socket, makingRoom, setState}) {
   return (
     <div>
     { makingRoom ? (
-      <NewRoom onClick={setState}/>
+      <NewRoom user={user} onClick={setState}/>
       ) : (
         <div>
           <h1>{room.name}</h1>
