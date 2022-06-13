@@ -37,20 +37,6 @@ function App() {
       })
   }, [state.user])
 
-  // useEffect(() => {
-  //   console.log('RUNS ONLY ONCE!!');
-  //   connection.on('INITIAL_CONNECTION', (data) => {
-  //     console.log('DATA HAS COME FROM THE SERVER!');
-  //     console.log(data);
-  //     setUser(data.name);
-  //     setUsers(data.userList);
-  //   });
-
-  //   connection.on('NEW_USER', (data) => {
-  //     setUsers(prev => [...prev, data.name]);
-  //   });
-  // }, [])
-
   return (
     <div className="App">
       {state.user.name && <Nav socket={socket} user={state.user} onClick={setState} state={state}/>}
