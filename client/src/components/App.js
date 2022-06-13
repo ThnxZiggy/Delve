@@ -29,6 +29,8 @@ function App() {
     makingRoom: false,
     aboutPage: false,
   });
+
+  const [theme, setTheme] = useState('App light')
   
   useEffect(() =>{
     axios.get('/rooms')
@@ -39,7 +41,10 @@ function App() {
   }, [state.user])
 
   return (
-    <div className="App">
+    <div className={theme}>
+      <button onClick={() => setTheme('App light')}>Light</button>
+      <button onClick={() => setTheme('App dark')}>Dark</button>
+      <button onClick={() => setTheme('App party')}>Party</button>
       {state.user.name && <Nav socket={socket} user={state.user} onClick={setState} state={state}/>}
       {state.aboutPage && <h1>state functioning</h1>}
       <header className="App-header" style={{display: 'flex',}}>
