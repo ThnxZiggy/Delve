@@ -2,19 +2,24 @@ import axios from 'axios';
 import React, { useRef, useState, useEffect } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 
-export default function NewRoom({onClick, user}) {
+export default function NewRoom({setState, user}) {
   const [name, setName] = useState("");
   const [user2, setUser2] = useState("");
   const [user3, setUser3] = useState("");
   const [user4, setUser4] = useState("");
   const [meetTime, setMeetTime] = useState("");
+  const [errMsg, setErrMsg] = useState('');
 
   const createRoom = (e) => {
     e.preventDefault();
 
     axios.post(`/rooms/${user.id}`, {name, user2, user3, user4})
       .then(res => {
-
+        if (res.data === 'success') {
+          setState(prev => ({...prev, makingRoom: false}))
+        } else {
+          setErrMsg(res.data);
+        }
       })
   }
 
@@ -23,6 +28,7 @@ export default function NewRoom({onClick, user}) {
       <h1>Create a Room</h1>
     
         <form onSubmit={createRoom} >
+        <p className="alert-danger">{errMsg}</p>
           <div>
             <input
               placeholder='Delve Subject'
@@ -70,7 +76,7 @@ export default function NewRoom({onClick, user}) {
 
           <button type="submit" className="me-2">Create Room</button>
         </form>
-      <button onClick={() => onClick(prev => ({...prev, makingRoom: false}))}>Go Back</button>
+      <button onClick={() => setState(prev => ({...prev, makingRoom: false}))}>Go Back</button>
     </div>
   )
 }
