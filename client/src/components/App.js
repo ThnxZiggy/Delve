@@ -32,7 +32,7 @@ const socket = io.connect(socketURL, {secure: true});
 function App() {
   const [state, setState] = useState({
     user: {},
-    room: {},
+    room: {id: -1},
     makingRoom: false,
     aboutPage: false,
     sessionComplete: false
@@ -40,17 +40,29 @@ function App() {
 
   const [theme, setTheme] = useState('App light')
   
+  // useEffect(() =>{
+  //   axios.get('/rooms')
+  //     .then(res => {
+  //       const unfilteredRooms = res.data;
+  //       const filteredRooms = unfilteredRooms.filter(room => room.user_1_id === state.user.id || room.user_2_id === state.user.id || room.user_3_id === state.user.id || room.user_4_id === state.user.id)
+  //       console.log('filteredRooms', filteredRooms);
+  //       socket.emit('join_room', filteredRooms[0].id);
+  //       setState(prev => ({...prev, room:filteredRooms[0]}));
+  //     })
+  // }, [state.user])
+
   useEffect(() =>{
     axios.get('/rooms')
       .then(res => {
         const unfilteredRooms = res.data;
         const filteredRooms = unfilteredRooms.filter(room => room.user_1_id === state.user.id || room.user_2_id === state.user.id || room.user_3_id === state.user.id || room.user_4_id === state.user.id)
-        console.log(filteredRooms);
-        socket.emit('join_room', filteredRooms[0].id);
-        setState(prev => ({...prev, room:filteredRooms[0]}));
+        console.log('filteredRooms', filteredRooms);
+        if (filteredRooms[0]){
+          socket.emit('join_room', filteredRooms[0].id);
+          setState(prev => ({...prev, room:filteredRooms[0]}));
+        }
       })
   }, [state.user])
-
 
   return (
     <div className={theme}>
@@ -66,7 +78,7 @@ function App() {
       {state.user.name && <Nav socket={socket} user={state.user} onClick={setState} state={state}/>}
       {state.aboutPage && <About setState={setState}/>}
       <header className="App-header" style={{display: 'flex',}}>
-        {state.user.name&& !state.makingRoom && <Sidebar socket={socket} user={state.user} onClick={setState} state={state}/>}
+        {state.user.name && !state.makingRoom && <Sidebar socket={socket} user={state.user} onClick={setState} state={state}/>}
         {state.user.name ? <Dashboard setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} sessionComplete={state.sessionComplete}/> : <Login socket={socket} onSubmit={setState}/>}
       </header>
     </div>
