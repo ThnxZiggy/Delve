@@ -28,6 +28,15 @@
     background-color: $teal-700;
   }
 
+  .nav-banner.buttons button {
+    background-color: $teal-700;
+    color: $teal-000;
+    &:hover {
+      background: lighten($teal-700, 3%);
+      box-shadow: .01rem .05rem .2rem .1rem $teal-000;
+    }
+  }
+
   //rooms sidebar
   .bg-success {
     background-color: $teal-400 !important;
