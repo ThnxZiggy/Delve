@@ -2,30 +2,51 @@
 
 
 .dark {
-  background-color: $dark-400;
+  background-color: $teal-800;
 
   h1 {
     color: $teal-000;
 
   }
 
+  //delve banner
   .banner {
     background-color: $teal-900;
     color: $teal-000;
   }
 
+  .fa-solid {
+    color: $teal-000;
+  }
+
+  .fa-moon {
+    box-shadow: 0rem 0rem .8rem .5rem $teal-100;
+  }
+
+  //welcome banner
   .d-flex {
     background-color: $teal-700;
   }
+
+  //rooms sidebar
+  .bg-success {
+    background-color: $teal-400 !important;
+    box-shadow: .01rem .05rem .2rem .1rem $teal-000;
+  }
+
+  .bg-primary {
+    background-color: $teal-700 !important;
+    color: $teal-000;
+    box-shadow: 0rem 0rem .3rem .1rem $teal-000;
+  }
+
 
   .form-label {
     color: $teal-000;
 
   }
 
-  .fa-solid {
-    color: $teal-000;
-  }
+
 
   .form-control {
     background-color: $dark-000;
@@ -52,9 +73,7 @@
     background-color: $dark-000;
   }
 
-  .fa-moon {
-    box-shadow: 0rem 0rem .8rem .5rem $teal-100;
-  }
+
 
   .chat-window .chat-header {
     background-color: $dark-700;

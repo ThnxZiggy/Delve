@@ -20,22 +20,60 @@
 
   }
 
-  .banner {
-    background-color: $party-1;
+  h1 {
     color: $party-pale;
   }
 
-  .d-flex {
-    background-color: $party-4;
-  }
 
-  h1 {
+  //delve banner
+  .banner {
+    background-color: $party-1;
     color: $party-pale;
   }
 
   .fa-solid {
     color: $party-pale;
   }
+
+  .fa-cake-candles {
+    box-shadow: 0rem 0rem .8rem .5rem $lime-500;
+    animation-name: spin;
+    animation-duration: 3000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+  }
+
+
+  @keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to  {
+        transform:rotate(360deg);
+    }
+  }
+
+
+  //welcome banner
+  .d-flex {
+    background-color: $party-4;
+  }
+
+  //rooms sidebar
+  .bg-success {
+    background-color: $party-4 !important;
+    box-shadow: .01rem .05rem .2rem .1rem $teal-000;
+    color: $party-pale;
+  }
+
+  .bg-primary {
+    background-color: $party-1 !important;
+    color: $teal-000;
+    box-shadow: 0rem 0rem .3rem .1rem $teal-000;
+    color: $party-pale;
+  }
+
+
 
   .form-label {
     color: $party-pale;
@@ -67,22 +105,6 @@
   background-color: $party-pale;
   }
 
-  .fa-cake-candles {
-    box-shadow: 0rem 0rem .8rem .5rem $lime-500;
-    animation-name: spin;
-    animation-duration: 3000ms;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear; 
-  }
 
-
-  @keyframes spin {
-    from {
-        transform:rotate(0deg);
-    }
-    to  {
-        transform:rotate(360deg);
-    }
-  }
 
 }
