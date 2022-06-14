@@ -13,7 +13,7 @@ export default function Sidebar({user, onClick, socket, state}) {
         setRoomsList((prev) => [...res.data]);
         setRoom(res.data[0]);
       })
-  }, [])
+  }, [state.sessionComplete])
 
   const changeRoom = (e) => {
     const thisRoom = roomsList.filter(room => room.name === e.currentTarget.value)[0];
@@ -50,7 +50,7 @@ export default function Sidebar({user, onClick, socket, state}) {
             >
               <h3>{thisRoom.name}</h3>
               <h2>{thisRoom.date_time}</h2>
-              <h2>{thisRoom.session_number}</h2>
+              <h6>Sessions Completed:{thisRoom.session_number}</h6>
             </button></div>
           //////////////////////////////////////////////////////////////////
           ////////////////Working version with buttons /////////////////////

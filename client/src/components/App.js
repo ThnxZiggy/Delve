@@ -29,6 +29,7 @@ function App() {
     room: {},
     makingRoom: false,
     aboutPage: false,
+    sessionComplete: false
   });
 
   const [theme, setTheme] = useState('App light')
@@ -50,7 +51,7 @@ function App() {
       {state.aboutPage && <About setState={setState}/>}
       <header className="App-header" style={{display: 'flex',}}>
         {state.user.name&& !state.makingRoom && <Sidebar socket={socket} user={state.user} onClick={setState} state={state}/>}
-        {state.user.name ? <Dashboard setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} /> : <Login socket={socket} onSubmit={setState}/>}
+        {state.user.name ? <Dashboard setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} sessionComplete={state.sessionComplete}/> : <Login socket={socket} onSubmit={setState}/>}
       </header>
     </div>
   );
