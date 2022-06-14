@@ -140,11 +140,14 @@ function App() {
 
   return (
     <div className={theme}>
-      <span className="theme__icons">
-      <i className="fa-solid fa-sun fa-3x" onClick={() => setTheme('App light')}></i>
-      <i className="fa-solid fa-moon fa-3x" onClick={() => {setTheme('App dark')}}></i>
-      <i className="fa-solid fa-cake-candles fa-3x" onClick={() => {setTheme('App party'); partyConfetti()}}></i>
-      </span>
+      <div className='banner'>
+        DELVE
+        <span className="theme__icons">
+          <i className="fa-solid fa-sun" onClick={() => setTheme('App light')}></i>
+          <i className="fa-solid fa-moon" onClick={() => {setTheme('App dark')}}></i>
+          <i className="fa-solid fa-cake-candles" onClick={() => {setTheme('App party'); partyConfetti()}}></i>
+        </span>
+      </div>
 
       {state.user.name && <Nav socket={socket} user={state.user} onClick={setState} state={state}/>}
       <header className="App-header" style={{display: 'flex',}}>

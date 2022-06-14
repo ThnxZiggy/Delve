@@ -39,8 +39,8 @@ export default function Nav({user, onClick, socket, state}) {
   }
 
   return (
-    <div class="d-flex justify-content-between">
-      <div>
+    <div class="d-flex">
+      <div className='nav-banner welcome'>
         <h1>Welcome {user.name}!</h1>
       </div>
       {/* //////// removed list of rooms, replaced in Sidebar ///////////// */}
@@ -58,9 +58,11 @@ export default function Nav({user, onClick, socket, state}) {
           )
         })}
       </div> */}
-      <div><button onClick={showAboutPage} type="button" class="btn btn-primary">About Us</button></div>
-      <div><button onClick={makeRoom} type="button" class="btn btn-warning">Create New Room</button></div>
-      <div><button onClick={logout} type="button" class="btn btn-danger">Logout</button></div>
+      <div className="nav-banner buttons">
+        <div><button onClick={showAboutPage} type="button" class="btn btn-primary">About Us</button></div>
+        <div><button onClick={makeRoom} type="button" class="btn btn-warning">Create New Room</button></div>
+        <div><button onClick={logout} type="button" class="btn btn-danger">Logout</button></div>
+      </div>
     </div>
   )
 }

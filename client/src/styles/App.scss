@@ -1,4 +1,7 @@
+@use './abstracts/colors' as *;
 @import './base/reset';
+@import url('https://fonts.googleapis.com/css2?family=Expletus+Sans:ital,wght@1,600&display=swap');
+
 
 body {
   min-width: 100vh;
@@ -6,6 +9,8 @@ body {
   margin: 0%;
   padding: 0%;
 }
+
+
 
 .App {
   width: 100%;
@@ -20,10 +25,27 @@ body {
   // place-items: center;
 }
 
+.banner {
+  font-family: 'Expletus Sans', cursive;
+  font-size: 10rem;
+  display: flex;
+  align-items: center;
+  padding: 0rem 3rem;
+  justify-content: space-between;
+}
+
 .theme__icons {
   padding: 2rem;
   position: relative;
   margin: 0;
+  font-size: 3rem;
+}
+
+.d-flex {
+  padding: 1.5rem 5rem 1.5rem;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .fa-solid {
@@ -31,6 +53,15 @@ body {
   border-radius: 20%;
   padding: .4rem;
   margin: .8rem;
+}
+
+.nav-banner.buttons {
+  display:flex;
+
+}
+
+.nav-banner.buttons button {
+  margin: 1rem;
 }
 
 
