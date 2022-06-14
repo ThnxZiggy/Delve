@@ -31,11 +31,19 @@ export default function Nav({user, onClick, socket, state}) {
   }
 
   const makeRoom = () => {
-    onClick(prev => ({...prev, makingRoom:true}));
+    if (state.makingRoom) {
+      onClick(prev => ({...prev, makingRoom: false}))
+    }else {
+      onClick(prev => ({...prev, makingRoom: true}))
+    }
   }
 
   const showAboutPage = () => {
-    onClick(prev => ({...prev, aboutPage: true}))
+    if (state.aboutPage) {
+      onClick(prev => ({...prev, aboutPage: false}))
+    }else {
+      onClick(prev => ({...prev, aboutPage: true}))
+    }
   }
 
   return (

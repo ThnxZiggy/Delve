@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import Login from './Login';
-import Dashboard from './Dashboard';
 import axios from 'axios';
 import '../styles/App.scss';
 
+import Login from './Login';
+import Dashboard from './Dashboard';
 import Nav from './Nav';
 import Sidebar from './Sidebar';
+import About from './About';
 
 
 
@@ -46,6 +47,8 @@ function App() {
     user: {},
     room: {},
     makingRoom: false,
+    aboutPage: false,
+    sessionComplete: false
   });
 
   const [theme, setTheme] = useState('App light')
@@ -150,9 +153,10 @@ function App() {
       </div>
 
       {state.user.name && <Nav socket={socket} user={state.user} onClick={setState} state={state}/>}
+      {state.aboutPage && <About setState={setState}/>}
       <header className="App-header" style={{display: 'flex',}}>
         {state.user.name&& !state.makingRoom && <Sidebar socket={socket} user={state.user} onClick={setState} state={state}/>}
-        {state.user.name ? <Dashboard setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} /> : <Login socket={socket} onSubmit={setState}/>}
+        {state.user.name ? <Dashboard setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} sessionComplete={state.sessionComplete}/> : <Login socket={socket} onSubmit={setState}/>}
       </header>
     </div>
   );
