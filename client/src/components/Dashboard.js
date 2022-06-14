@@ -3,6 +3,7 @@ import ReactPlayer from 'react-player';
 import Nav from './Nav';
 import Chat from './Chat';
 import NewRoom from './NewRoom';
+import RoomMembers from './RoomMembers';
 import axios from 'axios';
 // import Video from './Video';
 
@@ -47,6 +48,7 @@ export default function Dashboard({user, room, socket, makingRoom, sessionComple
               <ReactPlayer playing={true} style={{border: "solid 2px black"}} url={url} controls={true}/>
             </div>
             <Chat socket={socket} user={user} room={room} setUrl={setUrl}/>
+            <RoomMembers room={room} user={user}/>
           </div>
         </div>
       )

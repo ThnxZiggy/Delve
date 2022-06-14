@@ -46,9 +46,17 @@ router.post('/:userID', (req, res) => {
 
 router.post('/session/:roomID', (req, res) => {
   const roomID = req.params.roomID;
-  command = "UPDATE rooms SET session_number = session_number + 1 WHERE id = $1;";
+  const command = "UPDATE rooms SET session_number = session_number + 1 WHERE id = $1;";
   db.query(command, [roomID]).then(data => {
     res.status(201).send();
+  })
+})
+
+router.get('/members/:roomID', (req, res) => {
+  const roomID = req.params.roomID;
+  const command = "SELECT users.* FROM rooms JOIN users ON users.id = user_1_id OR users.id = user_2_id OR users.id = user_3_id OR users.id = user_4_id WHERE rooms.id = $1;";
+  db.query(command, [roomID]).then(data => {
+    res.send(data.rows);
   })
 })
 

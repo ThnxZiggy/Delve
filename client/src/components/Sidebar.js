@@ -19,10 +19,10 @@ export default function Sidebar({user, onClick, socket, state}) {
     const thisRoom = roomsList.filter(room => room.name === e.currentTarget.value)[0];
     setRoom(prev => thisRoom);
 
-    console.log('This room', thisRoom);
-    console.log('Target',e.currentTarget);
-    console.log('Target value', e.currentTarget.value);
-    console.log(roomsList);
+    // console.log('This room', thisRoom);
+    // console.log('Target',e.currentTarget);
+    // console.log('Target value', e.currentTarget.value);
+    // console.log(roomsList);
 
     socket.emit('leave_room', state.room.id);
     socket.emit('join_room', thisRoom.id);
