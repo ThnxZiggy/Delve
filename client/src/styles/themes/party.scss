@@ -66,11 +66,21 @@
     color: $party-pale;
   }
 
+  .bg-success:hover {
+    background-color: $lime-500 !important;
+    color: $dark-700;
+  }
+
   .bg-primary {
     background-color: $party-1 !important;
     color: $teal-000;
     box-shadow: 0rem 0rem .3rem .1rem $teal-000;
     color: $party-pale;
+  }
+
+  .bg-primary:hover {
+    background-color: $lime-500 !important;
+    color: $dark-700;
   }
 
 
