@@ -8,8 +8,9 @@ CREATE TABLE rooms (
   user_2_id integer REFERENCES users(id) ON DELETE CASCADE,
   user_3_id integer REFERENCES users(id) ON DELETE CASCADE,
   user_4_id integer REFERENCES users(id) ON DELETE CASCADE,
-  session_number integer,
-  date_time VARCHAR(255)
+  session_number integer DEFAULT 0,
+  date_time VARCHAR(255),
+  url VARCHAR(255)
 );
 
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO labber;
