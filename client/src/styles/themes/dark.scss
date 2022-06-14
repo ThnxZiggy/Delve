@@ -1,0 +1,64 @@
+@use '../abstracts/colors' as *;
+
+
+.dark {
+  background-color: $dark-400;
+
+  h1 {
+    color: $teal-000;
+
+  }
+
+  .banner {
+    background-color: $teal-900;
+    color: $teal-000;
+  }
+
+  .d-flex {
+    background-color: $teal-700;
+  }
+
+  .form-label {
+    color: $teal-000;
+
+  }
+
+  .fa-solid {
+    color: $teal-000;
+  }
+
+  .form-control {
+    background-color: $dark-000;
+
+  }
+
+  .form-control:focus {
+    background-color: $dark-000;
+
+  }
+
+  .chat-window {
+    box-shadow: 0rem 0rem .4rem .2rem $teal-000;
+  
+  }
+
+  .chat-window .chat-body {
+    background-color: $dark-000;
+    
+  }
+
+
+  input {
+    background-color: $dark-000;
+  }
+
+  .fa-moon {
+    box-shadow: 0rem 0rem .8rem .5rem $teal-100;
+  }
+
+  .chat-window .chat-header {
+    background-color: $dark-700;
+
+  }
+
+}

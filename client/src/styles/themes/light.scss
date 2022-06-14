@@ -1,0 +1,32 @@
+@use '../abstracts/colors' as *;
+
+.light {
+  background-color: $blue-000;
+
+  .banner {
+    background-color: $blue-600;
+    color: $dark-700;
+  }
+
+  .d-flex {
+    background-color: $blue-200;
+  }
+
+  h1 {
+    color: $dark-700;
+  }
+
+  .fa-solid {
+    color: $dark-700;
+  }
+
+  .fa-sun {
+    box-shadow: 0rem 0rem .8rem .5rem $blue-900;
+  }
+
+  .chat-window .chat-header {
+    background-color: $blue-900;
+
+  }
+
+}
