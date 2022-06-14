@@ -43,8 +43,11 @@ function App() {
   useEffect(() =>{
     axios.get('/rooms')
       .then(res => {
-        socket.emit('join_room', res.data[0].id);
-        setState(prev => ({...prev, room:res.data[0]}));
+        const unfilteredRooms = res.data;
+        const filteredRooms = unfilteredRooms.filter(room => room.user_1_id === state.user.id || room.user_2_id === state.user.id || room.user_3_id === state.user.id || room.user_4_id === state.user.id)
+        console.log(filteredRooms);
+        socket.emit('join_room', filteredRooms[0].id);
+        setState(prev => ({...prev, room:filteredRooms[0]}));
       })
   }, [state.user])
 

@@ -10,8 +10,11 @@ export default function Sidebar({user, onClick, socket, state}) {
   useEffect(() => {
     axios.get('/rooms')
       .then(res => {
-        setRoomsList((prev) => [...res.data]);
-        setRoom(res.data[0]);
+        const unfilteredRooms = res.data;
+        const filteredRooms = unfilteredRooms.filter(room => room.user_1_id === user.id || room.user_2_id === user.id || room.user_3_id === user.id || room.user_4_id === user.id)
+        console.log(filteredRooms);
+        setRoomsList((prev) => [...filteredRooms]);
+        setRoom(filteredRooms[0]);
       })
   }, [state.sessionComplete])
 
