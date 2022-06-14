@@ -25,31 +25,32 @@ body {
   // place-items: center;
 }
 
+
 .banner {
   font-family: 'Expletus Sans', cursive;
-  font-size: 10rem;
+  font-size: 5rem;
   display: flex;
   align-items: center;
-  padding: 0rem 3rem;
+  padding: 0rem 1.5rem;
   justify-content: space-between;
 }
 
 .theme__icons {
-  padding: 2rem;
+  padding: 1rem;
   position: relative;
   margin: 0;
-  font-size: 3rem;
+  font-size: 1.5rem;
 }
 
 .d-flex {
-  padding: 1.5rem 5rem 1.5rem;
+  padding: .75rem 2rem .75rem;
   display:flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .fa-solid {
-  border: .3rem solid;
+  border: .2rem solid;
   border-radius: 20%;
   padding: .4rem;
   margin: .8rem;
