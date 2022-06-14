@@ -43,7 +43,7 @@ export default function Dashboard({user, room, socket, makingRoom, setState}) {
               />
               <ReactPlayer style={{border: "solid 2px black"}} url={url} controls={true}/>
             </div>
-            <Chat socket={socket} user={user} room={room}/>
+            <Chat socket={socket} user={user} room={room} setUrl={setUrl}/>
           </div>
           {/* <button onClick={showForm}>Create Room</button> */}
         </div>

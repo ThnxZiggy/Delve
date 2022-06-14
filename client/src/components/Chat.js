@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import ScrollToBottom from 'react-scroll-to-bottom';
 
-export default function Chat({socket, user, room}) {
+export default function Chat({socket, user, room, setUrl}) {
   const [currentMessage, setCurrentMessage] = useState('');
   const [messageList, setMessageList] = useState([])
 
@@ -62,6 +62,13 @@ export default function Chat({socket, user, room}) {
     // })
   }, [socket])
 
+  const changeUrl = (e) => {
+    const firstEight = e.target.innerHTML.slice(0,8);
+    if(firstEight === "https://") {
+      setUrl(e.target.innerHTML);
+    }
+  }
+
   return (
     <div className="chat-window">
       <div className="chat-header">
@@ -74,7 +81,7 @@ export default function Chat({socket, user, room}) {
               <div className="message" id={user.name === messageContent.author ? "you" : "other"}>
                 <div>
                   <div className="message-content">
-                    <p>{messageContent.content}</p>
+                    <p onClick={changeUrl}>{messageContent.content}</p>
                   </div>
                   <div className="message-meta">
                     <p style={{marginRight: "3px"}}>{user.name === messageContent.author ? "me" : messageContent.author}</p>
