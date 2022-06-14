@@ -27,7 +27,7 @@ export default function Nav({user, onClick, socket, state}) {
   // }
 
   const logout = () => {
-    onClick(prev => ({...prev, user:{}}));
+    onClick(prev => ({...prev, user:{}, makingRoom: false, aboutPage: false}));
   }
 
   const makeRoom = () => {
