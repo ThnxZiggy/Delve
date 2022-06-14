@@ -5,6 +5,7 @@ import Chat from './Chat';
 import NewRoom from './NewRoom';
 import RoomMembers from './RoomMembers';
 import axios from 'axios';
+import confetti from 'canvas-confetti';
 // import Video from './Video';
 
 export default function Dashboard({user, room, socket, makingRoom, sessionComplete, setState}) {
@@ -34,8 +35,10 @@ export default function Dashboard({user, room, socket, makingRoom, sessionComple
       <NewRoom user={user} setState={setState}/>
       ) : (
         <div>
-          <h1>{room.name}</h1>
-          {sessionComplete ? <p>Great Work!</p> :<button onClick={addCompletedSession}>Session Complete!</button>}
+          <span className='current-activity'>
+            {sessionComplete ? <button className='great-work'>&#x2605;</button> :<button onClick={() => {addCompletedSession(); confetti()}} className="mark-complete">&#10003;</button>}
+            <h1>{room.name}</h1>
+          </span>
           <div style={{display: "flex"}}>
             <div className={"me-4"}>
               <input 
