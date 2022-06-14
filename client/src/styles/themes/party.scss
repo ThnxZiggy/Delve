@@ -59,6 +59,16 @@
     background-color: $party-4;
   }
 
+  .nav-banner.buttons button {
+    background-color: $party-4;
+    color: $party-pale;
+    &:hover {
+      background: lighten($party-4, 3%);
+      box-shadow: .01rem .05rem .2rem .1rem $party-pale;
+      // color: $dark-700;
+    }
+  }
+
   //rooms sidebar
   .bg-success {
     background-color: $party-4 !important;

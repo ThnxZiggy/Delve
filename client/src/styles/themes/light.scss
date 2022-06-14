@@ -3,14 +3,14 @@
 .light {
   background-color: $blue-000;
 
-  h1 {
-    color: $dark-700;
+  h1, h2, h3 {
+    color: $blue-1000;
   }
 
   //delve banner
   .banner {
     background-color: $blue-600;
-    color: $dark-700;
+    color: $blue-1000;
   }
 
   .fa-solid {
@@ -24,7 +24,16 @@
 
   //welcome banner
   .d-flex {
-    background-color: $blue-200;
+    background-color: $teal-200;
+  }
+
+  .nav-banner.buttons button {
+    background-color: $teal-200;
+    color: $dark-700;
+    border-bottom: .3rem ridge $teal-100;
+    &:hover {
+      background: lighten($teal-200, 3%)
+    }
   }
 
   //rooms sidebar
