@@ -45,7 +45,7 @@ export default function Sidebar({user, onClick, socket, state}) {
               <div><button 
               onClick={changeRoom} 
               value={thisRoom.name}
-              style={{border: "2px solid black", width: "200px"}}
+              // style={{border: "2px solid black", width: "200px"}}
               class={state.room.name === thisRoom.name ? "bg-success" : "bg-primary"}
             >
               <h3>{thisRoom.name}</h3>
