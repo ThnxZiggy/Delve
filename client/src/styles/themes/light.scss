@@ -1,0 +1,48 @@
+@use '../abstracts/colors' as *;
+
+.light {
+  background-color: $blue-000;
+
+  h1 {
+    color: $dark-700;
+  }
+
+  //delve banner
+  .banner {
+    background-color: $blue-600;
+    color: $dark-700;
+  }
+
+  .fa-solid {
+    color: $dark-700;
+  }
+
+
+  .fa-sun {
+    box-shadow: 0rem 0rem .8rem .5rem $blue-900;
+  }
+
+  //welcome banner
+  .d-flex {
+    background-color: $blue-200;
+  }
+
+  //rooms sidebar
+  .bg-success {
+    background-color: $teal-400 !important;
+    box-shadow: .01rem .05rem .2rem .1rem $teal-700;
+  }
+
+  .bg-primary {
+    background-color: $blue-600 !important;
+  }
+
+
+
+
+  .chat-window .chat-header {
+    background-color: $blue-900;
+
+  }
+
+}

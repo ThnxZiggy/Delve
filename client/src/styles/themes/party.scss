@@ -1,0 +1,120 @@
+@use '../abstracts/colors' as *;
+
+.party {
+  animation-name: colorChange;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  @keyframes colorChange {
+    0% {
+      background: $party-1;    
+    }
+    33% {
+      background: $party-2;    
+    }
+    66% {
+      background: $party-3;    
+    }
+    100% {
+      background: $party-1;    
+    }
+
+  }
+
+  h1 {
+    color: $party-pale;
+  }
+
+
+  //delve banner
+  .banner {
+    background-color: $party-1;
+    color: $party-pale;
+  }
+
+  .fa-solid {
+    color: $party-pale;
+  }
+
+  .fa-cake-candles {
+    box-shadow: 0rem 0rem .8rem .5rem $lime-500;
+    animation-name: spin;
+    animation-duration: 3000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+  }
+
+
+  @keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to  {
+        transform:rotate(360deg);
+    }
+  }
+
+
+  //welcome banner
+  .d-flex {
+    background-color: $party-4;
+  }
+
+  //rooms sidebar
+  .bg-success {
+    background-color: $party-4 !important;
+    box-shadow: .01rem .05rem .2rem .1rem $teal-000;
+    color: $party-pale;
+  }
+
+  .bg-success:hover {
+    background-color: $lime-500 !important;
+    color: $dark-700;
+  }
+
+  .bg-primary {
+    background-color: $party-1 !important;
+    color: $teal-000;
+    box-shadow: 0rem 0rem .3rem .1rem $teal-000;
+    color: $party-pale;
+  }
+
+  .bg-primary:hover {
+    background-color: $lime-500 !important;
+    color: $dark-700;
+  }
+
+
+
+  .form-label {
+    color: $party-pale;
+
+  }
+
+  .form-control {
+    background-color: $party-pale;
+
+  }
+
+  .form-control:focus {
+    background-color: $party-pale;
+
+  }
+  
+
+  .chat-window .chat-body {
+    background-color: $party-pale;
+  
+  }
+
+  .chat-window .chat-header {
+    background-color: $dark-700;
+
+  }
+
+  input {
+  background-color: $party-pale;
+  }
+
+
+
+}
