@@ -69,4 +69,41 @@ router.put('/delete/:roomID', (req, res) => {
   })
 })
 
+router.put('/members/add/:roomID', (req,res) => {
+  const roomID = req.params.roomID;
+  const userName = req.body.userName;
+  const command = "SELECT * FROM users;"
+  db.query(command).then(data => {
+    const userList = data.rows.map(obj => obj = obj.name);
+    console.log(userList);
+    console.log(userName);
+    if (!userList.includes(userName)) {
+      res.send(`${userName} is not a Delve member.`);
+      return;
+    }
+    const addedUser = data.rows.filter(obj => obj.name === userName)[0];
+    const command = "SELECT user_2_id, user_3_id, user_4_id FROM rooms WHERE id = $1;";
+    db.query(command, [roomID]).then(data => {
+      let availableSpot;
+      const userSpots = data.rows[0];
+      for (let spot in userSpots){
+        if (userSpots[spot] === null) {
+          availableSpot = spot;
+          break;
+        }
+      }
+      console.log('------------')
+      console.log(availableSpot);
+      console.log(addedUser.id);
+      console.log(roomID);
+      console.log('------------')
+      const command = `UPDATE rooms SET ${availableSpot} = ${addedUser.id} WHERE id = ${roomID};`;
+      db.query(command).then(data => {
+        console.log('updated');
+        res.send('success');
+      })
+    })
+  })
+})
+
 module.exports = router;

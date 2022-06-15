@@ -79,8 +79,10 @@ function App() {
       {state.user.name && <Nav socket={socket} user={state.user} onClick={setState} state={state}/>}
       {state.aboutPage && <About setState={setState}/>}
       <header className="App-header" style={{display: 'flex',}}>
-        {state.user.name && !state.makingRoom && <Sidebar socket={socket} user={state.user} onClick={setState} state={state} roomsList={roomsList} setRoomsList={setRoomsList}/>}
-        {state.user.name ? <Dashboard roomsList={roomsList} setRoomsList={setRoomsList} setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} sessionComplete={state.sessionComplete}/> : <Login socket={socket} onSubmit={setState}/>}
+        {state.user.name && !state.makingRoom && <Sidebar socket={socket} user={state.user} setState={setState} state={state} roomsList={roomsList} setRoomsList={setRoomsList}/>}
+        {state.user.name && state.room.id > 0 && <Dashboard roomsList={roomsList} setRoomsList={setRoomsList} setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} sessionComplete={state.sessionComplete}/> }
+        {!state.user.name && <Login socket={socket} onSubmit={setState}/>}
+        {state.user.name && state.room.id < 0 && <h1>starting page</h1> }
       </header>
     </div>
   );

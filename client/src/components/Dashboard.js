@@ -51,6 +51,9 @@ export default function Dashboard({roomsList, setRoomsList, user, room, socket, 
         setRoomsList(prev => prev.filter(room => room.id !== deleteInfo.deletedRoom.id));
 
         setRoomChangeMessage(`${deleteInfo.deleter.name} has deleted room: ${deleteInfo.deletedRoom.name}`);
+        if (room.id === deleteInfo.deletedRoom.id) {
+          setState(prev => ({...prev, room:{id: -1}}));
+        }
         setTimeout(() => {
           setRoomChangeMessage('');
         }, 2000)

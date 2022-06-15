@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 // import {Tab, Nav} from 'react-bootstrap';
 // const util = require('util')
 
-export default function Sidebar({user, onClick, socket, state, roomsList, setRoomsList}) {
+export default function Sidebar({user, setState, socket, state, roomsList, setRoomsList}) {
   // const [roomsList, setRoomsList] = useState([]);
   // console.log('changes made');
   const [room, setRoom] = useState({});
@@ -33,14 +33,7 @@ export default function Sidebar({user, onClick, socket, state, roomsList, setRoo
 
     socket.emit('leave_room', state.room.id);
     socket.emit('join_room', thisRoom.id);
-    onClick(prev => ({...prev, room: thisRoom}));
-  }
-
-  const logout = () => {
-    onClick(prev => ({...prev, user:{}}));
-  }
-  const makeRoom = () => {
-    onClick(prev => ({...prev, makingRoom:true}));
+    setState(prev => ({...prev, room: thisRoom}));
   }
 
   const deleteRoom = (e, thisRoom) => {
@@ -57,6 +50,9 @@ export default function Sidebar({user, onClick, socket, state, roomsList, setRoo
         const deletedRoom = res.data.rows[0]
         const filteredRooms = roomsList.filter(room => room.id !== deletedRoom.id);
         setRoomsList(filteredRooms);
+        if (state.room.id === deletedRoom.id) {
+          setState(prev => ({...prev, room:{id: -1}}));
+        }
         
         const deleteInfo = {
           deletedRoom,
