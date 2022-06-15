@@ -83,7 +83,12 @@
   .bg-success:hover {
     background-color: $lime-500 !important;
     color: $dark-700;
+
+    .fa-trash {
+      color: $party-1 !important;
+    }
   }
+
 
   .bg-primary {
     background-color: $party-1 !important;
@@ -95,6 +100,10 @@
   .bg-primary:hover {
     background-color: $lime-500 !important;
     color: $dark-700;
+
+    .fa-trash {
+      color: $party-1 !important;
+    }
   }
 
 

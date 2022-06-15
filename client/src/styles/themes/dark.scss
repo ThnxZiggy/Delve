@@ -41,6 +41,13 @@
   .bg-success {
     background-color: $teal-400 !important;
     box-shadow: .01rem .05rem .2rem .1rem $teal-000;
+    .fa-trash {
+      color: $teal-700 !important;
+    
+      &:hover {
+  
+      }
+    }
   }
 
   .bg-primary {
@@ -48,6 +55,8 @@
     color: $teal-000;
     box-shadow: 0rem 0rem .3rem .1rem $teal-000;
   }
+
+
 
   //middle section
   .mark-complete {

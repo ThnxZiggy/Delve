@@ -123,6 +123,20 @@ h1, h2, h3 {
   box-shadow: 0rem .2rem .2rem .1rem $dark-200;
 }
 
+.fa-trash {
+  border: .1rem solid;
+  padding: .3rem;
+  margin: .6rem;
+  margin-top: .1rem;
+  position: relative;
+  right: 4rem;
+
+  &:hover {
+    transform: translateY(-.2rem) translateX(.2rem);
+    box-shadow: 0rem .2rem .2rem .1rem $dark-200;
+  }
+}
+
 
 
 //middle section

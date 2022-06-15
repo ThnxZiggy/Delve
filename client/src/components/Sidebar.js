@@ -85,10 +85,10 @@ export default function Sidebar({user, onClick, socket, state, roomsList, setRoo
                 // style={{border: "2px solid black", width: "200px"}}
                 class={state.room.name === thisRoom.name ? "bg-success" : "bg-primary"}
               >
-              <button onClick={(e) => deleteRoom(e, thisRoom)}>X</button>
               <h3>{thisRoom.name}</h3>
               <h2>{thisRoom.date_time}</h2>
               <h6>Sessions Completed:{thisRoom.session_number}</h6>
+              <i class="fa-solid fa-trash" onClick={(e) => deleteRoom(e, thisRoom)} ></i>
             </button></div>
           )
         })}
