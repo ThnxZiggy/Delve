@@ -11,7 +11,7 @@ import confetti from 'canvas-confetti';
 export default function Dashboard({roomsList, setRoomsList, user, room, socket, makingRoom, sessionComplete, setState}) {
 
   const [url, setUrl] = useState("");
-  const [newRoomMessage, setNewRoomMessage] = useState("")
+  const [roomChangeMessage, setRoomChangeMessage] = useState("")
   // const [sessionComplete, setSessionComplete] = useState(false)
 
   const handleURLChange = (event) => {
@@ -35,16 +35,17 @@ export default function Dashboard({roomsList, setRoomsList, user, room, socket, 
         console.log('worked');
         setRoomsList(prev => ([...prev, roomData]));
         console.log('show')
-        setNewRoomMessage(`${roomData.maker} has added you to a new room: ${roomData.name}!!`);
+        setRoomChangeMessage(`${roomData.maker} has added you to a new room: ${roomData.name}!!`);
         setTimeout(() => {
           console.log('close')
-          setNewRoomMessage('');
+          setRoomChangeMessage('');
         }, 2000)
       }
     })
 
     socket.on('complete_session_all', () => {
       setState(prev => ({...prev, sessionComplete: true}));
+      confetti();
     })
   }, [socket])
 
@@ -61,7 +62,7 @@ export default function Dashboard({roomsList, setRoomsList, user, room, socket, 
       <NewRoom user={user} setState={setState} socket={socket}/>
       ) : (
         <div>
-          {newRoomMessage && <p>{newRoomMessage}</p>}
+          {roomChangeMessage && <p>{roomChangeMessage}</p>}
           <span className='current-activity'>
             {sessionComplete ? <button className='great-work'>&#x2605;</button> :<button onClick={() => {addCompletedSession(); confetti()}} className="mark-complete">&#10003;</button>}
             <h1>{room.name}</h1>
