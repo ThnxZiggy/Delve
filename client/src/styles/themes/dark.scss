@@ -101,6 +101,17 @@
   }
 
 
+  //create room 
+  .create-room button {
+    background-color: $teal-200 !important;
+    &:hover {
+      background-color: $teal-000  !important;
+      box-shadow: .01rem .05rem .3rem .08rem $teal-000;
+      transform: translateY(-.03rem) translateX(.03rem);
+    }
+  
+  }
+
 
   .form-label {
     color: $teal-000;

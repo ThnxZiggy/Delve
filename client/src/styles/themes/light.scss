@@ -102,7 +102,7 @@
 
 
   //create room page
-  .create-room .back-button {
+  .create-room button {
     background-color: $teal-200 !important;
     box-shadow: .01rem .05rem .3rem .08rem $teal-600;
     // color: $blue-pale;
@@ -114,48 +114,5 @@
     }
   
   }
-
-
-  .create-room-form button {
-    background-color: $teal-200 !important;
-    box-shadow: .01rem .05rem .3rem .08rem $teal-600;
-    // color: $blue-pale;
-    &:hover {
-      background-color: $teal-000  !important;
-      // box-shadow: .01rem .05rem .3rem .08rem $teal-600;
-      transform: translateY(-.03rem) translateX(.03rem);
-      // color: $teal-900;
-    }
-  }
-  //   border: 0;
-  //   width: 97vw;
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-    
-  //   .form-entry {
-  //     padding: .3rem 0;
-  //     input {
-  //       width: 20rem;
-  //       border: 0;
-  //       // border-radius: 3%;
-  //       border: .06rem solid;
-  //       &:focus {
-  //         outline: 0;
-  //         border: .1rem solid;
-  //         // border-radius: 3%;
-  //       }
-  //     }
-  
-  //   }
-  
-  //   button {
-  //     // border: .06rem solid;;
-  //     border: 0;
-  //     // border-radius: 5%;
-  //     padding: .3rem;
-  //   }
-  
-  // }
 
 }
