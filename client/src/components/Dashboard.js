@@ -23,10 +23,6 @@ export default function Dashboard({roomsList, setRoomsList, user, room, socket, 
     setUrl('');
     setState(prev => ({...prev, sessionComplete: false}));
   },[room])
-  
-  useEffect(() => {
-    setState(prev => ({...prev, sessionComplete: true}));
-  },[socket])
 
   useEffect(() => {
     socket.on('send_new_room', (roomData) => {
@@ -35,7 +31,7 @@ export default function Dashboard({roomsList, setRoomsList, user, room, socket, 
         console.log('worked');
         setRoomsList(prev => ([...prev, roomData]));
         console.log('show')
-        setRoomChangeMessage(`${roomData.maker} has added you to a new room: ${roomData.name}!!`);
+        setRoomChangeMessage(`${roomData.maker} has added you to room: ${roomData.name}!!`);
         setTimeout(() => {
           console.log('close')
           setRoomChangeMessage('');
@@ -47,6 +43,20 @@ export default function Dashboard({roomsList, setRoomsList, user, room, socket, 
       setState(prev => ({...prev, sessionComplete: true}));
       confetti();
     })
+
+    socket.on('send_delete_room', (deleteInfo) => {
+      if (deleteInfo.deletedRoom.user_1_id === user.id || deleteInfo.deletedRoom.user_2_id === user.id || deleteInfo.deletedRoom.user_3_id === user.id || deleteInfo.deletedRoom.user_4_id === user.id) {
+        console.log('worked', deleteInfo);
+        
+        setRoomsList(prev => prev.filter(room => room.id !== deleteInfo.deletedRoom.id));
+
+        setRoomChangeMessage(`${deleteInfo.deleter.name} has deleted room: ${deleteInfo.deletedRoom.name}`);
+        setTimeout(() => {
+          setRoomChangeMessage('');
+        }, 2000)
+      }
+    })
+
   }, [socket])
 
   const addCompletedSession = () => {
