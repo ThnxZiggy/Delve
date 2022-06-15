@@ -32,6 +32,48 @@ h1, h2, h3 {
   // text-transform: uppercase
 }
 
+// ATTEMPTS TO GET RID OF CREATE ROOM YELLOW BORDER
+// .btn-warning {
+//   transition: none !important;
+//   outline: none !important;
+//   border: none !important;
+//   border: none !important;
+//   background-color: transparent !important;
+//   resize: none !important;
+//   outline: none !important;
+//   user-select: none !important;
+//   &:active {
+//     transition: none !important;
+//     outline: none !important;
+//     border: none !important;
+//     border: none !important;
+//     background-color: transparent !important;
+//     resize: none !important;
+//     outline: none !important;
+//     user-select: none !important;
+//   }
+//   &:visited {
+//     transition: none !important;
+//     outline: none !important;
+//     border: none !important;
+//     border: none !important;
+//     background-color: transparent !important;
+//     resize: none !important;
+//     outline: none !important;
+//     user-select: none !important;
+//   }
+//   &:focus {
+//     transition: none !important;
+//     outline: none !important;
+//     border: none !important;
+//     border: none !important;
+//     background-color: transparent !important;
+//     resize: none !important;
+//     outline: none !important;
+//     user-select: none !important; 
+//   }
+// }
+
 
 //delve banner
 .banner {
@@ -74,21 +116,36 @@ h1, h2, h3 {
 
 .nav-banner.buttons {
   display:flex;
+
 }
 
 .nav-banner.buttons button {
   border: 0;
   border-radius: 5%;
   margin: .4rem .8rem;
+  padding: .5rem;
   &:hover {
     transform: translateY(-.1rem) translateX(.1rem);
     box-shadow: 0rem .1rem .1rem .05rem $dark-200;
   }
+
 }
+
+// .btn-warning {
+//   &:focus {
+//     background-color: blue !important;
+//     outline: none !important;
+//     border: none !important;
+//     // transform: translateY(-.1rem) translateX(.1rem);
+//     // box-shadow: 0rem .1rem .1rem .05rem $dark-200;
+//   }
+// }
 
 //main container
 .App-header {
   margin: 1rem;
+  // padding: 0;
+  // border: 0;
   width: 100vw;
 }
 
@@ -506,4 +563,58 @@ h1, h2, h3 {
   margin: .5rem;
   font-size: 1.6rem;
   
+}
+
+
+
+// create room
+
+.create-room-form {
+  border: 0;
+  width: 97vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  .form-entry {
+    padding: .3rem 0;
+    input {
+      width: 20rem;
+      border: 0;
+      // border-radius: 3%;
+      border: .06rem solid;
+      &:focus {
+        outline: 0;
+        border: .1rem solid;
+        // border-radius: 3%;
+      }
+    }
+
+  }
+
+  button {
+    // border: .06rem solid;;
+    border: 0;
+    // border-radius: 5%;
+    padding: 0.3rem;
+    margin-top: 1rem;
+    margin-left: .1rem; 
+    
+  }
+
+}
+
+
+.create-room .back-button {
+  border: 0;
+  // border: .06rem solid;;
+  border-radius: 5%;
+  padding: .3rem;
+  line-height: 80%;
+  font-size: 1.2rem;
+  
+  span {
+    font-size: 3rem;
+    line-height: 1.6rem;
+  }
 }
