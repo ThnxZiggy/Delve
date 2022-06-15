@@ -28,12 +28,14 @@ export default function NewRoom({setState, user, socket}) {
   }
 
   return (
-    <div>
+    <div className="create-room">
+      <button onClick={() => setState(prev => ({...prev, makingRoom: false}))} className='back-button'><span>&#x2190;</span><br/>Back</button>
+      <div className="create-room-form">
       <h1>Create a Room</h1>
     
         <form onSubmit={createRoom} >
         <p className="alert-danger">{errMsg}</p>
-          <div>
+          <div className="form-entry">
             <input
               placeholder='Delve Subject'
               type="text"
@@ -43,7 +45,7 @@ export default function NewRoom({setState, user, socket}) {
               required 
             />
           </div>
-          <div>
+          <div className="form-entry">
             <input 
               placeholder='Add Room Member (username)'
               type="text"
@@ -52,7 +54,7 @@ export default function NewRoom({setState, user, socket}) {
               value={user2}
             />
           </div>
-          <div>
+          <div className="form-entry">
             <input 
               placeholder='Add Room Member (username)'
               type="text"
@@ -61,7 +63,7 @@ export default function NewRoom({setState, user, socket}) {
               value={user3}
             />
           </div>
-          <div>
+          <div className="form-entry">
             <input 
               placeholder='Add Room Member (username)'
               type="text"
@@ -79,8 +81,9 @@ export default function NewRoom({setState, user, socket}) {
             /> */}
 
           <button type="submit" className="me-2">Create Room</button>
+          
         </form>
-      <button onClick={() => setState(prev => ({...prev, makingRoom: false}))}>Go Back</button>
+        </div>
     </div>
   )
 }
