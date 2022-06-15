@@ -61,4 +61,12 @@ router.get('/members/:roomID', (req, res) => {
   })
 })
 
+router.put('/delete/:roomID', (req, res) => {
+  const roomID = req.params.roomID;
+  const command = "DELETE FROM rooms WHERE rooms.id = $1 RETURNING *";
+  db.query(command, [roomID]).then(data => {
+    res.send(data);
+  })
+})
+
 module.exports = router;

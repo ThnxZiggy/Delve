@@ -79,6 +79,11 @@ io.on('connection', (socket) => {
     console.log('sent to server')
     socket.to(roomID).emit('complete_session_all');
   })
+
+  socket.on('delete_room', (deleteInfo) => {
+    console.log('delete sent to server', deleteInfo);
+    socket.broadcast.emit('send_delete_room', deleteInfo);
+  })
   ///// trying video //////
   // socket.on("stream", (data) => {
   //   socket.broadcast.to(data.room).emit('stream', data.video)
@@ -106,6 +111,7 @@ const todosRouter = require('./routes/todos-router');
 const usersRouter = require('./routes/users-router');
 const messagesRouter = require('./routes/messages-router');
 const roomsRouter = require('./routes/rooms-router');
+const { createSocket } = require('dgram');
 
 // app.use the router(s)
 app.use('/todos', todosRouter);

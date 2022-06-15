@@ -6,7 +6,9 @@ import React, {useState, useEffect} from 'react';
 export default function Sidebar({user, onClick, socket, state, roomsList, setRoomsList}) {
   // const [roomsList, setRoomsList] = useState([]);
   // console.log('changes made');
-  const [room, setRoom] = useState({})
+  const [room, setRoom] = useState({});
+  const [confirmDelete, setConfirmDelete] = useState(false);
+  const [sidebarRoomList, setSidebarRoomList] = useState([]);
 
   useEffect(() => {
     axios.get('/rooms')
@@ -14,8 +16,9 @@ export default function Sidebar({user, onClick, socket, state, roomsList, setRoo
         const unfilteredRooms = res.data;
         const filteredRooms = unfilteredRooms.filter(room => room.user_1_id === user.id || room.user_2_id === user.id || room.user_3_id === user.id || room.user_4_id === user.id)
         console.log(filteredRooms);
-        setRoomsList((prev) => [...filteredRooms]);
+        setRoomsList(filteredRooms);
         setRoom(filteredRooms[0]);
+        setSidebarRoomList(filteredRooms);
       })
   }, [state.sessionComplete])
 
@@ -39,33 +42,54 @@ export default function Sidebar({user, onClick, socket, state, roomsList, setRoo
   const makeRoom = () => {
     onClick(prev => ({...prev, makingRoom:true}));
   }
+
+  const deleteRoom = (e, thisRoom) => {
+    e.stopPropagation()
+    setConfirmDelete(thisRoom);
+    // axios.post(`/rooms/delete/${}`)
+  }
+
+  const deleteConfirmed = () => {
+    axios.put(`/rooms/delete/${confirmDelete.id}`)
+      .then((res) => {
+        setConfirmDelete(false)
+        console.log(roomsList);
+        const deletedRoom = res.data.rows[0]
+        const filteredRooms = roomsList.filter(room => room.id !== deletedRoom.id);
+        setRoomsList(filteredRooms);
+        
+        const deleteInfo = {
+          deletedRoom,
+          deleter: user,
+        }
+        socket.emit('delete_room', deleteInfo)
+      })
+  }
   
   return (
     <div>
       <div>
+        {confirmDelete && 
+          <div>
+            <p>Are You Sure you want to delete {confirmDelete.name}</p>
+            <button onClick={deleteConfirmed}>Yes</button>
+            <button onClick={() => setConfirmDelete(false)}>No</button>
+          </div>
+        }
         {roomsList.map(thisRoom => {
           return (
-            //////////////Attempt to make clickable div ////////////////////
-              <div><button 
-              onClick={changeRoom} 
-              value={thisRoom.name}
-              // style={{border: "2px solid black", width: "200px"}}
-              class={state.room.name === thisRoom.name ? "bg-success" : "bg-primary"}
-            >
+            <div>
+              <button 
+                onClick={changeRoom} 
+                value={thisRoom.name}
+                // style={{border: "2px solid black", width: "200px"}}
+                class={state.room.name === thisRoom.name ? "bg-success" : "bg-primary"}
+              >
+              <button onClick={(e) => deleteRoom(e, thisRoom)}>X</button>
               <h3>{thisRoom.name}</h3>
               <h2>{thisRoom.date_time}</h2>
               <h6>Sessions Completed:{thisRoom.session_number}</h6>
             </button></div>
-          //////////////////////////////////////////////////////////////////
-          ////////////////Working version with buttons /////////////////////
-          //   <div><button 
-          //   onClick={changeRoom} 
-          //   value={thisRoom.name} 
-          //   type="button" 
-          //   class={ room.name === thisRoom.name ? "btn btn-success" : "btn btn-primary"}>
-          //     {thisRoom.name}
-          // </button></div>
-          //////////////////////////////////////////////////////////////////
           )
         })}
       </div>
