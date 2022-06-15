@@ -31,14 +31,15 @@ router.post('/:userID', (req, res) => {
     const {name, user2, user3, user4} = roomData;
     const command = "SELECT * FROM users WHERE name = $1 OR name = $2 OR name = $3;";
     db.query(command, [user2, user3, user4]).then(data => {
-      console.log(data.rows);
+      // console.log(data.rows);
       const user2ID = data.rows[0] ? data.rows[0].id : null; 
       const user3ID = data.rows[1] ? data.rows[1].id : null; 
       const user4ID = data.rows[2] ? data.rows[2].id : null; 
   
-      const command = "INSERT INTO rooms (name, user_1_id, user_2_id, user_3_id, user_4_id) VALUES ($1, $2, $3, $4, $5)"
+      const command = "INSERT INTO rooms (name, user_1_id, user_2_id, user_3_id, user_4_id) VALUES ($1, $2, $3, $4, $5) RETURNING *"
       db.query(command, [name, user1ID, user2ID, user3ID, user4ID]).then(data => {
-        res.status(201).send('success');
+        console.log('data', data)
+        res.status(201).send(data);
       })
     })
   })

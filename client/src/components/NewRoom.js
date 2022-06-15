@@ -2,12 +2,12 @@ import axios from 'axios';
 import React, { useRef, useState, useEffect } from 'react';
 import { Container, Form, Button } from 'react-bootstrap';
 
-export default function NewRoom({setState, user}) {
+export default function NewRoom({setState, user, socket}) {
   const [name, setName] = useState("");
   const [user2, setUser2] = useState("");
   const [user3, setUser3] = useState("");
   const [user4, setUser4] = useState("");
-  const [meetTime, setMeetTime] = useState("");
+  // const [meetTime, setMeetTime] = useState("");
   const [errMsg, setErrMsg] = useState('');
 
   const createRoom = (e) => {
@@ -15,9 +15,15 @@ export default function NewRoom({setState, user}) {
 
     axios.post(`/rooms/${user.id}`, {name, user2, user3, user4})
       .then(res => {
-        if (res.data === 'success') {
+        if (typeof res.data !== "string") {
+          const roomData = res.data.rows[0];
+          roomData.maker = user.name
           setState(prev => ({...prev, makingRoom: false}))
+          /////// trying to send room data to all users ///////
+          socket.emit('create_room', roomData)
+          ////////////
         } else {
+          console.log('false', res.data);
           setErrMsg(res.data);
         }
       })
