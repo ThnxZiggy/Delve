@@ -24,6 +24,10 @@
     color: $party-pale;
   }
 
+  input {
+    background-color: $party-pale;
+  }
+
 
   //delve banner
   .banner {
@@ -94,15 +98,56 @@
   }
 
 
-    //middle section
-    .mark-complete {
-      border-color: $party-4;
-      color: $party-pale;
-    }
+  //middle section
+  .mark-complete {
+    border-color: $party-4;
+    color: $party-pale;
+  }
   
-    .great-work {
-      color: $lime-500
+  .great-work {
+    color: $lime-500
+  }
+
+
+  //chat section
+  .chat-window {
+    box-shadow: 0rem 0rem .3rem .1rem $party-pale;
+    border: .02rem solid;
+  }
+
+  .chat-window .chat-body {
+    background-color: $party-pale;
+    
+  }
+
+  .chat-window .chat-header {
+    background-color: $party-1;
+    color: $party-pale;
+  }
+
+  #other .message-content {
+    background-color: $party-3;
+    color: $party-pale;
+  }
+
+  #you .message-content {
+    background-color: $party-2;
+    color: $party-pale
+  }
+
+  .chat-footer button {
+    background-color: $party-1 !important;
+    color: $party-pale;
+
+    &:hover {
+      background-color: lighten($party-1, 7%)  !important;
+      box-shadow: .01rem .05rem .3rem .08rem $dark-700;
+      transform: translateY(-.03rem) translateX(.03rem);
+      color: $lime-500;
+      // color: $teal-900;
     }
+
+  }
 
 
   .form-label {
@@ -121,19 +166,8 @@
   }
   
 
-  .chat-window .chat-body {
-    background-color: $party-pale;
-  
-  }
 
-  .chat-window .chat-header {
-    background-color: $dark-700;
 
-  }
-
-  input {
-  background-color: $party-pale;
-  }
 
 
 
