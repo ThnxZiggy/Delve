@@ -3,8 +3,9 @@ import React, {useState, useEffect} from 'react';
 // import {Tab, Nav} from 'react-bootstrap';
 // const util = require('util')
 
-export default function Sidebar({user, onClick, socket, state}) {
-  const [roomsList, setRoomsList] = useState([]);
+export default function Sidebar({user, onClick, socket, state, roomsList, setRoomsList}) {
+  // const [roomsList, setRoomsList] = useState([]);
+  // console.log('changes made');
   const [room, setRoom] = useState({})
 
   useEffect(() => {

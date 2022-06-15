@@ -69,6 +69,16 @@ io.on('connection', (socket) => {
     // console.log('success');
   })
 
+  //// trying to get all users to refresh they're room list ////////
+  socket.on('create_room', (roomData) => {
+    console.log('roomData', roomData);
+    socket.broadcast.emit('send_new_room', roomData);
+  })
+
+  socket.on('complete_session', (roomID) => {
+    console.log('sent to server')
+    socket.to(roomID).emit('complete_session_all');
+  })
   ///// trying video //////
   // socket.on("stream", (data) => {
   //   socket.broadcast.to(data.room).emit('stream', data.video)
@@ -108,19 +118,6 @@ const PORT = process.env.PORT || 3001;
 
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, '../client/build')));
-
-// Handle GET requests to /api route ////// OLD ROUTE //////////////////////////////////////
-// app.get("/api", (req, res) => {
-  
-//   const command = "SELECT * FROM users";
-//   db.query(command).then(data => {
-//     res.json({ message: `Welcome, human, here's the first email from the database: ${data.rows[0].name}` });
-//     // res.json({message: data.rows});
-//   })
-//   // res.json({ message: "Hello from server!" });
-// });
-/////////////////////////////////////////////////////////////////////////////////////////////
-
 
 // app.use('/users', usersRouter);
 // All other GET requests not handled before will return our React app
