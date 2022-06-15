@@ -48,10 +48,13 @@ export default function Sidebar({user, onClick, socket, state, roomsList, setRoo
   }
 
   const deleteConfirmed = () => {
-    axios.put(`/rooms/delete${confirmDelete.id}`)
+    axios.put(`/rooms/delete/${confirmDelete.id}`)
       .then((res) => {
         setConfirmDelete(false)
-        console.log(res.data.rows)
+        console.log(roomsList);
+        const deletedRoom = res.data.rows[0]
+        const filteredRooms = roomsList.filter(room => room.id !== deletedRoom.id);
+        setRoomsList(filteredRooms);
       })
   }
   
