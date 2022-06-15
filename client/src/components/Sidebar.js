@@ -78,13 +78,15 @@ export default function Sidebar({user, onClick, socket, state, roomsList, setRoo
         }
         {roomsList.map(thisRoom => {
           return (
-              <div><button 
-              onClick={changeRoom} 
-              value={thisRoom.name}
-              // style={{border: "2px solid black", width: "200px"}}
-              class={state.room.name === thisRoom.name ? "bg-success" : "bg-primary"}
-            >
-              <h3>{thisRoom.name}</h3> <button onClick={(e) => deleteRoom(e, thisRoom)}>X</button>
+            <div>
+              <button 
+                onClick={changeRoom} 
+                value={thisRoom.name}
+                // style={{border: "2px solid black", width: "200px"}}
+                class={state.room.name === thisRoom.name ? "bg-success" : "bg-primary"}
+              >
+              <button onClick={(e) => deleteRoom(e, thisRoom)}>X</button>
+              <h3>{thisRoom.name}</h3>
               <h2>{thisRoom.date_time}</h2>
               <h6>Sessions Completed:{thisRoom.session_number}</h6>
             </button></div>
