@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import '../styles/App.scss';
 
@@ -39,7 +39,9 @@ function App() {
   });
 
   const [roomsList, setRoomsList] = useState([]);
-  const [theme, setTheme] = useState('App light')
+  const [theme, setTheme] = useState('App light');
+  const [memberList, setMemberList] = useState([]);
+  const roomRef = useRef('');
   
   // useEffect(() =>{
   //   axios.get('/rooms')
@@ -59,8 +61,9 @@ function App() {
         const filteredRooms = unfilteredRooms.filter(room => room.user_1_id === state.user.id || room.user_2_id === state.user.id || room.user_3_id === state.user.id || room.user_4_id === state.user.id)
         console.log('filteredRooms', filteredRooms);
         if (filteredRooms[0]){
-          socket.emit('join_room', filteredRooms[0].id);
-          setState(prev => ({...prev, room:filteredRooms[0]}));
+          ///////////////////// uncomment if we want to start in a room!!!! /////////////////////////////////
+          // socket.emit('join_room', filteredRooms[0].id);
+          // setState(prev => ({...prev, room:filteredRooms[0]}));
         }
       })
   }, [state.user])
@@ -79,10 +82,9 @@ function App() {
       {state.user.name && <Nav socket={socket} user={state.user} onClick={setState} state={state}/>}
       {state.aboutPage && <About setState={setState}/>}
       <header className="App-header" style={{display: 'flex',}}>
-        {state.user.name && !state.makingRoom && <Sidebar socket={socket} user={state.user} setState={setState} state={state} roomsList={roomsList} setRoomsList={setRoomsList}/>}
-        {state.user.name && state.room.id > 0 && <Dashboard roomsList={roomsList} setRoomsList={setRoomsList} setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} sessionComplete={state.sessionComplete}/> }
+        {state.user.name && !state.makingRoom && <Sidebar roomRef={roomRef} socket={socket} user={state.user} setState={setState} state={state} roomsList={roomsList} setRoomsList={setRoomsList}/>}
+        {state.user.name && <Dashboard roomRef={roomRef} memberList={memberList} setMemberList={setMemberList} state={state} roomsList={roomsList} setRoomsList={setRoomsList} setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} sessionComplete={state.sessionComplete}/> }
         {!state.user.name && <Login socket={socket} onSubmit={setState}/>}
-        {state.user.name && state.room.id < 0 && <h1>starting page</h1> }
       </header>
     </div>
   );

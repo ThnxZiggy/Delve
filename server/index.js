@@ -84,6 +84,11 @@ io.on('connection', (socket) => {
     console.log('delete sent to server', deleteInfo);
     socket.broadcast.emit('send_delete_room', deleteInfo);
   })
+
+  socket.on('added_to_room', (addedData => {
+    console.log('sent added', addedData);
+    socket.broadcast.emit('added_to_room_info', addedData);
+  }))
   ///// trying video //////
   // socket.on("stream", (data) => {
   //   socket.broadcast.to(data.room).emit('stream', data.video)

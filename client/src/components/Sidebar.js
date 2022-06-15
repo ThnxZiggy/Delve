@@ -1,14 +1,16 @@
 import axios from 'axios';
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 // import {Tab, Nav} from 'react-bootstrap';
 // const util = require('util')
 
-export default function Sidebar({user, setState, socket, state, roomsList, setRoomsList}) {
+export default function Sidebar({roomRef, user, setState, socket, state, roomsList, setRoomsList}) {
   // const [roomsList, setRoomsList] = useState([]);
   // console.log('changes made');
   const [room, setRoom] = useState({});
   const [confirmDelete, setConfirmDelete] = useState(false);
   const [sidebarRoomList, setSidebarRoomList] = useState([]);
+  // const roomRef = useRef('');
+
 
   useEffect(() => {
     axios.get('/rooms')
@@ -17,14 +19,27 @@ export default function Sidebar({user, setState, socket, state, roomsList, setRo
         const filteredRooms = unfilteredRooms.filter(room => room.user_1_id === user.id || room.user_2_id === user.id || room.user_3_id === user.id || room.user_4_id === user.id)
         console.log(filteredRooms);
         setRoomsList(filteredRooms);
-        setRoom(filteredRooms[0]);
+        // setRoom(filteredRooms[0]);
         setSidebarRoomList(filteredRooms);
       })
   }, [state.sessionComplete])
 
+  useEffect(() => {
+    socket.on('send_delete_room', (deleteInfo) => {
+      console.log('roomRef', roomRef.current.id);
+      console.log('deletedroom.id',deleteInfo.deletedRoom.id);
+      if (roomRef.current.id === deleteInfo.deletedRoom.id) {
+        console.log('got to set room');
+        setState(prev => ({...prev, room:{id: -1}}));
+        }
+    })
+  }, [socket])
+
   const changeRoom = (e) => {
     const thisRoom = roomsList.filter(room => room.name === e.currentTarget.value)[0];
     setRoom(prev => thisRoom);
+    roomRef.current = thisRoom;
+    console.log(roomRef);
 
     // console.log('This room', thisRoom);
     // console.log('Target',e.currentTarget);

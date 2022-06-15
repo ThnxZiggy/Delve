@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
+import { Socket } from 'socket.io-client';
 
-export default function RoomMembers({room, user}) {
-  const [memberList, setMemberList] = useState([]);
+export default function RoomMembers({room, user, socket, memberList, setMemberList}) {
+  // const [memberList, setMemberList] = useState([]);
   const [addingMember, setAddingMember] = useState(false);
   const [newMember, setNewMember] = useState("");
   const [errMsg, setErrMsg] = useState("");
@@ -56,6 +57,12 @@ export default function RoomMembers({room, user}) {
         setErrMsg('');
         setNewMember('');
         setAddingMember(false);
+        const addedData = {
+          room,
+          addedUser: newMember,
+          adder: user,
+        }
+        socket.emit('added_to_room', addedData)
       })
   }
 
