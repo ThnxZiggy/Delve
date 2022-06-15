@@ -32,48 +32,6 @@ h1, h2, h3 {
   // text-transform: uppercase
 }
 
-// ATTEMPTS TO GET RID OF CREATE ROOM YELLOW BORDER
-// .btn-warning {
-//   transition: none !important;
-//   outline: none !important;
-//   border: none !important;
-//   border: none !important;
-//   background-color: transparent !important;
-//   resize: none !important;
-//   outline: none !important;
-//   user-select: none !important;
-//   &:active {
-//     transition: none !important;
-//     outline: none !important;
-//     border: none !important;
-//     border: none !important;
-//     background-color: transparent !important;
-//     resize: none !important;
-//     outline: none !important;
-//     user-select: none !important;
-//   }
-//   &:visited {
-//     transition: none !important;
-//     outline: none !important;
-//     border: none !important;
-//     border: none !important;
-//     background-color: transparent !important;
-//     resize: none !important;
-//     outline: none !important;
-//     user-select: none !important;
-//   }
-//   &:focus {
-//     transition: none !important;
-//     outline: none !important;
-//     border: none !important;
-//     border: none !important;
-//     background-color: transparent !important;
-//     resize: none !important;
-//     outline: none !important;
-//     user-select: none !important; 
-//   }
-// }
-
 
 //delve banner
 .banner {
@@ -131,15 +89,6 @@ h1, h2, h3 {
 
 }
 
-// .btn-warning {
-//   &:focus {
-//     background-color: blue !important;
-//     outline: none !important;
-//     border: none !important;
-//     // transform: translateY(-.1rem) translateX(.1rem);
-//     // box-shadow: 0rem .1rem .1rem .05rem $dark-200;
-//   }
-// }
 
 //main container
 .App-header {
@@ -595,7 +544,7 @@ h1, h2, h3 {
   button {
     // border: .06rem solid;;
     border: 0;
-    // border-radius: 5%;
+    border-radius: 3%;
     padding: 0.3rem;
     margin-top: 1rem;
     margin-left: .1rem; 
