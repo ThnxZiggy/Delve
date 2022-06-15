@@ -7,6 +7,13 @@
     color: $blue-1000;
   }
 
+  input {
+    background-color: $blue-pale;
+    &:focus {
+      background-color: $blue-pale;
+    }
+  }
+
   //delve banner
   .banner {
     background-color: $blue-600;
@@ -58,10 +65,39 @@
   }
 
 
+  //chat section
+
+  .chat-window {
+    box-shadow: .01rem .05rem .4rem .08rem $teal-700;
+  }
 
   .chat-window .chat-header {
-    background-color: $blue-900;
+    background-color: $teal-400;
+    color: $blue-1000;
+  }
 
+  .chat-body {
+    background-color: $blue-pale;
+  }
+
+  #other .message-content {
+    background-color: $teal-200;
+    color: $blue-1000;
+  }
+
+  #you .message-content {
+    background-color: $blue-200;
+    color: $blue-1000;
+  }
+
+  .chat-footer button {
+    background-color: $blue-400 !important;
+    &:hover {
+      background-color: $blue-200  !important;
+      box-shadow: .01rem .05rem .3rem .08rem $blue-900;
+      transform: translateY(-.03rem) translateX(.03rem);
+      // color: $teal-900;
+    }
   }
 
 }

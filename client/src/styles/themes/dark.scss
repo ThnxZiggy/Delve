@@ -61,6 +61,47 @@
 
 
 
+  //chat section
+  .chat-window {
+    box-shadow: 0rem 0rem .4rem .2rem $teal-000;
+    border: .02rem solid;
+  }
+
+  .chat-window .chat-body {
+    background-color: $dark-000;
+    
+  }
+
+  .chat-window .chat-header {
+    background-color: $teal-700;
+    color: $teal-000;
+  }
+
+  #other .message-content {
+    background-color: $teal-800;
+    color: $teal-000;
+  }
+
+  #you .message-content {
+    background-color: $teal-600;
+    color: $teal-000;
+  }
+
+  .chat-footer button {
+    background-color: $teal-700 !important;
+    color: $teal-000;
+
+    &:hover {
+      background-color: $teal-600  !important;
+      box-shadow: .01rem .05rem .3rem .08rem $teal-900;
+      transform: translateY(-.03rem) translateX(.03rem);
+      // color: $teal-900;
+    }
+
+  }
+
+
+
   .form-label {
     color: $teal-000;
 
@@ -78,15 +119,9 @@
 
   }
 
-  .chat-window {
-    box-shadow: 0rem 0rem .4rem .2rem $teal-000;
-  
-  }
 
-  .chat-window .chat-body {
-    background-color: $dark-000;
-    
-  }
+
+
 
 
   input {
@@ -95,9 +130,6 @@
 
 
 
-  .chat-window .chat-header {
-    background-color: $dark-700;
 
-  }
 
 }

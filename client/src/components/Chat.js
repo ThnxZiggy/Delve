@@ -101,7 +101,7 @@ export default function Chat({socket, user, room, setUrl}) {
           onChange={(e) => {setCurrentMessage(e.target.value)}}
           onKeyPress={(event) => {event.key === 'Enter' && sendMessage()}}
         />
-        <button onClick={sendMessage}>&#9658;</button>
+        <button onClick={sendMessage}>&#x276F;</button>
       </div>
     </div>
   )
