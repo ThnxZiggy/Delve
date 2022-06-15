@@ -19,9 +19,7 @@ export default function NewRoom({setState, user, socket}) {
           const roomData = res.data.rows[0];
           roomData.maker = user.name
           setState(prev => ({...prev, makingRoom: false}))
-          /////// trying to send room data to all users ///////
           socket.emit('create_room', roomData)
-          ////////////
         } else {
           console.log('false', res.data);
           setErrMsg(res.data);

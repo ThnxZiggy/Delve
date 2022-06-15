@@ -75,6 +75,10 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('send_new_room', roomData);
   })
 
+  socket.on('complete_session', (roomID) => {
+    console.log('sent to server')
+    socket.to(roomID).emit('complete_session_all');
+  })
   ///// trying video //////
   // socket.on("stream", (data) => {
   //   socket.broadcast.to(data.room).emit('stream', data.video)

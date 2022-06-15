@@ -23,6 +23,10 @@ export default function Dashboard({roomsList, setRoomsList, user, room, socket, 
     setUrl('');
     setState(prev => ({...prev, sessionComplete: false}));
   },[room])
+  
+  useEffect(() => {
+    setState(prev => ({...prev, sessionComplete: true}));
+  },[socket])
 
   useEffect(() => {
     socket.on('send_new_room', (roomData) => {
@@ -38,11 +42,16 @@ export default function Dashboard({roomsList, setRoomsList, user, room, socket, 
         }, 2000)
       }
     })
+
+    socket.on('complete_session_all', () => {
+      setState(prev => ({...prev, sessionComplete: true}));
+    })
   }, [socket])
 
   const addCompletedSession = () => {
     axios.post(`/rooms/session/${room.id}`).then(res => {
       setState(prev => ({...prev, sessionComplete: true}));
+      socket.emit('complete_session', room.id);
     })
   }
 
