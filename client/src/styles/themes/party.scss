@@ -1,0 +1,275 @@
+@use '../abstracts/colors' as *;
+
+.party {
+  animation-name: colorChange;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  @keyframes colorChange {
+    0% {
+      background: $party-1;    
+    }
+    33% {
+      background: $party-2;    
+    }
+    66% {
+      background: $party-3;    
+    }
+    100% {
+      background: $party-1;    
+    }
+
+  }
+
+  h1 {
+    color: $party-pale;
+  }
+
+  input {
+    background-color: $party-pale;
+  }
+
+
+  //delve banner
+  .banner {
+    background-color: $party-1;
+    color: $party-pale;
+  }
+
+  .fa-solid {
+    color: $party-pale;
+  }
+
+  .fa-cake-candles {
+    box-shadow: 0rem 0rem .8rem .5rem $lime-500;
+    animation-name: spin;
+    animation-duration: 3000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+  }
+
+
+  @keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to  {
+        transform:rotate(360deg);
+    }
+  }
+
+
+  //welcome banner
+  .d-flex {
+    background-color: $party-4;
+  }
+
+  .nav-banner.buttons button {
+    background-color: $party-4;
+    color: $party-pale;
+    &:hover {
+      background: lighten($party-4, 3%);
+      box-shadow: .01rem .05rem .2rem .1rem $party-pale;
+      // color: $dark-700;
+    }
+  }
+
+  //rooms sidebar
+  .bg-success {
+    background-color: $party-4 !important;
+    box-shadow: .01rem .05rem .2rem .1rem $teal-000;
+    color: $party-pale;
+  }
+
+  .bg-success:hover {
+    background-color: $lime-500 !important;
+    color: $dark-700;
+
+    .fa-trash {
+      color: $party-1 !important;
+    }
+  }
+
+
+  .bg-primary {
+    background-color: $party-1 !important;
+    color: $teal-000;
+    box-shadow: 0rem 0rem .3rem .1rem $teal-000;
+    color: $party-pale;
+  }
+
+  .bg-primary:hover {
+    background-color: $lime-500 !important;
+    color: $dark-700;
+
+    .fa-trash {
+      color: $party-1 !important;
+    }
+  }
+
+
+  .delete-confirmation {
+    background-color: $party-pale;
+    box-shadow: .01rem .05rem .2rem .1rem $teal-000;
+
+    .delete-yes {
+      background-color: $party-1;
+      color: $party-pale;
+      &:hover {
+        background-color: darken($rose-200, 60%);
+        color: lighten($rose-200, 5%);
+      }
+    }
+
+    .delete-no {
+      background-color: $party-1;
+      color: $party-pale;
+      &:hover {
+        background-color: $party-2;
+        color: lighten($rose-200, 5%);
+      }
+    }
+
+  }
+
+
+  //middle section
+  .mark-complete {
+    border-color: $party-4;
+    color: $party-pale;
+  }
+  
+  .great-work {
+    color: $lime-500
+  }
+
+
+  //chat section
+  .chat-window {
+    box-shadow: 0rem 0rem .3rem .1rem $party-pale;
+    border: .02rem solid;
+  }
+
+  .chat-window .chat-body {
+    background-color: $party-pale;
+    
+  }
+
+  .chat-window .chat-header {
+    background-color: $party-1;
+    color: $party-pale;
+  }
+
+  #other .message-content {
+    background-color: $party-3;
+    color: $party-pale;
+  }
+
+  #you .message-content {
+    background-color: $party-2;
+    color: $party-pale
+  }
+
+  .chat-footer button {
+    background-color: $party-1 !important;
+    color: $party-pale;
+
+    &:hover {
+      background-color: lighten($party-1, 7%)  !important;
+      box-shadow: .01rem .05rem .3rem .08rem $dark-700;
+      transform: translateY(-.03rem) translateX(.03rem);
+      color: $lime-500;
+      // color: $teal-900;
+    }
+  }
+
+  //members
+  .room-members {
+    box-shadow: 0rem 0rem .3rem .1rem $party-pale;
+    border: .02rem solid;
+    background-color: $party-pale;
+
+    h3 {
+      background-color: $party-1;
+      color: $party-pale;
+    }
+    .add-member {
+      background-color: $party-1;
+      color: $party-pale;
+      &:hover {
+        background-color: $lime-500;
+        color: $party-1;
+        transform: translateY(-.05rem) translateX(.05rem);
+        // box-shadow: .01rem .05rem .2rem .08rem $dark-400;
+      }
+        
+    }
+
+  }
+
+  //add member
+  .add-member-yes {
+    background-color: $party-4;
+    color: $teal-100;
+    &:hover {
+      background-color: $lime-500;
+      color: $teal-900;
+      // color: lighten($rose-200, 5%);
+    }
+  }
+
+  .add-member-no {
+    background-color: darken($rose-200, 6%);
+    &:hover {
+      background-color: darken($rose-200, 50%);
+      color: lighten($rose-200, 5%);
+    }
+  }
+
+
+  // //create room
+
+  .create-room {
+    background-color: $party-1;
+    box-shadow: .01rem .09rem .3rem .08rem $teal-000;
+  }
+
+  // .create-room {
+  //   background-color: $teal-100;
+  // }
+
+  .create-room button {
+    background-color: $party-pale !important;
+    box-shadow: .01rem .1rem .4rem .08rem $teal-200;
+    color: $party-2;
+    &:hover {
+      background-color: lighten($lime-700, 6%)   !important;
+      box-shadow: .01rem .09rem .3rem .08rem $teal-000;
+      transform: translateY(-.03rem) translateX(.03rem);
+      // color: $teal-900;
+    }
+  
+  }
+
+
+  .form-label {
+    color: $party-pale;
+
+  }
+
+  .form-control {
+    background-color: $party-pale;
+
+  }
+
+  .form-control:focus {
+    background-color: $party-pale;
+
+  }
+  
+
+
+
+
+
+
+}

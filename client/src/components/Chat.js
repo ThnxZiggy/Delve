@@ -2,31 +2,54 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import ScrollToBottom from 'react-scroll-to-bottom';
 
-export default function Chat({socket, user, room}) {
+export default function Chat({socket, user, room, setUrl}) {
   const [currentMessage, setCurrentMessage] = useState('');
   const [messageList, setMessageList] = useState([])
 
   useEffect(() => {
-    axios.get(`/messages/${room}`)
+    axios.get(`/messages/${room.id}`)
       .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
+        res.data.forEach(message => message.time = message.time.slice(14,19))
         setMessageList((prev) => [...res.data]); 
       })
-    }, [room])
-    
-  const sendMessage = async () => {
-    console.log(room);
+  }, [room])
+  
+  ////////////////////////// WORKING VERSION BEFORE POST REQUEST //////////////////////////
+  // const sendMessage = async () => {
+  //   // console.log(room);
+  //   if (currentMessage !== '') {
+  //     const messageData = {
+  //       room: room,
+  //       author: user.name,
+  //       content: currentMessage,
+  //       time: new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes(),
+  //     };
+
+  //     await socket.emit('send_message', messageData);
+
+  //     setMessageList((prev) => [...prev, messageData]);
+  //     setCurrentMessage('');
+  //   }
+  // }
+///////////////////////////////////////////////////////////////////////////////////////////
+
+  const sendMessage = () => {
+    // console.log(room);
     if (currentMessage !== '') {
       const messageData = {
         room: room,
         author: user.name,
-        message: currentMessage,
+        content: currentMessage,
         time: new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes(),
       };
+    
+    axios.post(`/messages/${room.id}/${user.id}`, {currentMessage}).then(res => {
+      socket.emit('send_message', messageData);
 
-      await socket.emit('send_message', messageData);
       setMessageList((prev) => [...prev, messageData]);
       setCurrentMessage('');
+    })
     }
   }
 
@@ -38,6 +61,13 @@ export default function Chat({socket, user, room}) {
 
     // })
   }, [socket])
+
+  const changeUrl = (e) => {
+    const firstEight = e.target.innerHTML.slice(0,8);
+    if(firstEight === "https://") {
+      setUrl(e.target.innerHTML);
+    }
+  }
 
   return (
     <div className="chat-window">
@@ -51,10 +81,10 @@ export default function Chat({socket, user, room}) {
               <div className="message" id={user.name === messageContent.author ? "you" : "other"}>
                 <div>
                   <div className="message-content">
-                    <p>{messageContent.message}</p>
+                    <p onClick={changeUrl}>{messageContent.content}</p>
                   </div>
                   <div className="message-meta">
-                    <p style={{marginRight: "3px"}}>{messageContent.author}</p>
+                    <p style={{marginRight: "3px"}}>{user.name === messageContent.author ? "me" : messageContent.author}</p>
                     <p>{messageContent.time}</p>
                   </div>
                 </div>
@@ -71,7 +101,7 @@ export default function Chat({socket, user, room}) {
           onChange={(e) => {setCurrentMessage(e.target.value)}}
           onKeyPress={(event) => {event.key === 'Enter' && sendMessage()}}
         />
-        <button onClick={sendMessage}>&#9658;</button>
+        <button onClick={sendMessage}>&#x276F;</button>
       </div>
     </div>
   )

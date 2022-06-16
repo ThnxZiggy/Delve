@@ -1,0 +1,206 @@
+@use '../abstracts/colors' as *;
+
+.light {
+  background-color: $blue-000;
+
+  h1, h2, h3 {
+    color: $blue-1000;
+  }
+
+  input {
+    background-color: $blue-pale;
+    &:focus {
+      background-color: $blue-pale;
+    }
+  }
+
+  //delve banner
+  .banner {
+    background-color: $blue-600;
+    color: $blue-1000;
+  }
+
+  .fa-solid {
+    color: $dark-700;
+  }
+
+
+  .fa-sun {
+    box-shadow: 0rem 0rem .8rem .5rem $blue-900;
+  }
+
+  //welcome banner
+  .d-flex {
+    background-color: $teal-200;
+  }
+
+  .nav-banner.buttons button {
+    background-color: $teal-200;
+    color: $dark-700;
+    border-bottom: .3rem ridge $teal-100;
+    &:hover {
+      background: lighten($teal-200, 3%)
+    }
+  }
+
+  //rooms sidebar
+  .bg-success {
+    background-color: $teal-400 !important;
+    box-shadow: .01rem .05rem .2rem .1rem $teal-700;
+  }
+
+  .bg-primary {
+    background-color: $blue-600 !important;
+  }
+
+  .delete-confirmation {
+    background-color: $rose-200;
+
+
+    .delete-yes {
+      background-color: lighten($rose-200, 6%);
+      &:hover {
+        background-color: darken($rose-200, 50%);
+        color: lighten($rose-200, 5%);
+      }
+    }
+
+    .delete-no {
+      background-color: lighten($rose-200, 6%);
+      &:hover {
+        background-color: $blue-900;
+        color: lighten($rose-200, 5%);
+      }
+    }
+
+  }
+
+
+
+  //middle section
+
+  .mark-complete {
+    border-color: $teal-400;
+    color: $teal-700;
+  }
+
+  .great-work {
+    color: $blue-600;
+  }
+
+
+  //chat section
+
+  .chat-window {
+    box-shadow: .01rem .05rem .4rem .08rem $teal-700;
+  }
+
+  .chat-window .chat-header {
+    background-color: $teal-400;
+    color: $blue-1000;
+  }
+
+  .chat-body {
+    background-color: $blue-pale;
+  }
+
+  #other .message-content {
+    background-color: $teal-200;
+    color: $blue-1000;
+  }
+
+  #you .message-content {
+    background-color: $blue-200;
+    color: $blue-1000;
+  }
+
+  .chat-footer button {
+    background-color: $blue-400 !important;
+    &:hover {
+      background-color: $blue-200  !important;
+      box-shadow: .01rem .05rem .3rem .08rem $blue-900;
+      transform: translateY(-.03rem) translateX(.03rem);
+      // color: $teal-900;
+    }
+  }
+
+
+  //members section
+  .room-members {
+    .add-member {
+      background-color: $blue-200;
+      &:hover {
+        background-color: lighten($blue-200, 5%);
+        transform: translateY(-.05rem) translateX(.05rem);
+        box-shadow: .01rem .05rem .3rem .08rem $dark-400;
+      }
+    }
+  }
+
+  .add-member-yes {
+    background-color: $blue-400;
+    &:hover {
+      background-color: lighten($blue-400, 5%);
+      // color: lighten($rose-200, 5%);
+    }
+  }
+
+  .add-member-no {
+    background-color: darken($rose-200, 6%);
+    &:hover {
+      background-color: darken($rose-200, 50%);
+      color: lighten($rose-200, 5%);
+    }
+  }
+
+  input {
+    background-color: $blue-pale;
+  }
+
+
+  // .delete-yes {
+  //   background-color: lighten($rose-200, 6%);
+  //   &:hover {
+  //     background-color: darken($rose-200, 50%);
+  //     color: lighten($rose-200, 5%);
+  //   }
+  // }
+
+  // .delete-no {
+  //   background-color: lighten($rose-200, 6%);
+  //   &:hover {
+  //     background-color: $blue-900;
+  //     color: lighten($rose-200, 5%);
+  //   }
+  // }
+
+
+
+
+  //create room page
+
+    //create room
+
+  .create-room {
+      background-color: $teal-100;
+      box-shadow: .01rem .09rem .3rem .08rem $teal-800;
+      
+  }
+
+  // .create-room-form {
+  //   background-color: $teal-100;
+  // }
+  .create-room button {
+    background-color: $teal-200 !important;
+    box-shadow: .01rem .05rem .3rem .08rem $teal-600;
+    // color: $blue-pale;
+    &:hover {
+      background-color: $teal-000  !important;
+      // box-shadow: .01rem .05rem .3rem .08rem $teal-600;
+      transform: translateY(-.03rem) translateX(.03rem);
+      // color: $teal-900;
+    }
+  
+  }
+
+}

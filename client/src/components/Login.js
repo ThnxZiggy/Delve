@@ -30,7 +30,7 @@ export default function Login({ onSubmit, error, socket, state}) {
         } else {
           const currentUser = res.data[0];
           // onSubmit(prev => ({...prev, user:currentUser, room}));
-          onSubmit(prev => ({...prev, user:currentUser}));
+          onSubmit(prev => ({...prev, user:currentUser, makingRoom: false}));
         }
       })
   }
