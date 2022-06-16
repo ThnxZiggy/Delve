@@ -36,7 +36,7 @@ export default function Sidebar({roomRef, user, setState, socket, state, roomsLi
   }, [socket])
 
   const changeRoom = (e) => {
-    console.log('rooms list', roomsList[2].id);
+    // console.log('rooms list', roomsList[2].id);
     const currentID = parseInt(e.currentTarget.value);
     console.log(currentID);
     const thisRoom = roomsList.filter(el => el.id == currentID)[0];

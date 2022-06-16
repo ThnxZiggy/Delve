@@ -17,6 +17,8 @@ export default function NewRoom({roomsList, setRoomsList, setState, user, socket
       .then(res => {
         if (typeof res.data !== "string") {
           const roomData = res.data.rows[0];
+          console.log('roomData', roomData);
+          console.log('roomData id', roomData.id)
           roomData.maker = user.name
           setState(prev => ({...prev, makingRoom: false}))
           console.log('new rooms list')
