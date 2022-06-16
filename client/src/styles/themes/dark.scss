@@ -3,16 +3,44 @@
 
 .dark {
   background-color: $teal-800;
+  background: repeating-linear-gradient(
+    45deg,
+    #2b2b2b 0%,
+    #2b2b2b 10%,
+    #222222 0%,
+    #222222 50%
+  )
+  0 / 15px 15px;
 
   h1 {
     color: $teal-000;
 
   }
 
+
+
   //delve banner
   .banner {
     background-color: $teal-900;
     color: $teal-000;
+
+    h1 {
+      font-size: 5rem;
+      animation: neon1 1s ease-in-out infinite alternate;
+
+
+    }
+
+    @keyframes neon1 {
+      from {
+      text-shadow: 0 0 2px $teal-000, 0 0 4px $teal-100, 0 0 8px $teal-200, 0 0 16px $teal-400,
+      0 0 24px $teal-600, 0 0 48px $teal-700;
+      }
+      to {
+        text-shadow: 0 0 1px $teal-000, 0 0 3px $teal-100, 0 0 4px $teal-200, 0 0 8px $teal-400,
+        0 0 12px $teal-600, 0 0 24px $teal-700;
+      }
+    }
   }
 
   .fa-solid {

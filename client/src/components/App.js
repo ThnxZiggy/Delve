@@ -71,7 +71,7 @@ function App() {
   return (
     <div className={theme}>
       <div className='banner'>
-        DELVE
+       <h1>DELVE</h1>
         <span className="theme__icons">
           <i className="fa-solid fa-sun" onClick={() => setTheme('App light')}></i>
           <i className="fa-solid fa-moon" onClick={() => {setTheme('App dark')}}></i>
