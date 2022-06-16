@@ -101,9 +101,13 @@ export default function RoomMembers({room, user, socket, memberList, setMemberLi
   }
 
   return (
-    <div>
-      <h3>Room Members:</h3>
-      {errMsg && <p>{errMsg}</p>}
+    // <div className="room-members">
+    //   <h3>Members</h3>
+    //   {errMsg && <p className="name-error">{errMsg}</p>}
+    //   {memberList.map((member) => {
+    <div className="room-members">
+      <h3>Members</h3>
+      {errMsg && <p className="name-error">{errMsg}</p>}
       {memberList.map((member, index) => {
         if (member === "ADDMEMBER101"){
           return (
@@ -115,19 +119,21 @@ export default function RoomMembers({room, user, socket, memberList, setMemberLi
                     value={newMember} 
                     onChange={(e) => setNewMember(e.target.value)}
                   />
-                  <button onClick={confirmAddMember}>ADD</button>
-                  <button onClick={() => {setAddingMember(false); setErrMsg("")}}>cancel</button>
+                  <button onClick={confirmAddMember} className='add-member-yes'>ADD</button>
+                  <button onClick={() => {setAddingMember(false); setErrMsg("")}} className='add-member-no'>cancel</button>
                 </div>
               ) : (
+                // <button onClick={() => {setAddingMember(true)}} className="add-member">+</button>
                 <div>
-                  <button onClick={() => {setAddingMember(true)}}>+</button>
+                  <button onClick={() => {setAddingMember(true)}} className="add-member">+</button>
                 </div>
               )}
             </div>
           )
         } else {
           return (
-              <div>{Object.values(inRoom).includes(member) || member === 'me' ? 
+              // <div className='member-name'>{member}</div>
+              <div className='member-name'>{Object.values(inRoom).includes(member) || member === 'me' ? 
                   <img width="10em" height="10em" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clker.com%2Fcliparts%2Fu%2Fg%2FF%2FR%2FX%2F9%2Fgreen-circle-hi.png&f=1&nofb=1"/> : 
                   <img width="10em" height="10em" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.linganorewines.com%2Fwp-content%2Fuploads%2F2021%2F02%2FBlank-Gray-Circle-1024x1024.png&f=1&nofb=1"/>
                 }

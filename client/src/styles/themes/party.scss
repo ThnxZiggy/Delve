@@ -182,6 +182,60 @@
     }
   }
 
+  //members
+  .room-members {
+    box-shadow: 0rem 0rem .3rem .1rem $party-pale;
+    border: .02rem solid;
+    background-color: $party-pale;
+
+    h3 {
+      background-color: $party-1;
+      color: $party-pale;
+    }
+    .add-member {
+      background-color: $party-1;
+      color: $party-pale;
+      &:hover {
+        background-color: $lime-500;
+        color: $party-1;
+        transform: translateY(-.05rem) translateX(.05rem);
+        // box-shadow: .01rem .05rem .2rem .08rem $dark-400;
+      }
+        
+    }
+
+  }
+
+  //add member
+  .add-member-yes {
+    background-color: $party-4;
+    color: $teal-100;
+    &:hover {
+      background-color: $lime-500;
+      color: $teal-900;
+      // color: lighten($rose-200, 5%);
+    }
+  }
+
+  .add-member-no {
+    background-color: darken($rose-200, 6%);
+    &:hover {
+      background-color: darken($rose-200, 50%);
+      color: lighten($rose-200, 5%);
+    }
+  }
+
+
+  // //create room
+
+  .create-room {
+    background-color: $party-1;
+    box-shadow: .01rem .09rem .3rem .08rem $teal-000;
+  }
+
+  // .create-room {
+  //   background-color: $teal-100;
+  // }
 
   .create-room button {
     background-color: $party-pale !important;
