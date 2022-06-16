@@ -699,4 +699,18 @@ h1, h2, h3 {
     outline: 0;
   }
 
+  .name-error {
+    padding: 0 .5rem;
+    width: 85%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    background-color: $rose-200;
+    text-align: center;
+    box-shadow: .01rem .04rem .2rem .05rem $dark-400;
+    align-self: center;
+    &:hover {
+      transform: translateY(-.05rem) translateX(.05rem);
+    }
+  }
+
 }

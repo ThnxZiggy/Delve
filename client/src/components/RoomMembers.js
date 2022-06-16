@@ -69,7 +69,7 @@ export default function RoomMembers({room, user, socket, memberList, setMemberLi
   return (
     <div className="room-members">
       <h3>Members</h3>
-      {errMsg && <p>{errMsg}</p>}
+      {errMsg && <p className="name-error">{errMsg}</p>}
       {memberList.map((member) => {
         if (member === "ADDMEMBER101"){
           return (
