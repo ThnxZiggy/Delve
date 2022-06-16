@@ -85,7 +85,7 @@ export default function Dashboard({roomRef, memberList, setMemberList, roomsList
   return (
     <div>
 
-      {makingRoom && <NewRoom user={user} setState={setState} socket={socket}/>}
+      {makingRoom && <NewRoom roomsList={roomsList} setRoomsList={setRoomsList} user={user} setState={setState} socket={socket}/>}
 
       {room.id < 0 &&
         <div>
