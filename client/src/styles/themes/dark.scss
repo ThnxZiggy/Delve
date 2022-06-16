@@ -43,10 +43,6 @@
     box-shadow: .01rem .05rem .2rem .1rem $teal-000;
     .fa-trash {
       color: $teal-700 !important;
-    
-      &:hover {
-  
-      }
     }
   }
 
@@ -54,6 +50,30 @@
     background-color: $teal-700 !important;
     color: $teal-000;
     box-shadow: 0rem 0rem .3rem .1rem $teal-000;
+  }
+
+  .delete-confirmation {
+    background-color: $teal-100;
+    box-shadow: .01rem .05rem .2rem .1rem $teal-000;
+
+    .delete-yes {
+      background-color: $teal-600;
+      color: $teal-000;
+      &:hover {
+        background-color: darken($rose-200, 70%);
+        color: lighten($rose-200, 5%);
+      }
+    }
+
+    .delete-no {
+      background-color: $teal-600;
+      color: $teal-000;
+      &:hover {
+        background-color: $teal-800;
+        color: lighten($rose-200, 5%);
+      }
+    }
+
   }
 
 

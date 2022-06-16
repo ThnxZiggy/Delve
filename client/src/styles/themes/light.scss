@@ -53,6 +53,30 @@
     background-color: $blue-600 !important;
   }
 
+  .delete-confirmation {
+    background-color: $rose-200;
+
+
+    .delete-yes {
+      background-color: lighten($rose-200, 6%);
+      &:hover {
+        background-color: darken($rose-200, 50%);
+        color: lighten($rose-200, 5%);
+      }
+    }
+
+    .delete-no {
+      background-color: lighten($rose-200, 6%);
+      &:hover {
+        background-color: $blue-900;
+        color: lighten($rose-200, 5%);
+      }
+    }
+
+  }
+
+
+
   //middle section
 
   .mark-complete {

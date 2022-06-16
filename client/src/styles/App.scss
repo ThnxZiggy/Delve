@@ -137,6 +137,38 @@ h1, h2, h3 {
   }
 }
 
+.delete-confirmation {
+  position: absolute;
+  z-index: 4;
+  margin-top: -1rem;
+  margin-left: .6rem;
+  padding: 2rem;
+  border: .02rem solid $dark-700;
+  box-shadow: 0rem .2rem .2rem .1rem $dark-200;
+  border-radius: 2%;
+  font-size: 1.2rem;
+  background-color: white;
+
+  .yes-no {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+    button {
+      border: 0;
+      box-shadow: 0rem .2rem .2rem .1rem $dark-200;
+      border-radius: 10%;
+      padding: .2rem .7rem;
+      // padding: .2 1rem;
+      &:hover {
+        transform: translateY(-.1rem) translateX(.1em);
+        box-shadow: 0rem .2rem .2rem .1rem $dark-200;
+      }
+
+    }
+  }
+}
+
 
 
 //middle section

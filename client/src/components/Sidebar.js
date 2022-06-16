@@ -70,10 +70,12 @@ export default function Sidebar({user, onClick, socket, state, roomsList, setRoo
     <div>
       <div>
         {confirmDelete && 
-          <div>
-            <p>Are You Sure you want to delete {confirmDelete.name}</p>
-            <button onClick={deleteConfirmed}>Yes</button>
-            <button onClick={() => setConfirmDelete(false)}>No</button>
+          <div className='delete-confirmation'>
+            <p>Are you sure you want to delete <strong><em>{confirmDelete.name.toUpperCase()}</em></strong>?</p>
+            <span className='yes-no'>
+            <button onClick={deleteConfirmed} className='delete-yes'>Yes</button>
+            <button onClick={() => setConfirmDelete(false)} className='delete-no'>No</button>
+            </span>
           </div>
         }
         {roomsList.map(thisRoom => {
