@@ -115,7 +115,7 @@ export default function Dashboard({roomRef, memberList, setMemberList, roomsList
             </div>
             <Chat socket={socket} user={user} room={room} setUrl={setUrl}/>
             <RoomMembers memberList={memberList} setMemberList={setMemberList} socket={socket} room={room} user={user}/>
-            <Progress />
+            <Progress state={state}/>
           </div>
         </div>
       }
