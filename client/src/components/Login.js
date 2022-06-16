@@ -6,7 +6,7 @@ import { Container, Form, Button } from 'react-bootstrap';
 
 // const socket = io.connect('http://localhost:8000');
 
-export default function Login({ onSubmit, error, socket, state}) {
+export default function Login({ setState, error, socket, state}) {
   const userRef = useRef();
   const errRef = useRef();
 
@@ -30,7 +30,7 @@ export default function Login({ onSubmit, error, socket, state}) {
         } else {
           const currentUser = res.data[0];
           // onSubmit(prev => ({...prev, user:currentUser, room}));
-          onSubmit(prev => ({...prev, user:currentUser, makingRoom: false}));
+          setState(prev => ({...prev, user:currentUser, makingRoom: false}));
         }
       })
   }
@@ -43,6 +43,7 @@ export default function Login({ onSubmit, error, socket, state}) {
     <Container>
       <p className="alert-danger">{errMsg}</p>
       <br></br>
+      <h1>Login</h1>
       <Form onSubmit={handleSubmit} className="w-100" >
         <Form.Group>
           <Form.Label>Enter Your Username</Form.Label>
@@ -72,6 +73,7 @@ export default function Login({ onSubmit, error, socket, state}) {
           /> */}
         </Form.Group>
         <Button type="submit" className="me-2">Login</Button>
+        <h4>Don't have an Account?</h4><button onClick={() => setState(prev => ({...prev, signingUp: true}))}>Sign Up</button>
         {/* <Button variant="secondary">Create A New Id</Button> */}
       </Form>
       

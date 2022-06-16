@@ -28,4 +28,23 @@ router.post('/login', (req, res) => {
   })
 })
 
+router.post('/signup', (req, res) => {
+  const {user, password, email} = req.body;
+  const command = "SELECT users.name FROM users;";
+  db.query(command).then(data => {
+    const allUserNames = [];
+    for (let value of data.rows) {
+      allUserNames.push(Object.values(value)[0]);
+    }
+    if (allUserNames.includes(user)) {
+      return res.send('error')
+    }
+    const command = "INSERT INTO users (email, password, name) VALUES ($1, $2, $3) RETURNING *;";
+    db.query(command, [email, password, user]).then(data => {
+      res.send(data.rows);
+    })
+  })
+  // db.query(command, [user, password, email])
+})
+
 module.exports = router;
