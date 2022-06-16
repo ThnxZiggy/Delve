@@ -41,6 +41,9 @@ h1, h2, h3 {
   align-items: center;
   padding: 0rem 1.5rem;
   justify-content: space-between;
+  h1 {
+    font-size: 5rem;
+  }
 }
 
 .theme__icons {
@@ -100,6 +103,13 @@ h1, h2, h3 {
 
 
 //rooms sidebar
+.sidebar-container {
+  max-height: 70vh;
+  // min-width: 30vh;
+  overflow-y: scroll;
+}
+
+
 .bg-success {
   border: 0;
   border-radius: 2%;
@@ -200,6 +210,7 @@ h1, h2, h3 {
   animation-duration: 300ms;
   animation-iteration-count: 1;
   animation-timing-function: linear; 
+
   @keyframes spin-star {
     from {
         transform:rotate(0deg);
@@ -257,6 +268,7 @@ h1, h2, h3 {
 .chat-window {
   width: 20rem;
   height: 100%;
+  // margin-top: -3rem !important;
   border-radius: .2rem 0 .2rem .2rem;
   margin: 0 0 0 1rem;
 }
