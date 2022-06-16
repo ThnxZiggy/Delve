@@ -206,6 +206,24 @@
 
   }
 
+  .add-member-yes {
+    background-color: $party-4;
+    color: $teal-100;
+    &:hover {
+      background-color: $lime-500;
+      color: $teal-900;
+      // color: lighten($rose-200, 5%);
+    }
+  }
+
+  .add-member-no {
+    background-color: darken($rose-200, 6%);
+    &:hover {
+      background-color: darken($rose-200, 50%);
+      color: lighten($rose-200, 5%);
+    }
+  }
+
 
   .create-room button {
     background-color: $party-pale !important;

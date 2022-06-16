@@ -152,6 +152,27 @@
 
   }
 
+  .add-member-yes {
+    background-color: $teal-700;
+    color: $teal-100;
+    &:hover {
+      background-color: lighten($teal-700, 10%);
+      // color: lighten($rose-200, 5%);
+    }
+  }
+
+  .add-member-no {
+    background-color: darken($rose-200, 6%);
+    &:hover {
+      background-color: darken($rose-200, 50%);
+      color: lighten($rose-200, 5%);
+    }
+  }
+
+  input {
+    background-color: $blue-pale;
+  }
+
 
 
   //create room 
