@@ -83,7 +83,12 @@
   .bg-success:hover {
     background-color: $lime-500 !important;
     color: $dark-700;
+
+    .fa-trash {
+      color: $party-1 !important;
+    }
   }
+
 
   .bg-primary {
     background-color: $party-1 !important;
@@ -95,6 +100,35 @@
   .bg-primary:hover {
     background-color: $lime-500 !important;
     color: $dark-700;
+
+    .fa-trash {
+      color: $party-1 !important;
+    }
+  }
+
+
+  .delete-confirmation {
+    background-color: $party-pale;
+    box-shadow: .01rem .05rem .2rem .1rem $teal-000;
+
+    .delete-yes {
+      background-color: $party-1;
+      color: $party-pale;
+      &:hover {
+        background-color: darken($rose-200, 60%);
+        color: lighten($rose-200, 5%);
+      }
+    }
+
+    .delete-no {
+      background-color: $party-1;
+      color: $party-pale;
+      &:hover {
+        background-color: $party-2;
+        color: lighten($rose-200, 5%);
+      }
+    }
+
   }
 
 

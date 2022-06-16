@@ -92,10 +92,12 @@ export default function Sidebar({roomRef, user, setState, socket, state, roomsLi
     <div>
       <div>
         {confirmDelete && 
-          <div>
-            <p>Are You Sure you want to delete {confirmDelete.name}</p>
-            <button onClick={deleteConfirmed}>Yes</button>
-            <button onClick={() => setConfirmDelete(false)}>No</button>
+          <div className='delete-confirmation'>
+            <p>Are you sure you want to delete <strong><em>{confirmDelete.name.toUpperCase()}</em></strong>?</p>
+            <span className='yes-no'>
+            <button onClick={deleteConfirmed} className='delete-yes'>Yes</button>
+            <button onClick={() => setConfirmDelete(false)} className='delete-no'>No</button>
+            </span>
           </div>
         }
         {roomsList.map(thisRoom => {
@@ -107,10 +109,10 @@ export default function Sidebar({roomRef, user, setState, socket, state, roomsLi
                 // style={{border: "2px solid black", width: "200px"}}
                 class={state.room.name === thisRoom.name ? "bg-success" : "bg-primary"}
               >
-              <button onClick={(e) => deleteRoom(e, thisRoom)}>X</button>
               <h3>{thisRoom.name}</h3>
               <h2>{thisRoom.date_time}</h2>
               <h6>Sessions Completed:{thisRoom.session_number}</h6>
+              <i class="fa-solid fa-trash" onClick={(e) => deleteRoom(e, thisRoom)} ></i>
             </button></div>
           )
         })}
