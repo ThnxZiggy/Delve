@@ -30,14 +30,38 @@ export default function RoomMembers({room, user, socket, memberList, setMemberLi
         
         setMemberList(usersNameArray);
       })
+      setInRoom([]);
   }, [room])
 
   useEffect(() => {
-    socket.on('user_joined', (joinRoomData) => {
-      console.log('connection made', joinRoomData);
-      const newMember = joinRoomData.user.name;
+    setInRoom([]);
+  }, [user])
+
+  useEffect(() => {
+    socket.on('user_joined', (socketData) => {
+      console.log('connection made', socketData);
+      const newMember = socketData.joinRoomData.user.name;
       console.log('newMember', newMember);
       setInRoom(prev => ([...prev, newMember]))
+      //////// need to send message direct of inRoom to sender of 'user_joined'///////
+      /////// maybe use socket.io in index.js  //////
+      const otherRoomMembers = [...inRoom, user.name];
+      console.log(otherRoomMembers);
+      socket.emit('room_response', {otherRoomMembers, socketID: socketData.socketID});
+      
+      // socket.emit.to()
+    })
+
+    socket.on('other_room_members', (otherRoomMembers) => {
+      console.log('other members', otherRoomMembers);
+      const filteredRoomMembers = otherRoomMembers.filter(member => !inRoom.includes(member))
+      console.log('filtered members', filteredRoomMembers);
+      setInRoom(prev => ([...prev, ...filteredRoomMembers]));
+    })
+
+    socket.on('user_left', (leaveRoomData) => {
+      const userLeaving = leaveRoomData.user.name
+      setInRoom(prev => [...prev.filter(member => member !== userLeaving)])
     })
   }, [socket])
 

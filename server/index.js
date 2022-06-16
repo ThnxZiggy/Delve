@@ -47,13 +47,13 @@ const io = new Server(server, {
 
 
 io.on('connection', (socket) => {
-  console.log("user connected", socket.id);
+  const myID = socket.id;
 
   socket.on('join_room', (joinRoomData) => {
     socket.join(joinRoomData.room.id);
     console.log('new v')
     console.log(`User with ID: ${socket.id} has joined room: ${joinRoomData.room.id}`);
-    socket.to(joinRoomData.room.id).emit('user_joined', joinRoomData);
+    socket.to(joinRoomData.room.id).emit('user_joined', {joinRoomData, socketID:socket.id});
   })
 
   socket.on('leave_room', (leaveRoomData) => {
@@ -85,10 +85,16 @@ io.on('connection', (socket) => {
     socket.broadcast.emit('send_delete_room', deleteInfo);
   })
 
-  socket.on('added_to_room', (addedData => {
+  socket.on('added_to_room', (addedData) => {
     console.log('sent added', addedData);
     socket.broadcast.emit('added_to_room_info', addedData);
-  }))
+  })
+
+  socket.on('room_response', (onlineData) => {
+    console.log('room members', onlineData.otherRoomMembers);
+    console.log('socketID', onlineData.socketID);
+    io.to(onlineData.socketID).emit('other_room_members', onlineData.otherRoomMembers);
+  })
   ///// trying video //////
   // socket.on("stream", (data) => {
   //   socket.broadcast.to(data.room).emit('stream', data.video)
@@ -100,7 +106,7 @@ io.on('connection', (socket) => {
 /////////////////////////////////////////////////////////////////////
 
   socket.on('disconnect', () => {
-    console.log("user disconnected", socket.id);
+    // socket.broadcast.emit('')
   });
 });
 
