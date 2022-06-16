@@ -115,7 +115,6 @@ export default function Sidebar({roomRef, user, setState, socket, state, roomsLi
               >
               <h3>{thisRoom.name}</h3>
               <h2>{thisRoom.date_time}</h2>
-              <h6>Sessions Completed:{thisRoom.session_number}</h6>
               <i class="fa-solid fa-trash" onClick={(e) => deleteRoom(e, thisRoom)} ></i>
             </button></div>
           )

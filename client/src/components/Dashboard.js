@@ -4,6 +4,7 @@ import Nav from './Nav';
 import Chat from './Chat';
 import NewRoom from './NewRoom';
 import RoomMembers from './RoomMembers';
+import Progress from './Progress';
 import axios from 'axios';
 import confetti from 'canvas-confetti';
 // import Video from './Video';
@@ -114,6 +115,7 @@ export default function Dashboard({roomRef, memberList, setMemberList, roomsList
             </div>
             <Chat socket={socket} user={user} room={room} setUrl={setUrl}/>
             <RoomMembers memberList={memberList} setMemberList={setMemberList} socket={socket} room={room} user={user}/>
+            <Progress />
           </div>
         </div>
       }
