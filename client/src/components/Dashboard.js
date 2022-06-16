@@ -22,6 +22,7 @@ export default function Dashboard({roomRef, memberList, setMemberList, roomsList
   useEffect(() => {
     setUrl('');
     setState(prev => ({...prev, sessionComplete: false}));
+
   },[room])
 
   useEffect(() => {
@@ -84,16 +85,16 @@ export default function Dashboard({roomRef, memberList, setMemberList, roomsList
   return (
     <div>
 
-      {makingRoom && <NewRoom user={user} setState={setState} socket={socket}/>}
+      {makingRoom && <NewRoom roomsList={roomsList} setRoomsList={setRoomsList} user={user} setState={setState} socket={socket}/>}
 
-      {room.id < 0 && !makingRoom &&
+      {room.id < 0 &&
         <div>
           {roomChangeMessage && <p>{roomChangeMessage}</p>}
           {<h1>starting page</h1>}
         </div>
       }
 
-      {room.id > 0 && !makingRoom &&
+      {room.id > 0 &&
         <div>
           {roomChangeMessage && <p>{roomChangeMessage}</p>}
           <span className='current-activity'>

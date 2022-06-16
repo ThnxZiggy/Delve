@@ -7,6 +7,7 @@ export default function RoomMembers({room, user, socket, memberList, setMemberLi
   const [addingMember, setAddingMember] = useState(false);
   const [newMember, setNewMember] = useState("");
   const [errMsg, setErrMsg] = useState("");
+  const [inRoom, setInRoom] = useState({});
 
   useEffect(() => {
     axios.get(`/rooms/members/${room.id}`)
@@ -29,7 +30,40 @@ export default function RoomMembers({room, user, socket, memberList, setMemberLi
         
         setMemberList(usersNameArray);
       })
+      setInRoom({});
   }, [room])
+
+  useEffect(() => {
+    setInRoom({});
+  }, [user])
+
+  useEffect(() => {
+    socket.on('user_joined', (socketData) => {
+      console.log('connection made', socketData);
+      const newMember = socketData.joinRoomData.user.name;
+      console.log('newMember', newMember);
+      setInRoom(prev => ({...prev, [socketData.socketID]: newMember}))
+      //////// need to send message direct of inRoom to sender of 'user_joined'///////
+      /////// maybe use socket.io in index.js  //////
+      const otherRoomMembers = user.name;
+      console.log(otherRoomMembers);
+      socket.emit('room_response', {otherRoomMembers, socketID: socketData.socketID});
+      
+      // socket.emit.to()
+    })
+
+    socket.on('other_room_members', (otherRoomMembers) => {
+      console.log('other members', otherRoomMembers);
+      // const filteredRoomMembers = otherRoomMembers.filter(member => !inRoom.includes(member))
+      // console.log('filtered members', filteredRoomMembers);
+      setInRoom(prev => ({...prev, [otherRoomMembers.socketID]: otherRoomMembers.name}));
+    })
+
+    socket.on('user_left', (leaveRoomData) => {
+      // const userLeaving = leaveRoomData.user.name
+      setInRoom(prev => ({...prev, [leaveRoomData.socketID]: null}))
+    })
+  }, [socket])
 
   const confirmAddMember = () => {
     if (newMember === "") {
@@ -67,10 +101,14 @@ export default function RoomMembers({room, user, socket, memberList, setMemberLi
   }
 
   return (
+    // <div className="room-members">
+    //   <h3>Members</h3>
+    //   {errMsg && <p className="name-error">{errMsg}</p>}
+    //   {memberList.map((member) => {
     <div className="room-members">
       <h3>Members</h3>
       {errMsg && <p className="name-error">{errMsg}</p>}
-      {memberList.map((member) => {
+      {memberList.map((member, index) => {
         if (member === "ADDMEMBER101"){
           return (
             <div>
@@ -85,13 +123,22 @@ export default function RoomMembers({room, user, socket, memberList, setMemberLi
                   <button onClick={() => {setAddingMember(false); setErrMsg("")}} className='add-member-no'>cancel</button>
                 </div>
               ) : (
-                <button onClick={() => {setAddingMember(true)}} className="add-member">+</button>
+                // <button onClick={() => {setAddingMember(true)}} className="add-member">+</button>
+                <div>
+                  <button onClick={() => {setAddingMember(true)}} className="add-member">+</button>
+                </div>
               )}
             </div>
           )
         } else {
           return (
-              <div className='member-name'>{member}</div>
+              // <div className='member-name'>{member}</div>
+              <div className='member-name'>{Object.values(inRoom).includes(member) || member === 'me' ? 
+                  <img width="10em" height="10em" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clker.com%2Fcliparts%2Fu%2Fg%2FF%2FR%2FX%2F9%2Fgreen-circle-hi.png&f=1&nofb=1"/> : 
+                  <img width="10em" height="10em" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.linganorewines.com%2Fwp-content%2Fuploads%2F2021%2F02%2FBlank-Gray-Circle-1024x1024.png&f=1&nofb=1"/>
+                }
+                {`  ${member}`}
+              </div>
           )
         }
       })}

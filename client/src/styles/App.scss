@@ -568,37 +568,50 @@ h1, h2, h3 {
 
 // create room
 
+.create-room {
+  width: 80vw;
+  background-color: white;
+  z-index: 1;
+  position: absolute;
+  padding: 1rem;
+  border-radius: 1%;
+}
+
 .create-room-form {
   border: 0;
-  width: 97vw;
+  height: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   
   .form-entry {
     padding: .3rem 0;
     input {
       width: 20rem;
       border: 0;
-      // border-radius: 3%;
       border: .06rem solid;
       &:focus {
         outline: 0;
         border: .1rem solid;
-        // border-radius: 3%;
       }
     }
 
   }
 
   button {
-    // border: .06rem solid;;
+    border: .06rem solid;;
     border: 0;
     border-radius: 3%;
     padding: 0.3rem;
     margin-top: 1rem;
     margin-left: .1rem; 
+    right: 10rem !important;
     
+  }
+
+  h1 {
+    border-bottom: .1rem solid;
   }
 
 }
@@ -606,11 +619,11 @@ h1, h2, h3 {
 
 .create-room .back-button {
   border: 0;
-  // border: .06rem solid;;
   border-radius: 5%;
   padding: .3rem;
   line-height: 80%;
   font-size: 1.2rem;
+
   
   span {
     font-size: 3rem;
@@ -626,7 +639,7 @@ h1, h2, h3 {
   border-radius: 0 .2rem .2rem 0;
   box-shadow: .01rem .05rem .4rem .08rem $teal-700;
   height: 14rem;
-  width: 8rem;
+  width: 8.4rem;
   overflow-wrap: break-word;
   font-size: .8rem;
   display:flex;
@@ -714,3 +727,4 @@ h1, h2, h3 {
   }
 
 }
+

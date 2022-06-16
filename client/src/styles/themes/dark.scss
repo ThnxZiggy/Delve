@@ -176,6 +176,11 @@
 
 
   //create room 
+  .create-room {
+    background-color: $teal-700;
+    box-shadow: .01rem .09rem .3rem .08rem $teal-000;
+  }
+
   .create-room button {
     background-color: $teal-200 !important;
     &:hover {

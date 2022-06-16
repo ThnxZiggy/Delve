@@ -178,6 +178,18 @@
 
 
   //create room page
+
+    //create room
+
+  .create-room {
+      background-color: $teal-100;
+      box-shadow: .01rem .09rem .3rem .08rem $teal-800;
+      
+  }
+
+  // .create-room-form {
+  //   background-color: $teal-100;
+  // }
   .create-room button {
     background-color: $teal-200 !important;
     box-shadow: .01rem .05rem .3rem .08rem $teal-600;
