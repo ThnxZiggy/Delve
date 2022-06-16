@@ -22,6 +22,7 @@ export default function Dashboard({roomRef, memberList, setMemberList, roomsList
   useEffect(() => {
     setUrl('');
     setState(prev => ({...prev, sessionComplete: false}));
+
   },[room])
 
   useEffect(() => {

@@ -59,7 +59,7 @@ io.on('connection', (socket) => {
   socket.on('leave_room', (leaveRoomData) => {
     console.log('[socket]','leave room :', leaveRoomData.room.id);
     socket.leave(leaveRoomData.room.id);
-    socket.to(leaveRoomData.room.id).emit('user_left', leaveRoomData);
+    socket.to(leaveRoomData.room.id).emit('user_left', {leaveRoomData, socketID: myID});
   })
 
   socket.on('send_message', (data) => {
@@ -93,7 +93,7 @@ io.on('connection', (socket) => {
   socket.on('room_response', (onlineData) => {
     console.log('room members', onlineData.otherRoomMembers);
     console.log('socketID', onlineData.socketID);
-    io.to(onlineData.socketID).emit('other_room_members', onlineData.otherRoomMembers);
+    io.to(onlineData.socketID).emit('other_room_members', {socketID:myID, name: onlineData.otherRoomMembers});
   })
   ///// trying video //////
   // socket.on("stream", (data) => {
@@ -106,7 +106,7 @@ io.on('connection', (socket) => {
 /////////////////////////////////////////////////////////////////////
 
   socket.on('disconnect', () => {
-    // socket.broadcast.emit('')
+    socket.broadcast.emit('user_left', {socketID: myID})
   });
 });
 

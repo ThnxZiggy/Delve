@@ -28,6 +28,13 @@ export default function Nav({user, onClick, socket, state}) {
 
   const logout = () => {
     onClick(prev => ({...prev,room:{id: -1}, user:{}, makingRoom: false, aboutPage: false}));
+
+    const leaveRoomData = {
+      room: state.room,
+      user,
+    }
+
+    socket.emit('leave_room', leaveRoomData);
   }
 
   const makeRoom = () => {
