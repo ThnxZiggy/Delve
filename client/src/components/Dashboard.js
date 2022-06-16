@@ -87,14 +87,14 @@ export default function Dashboard({roomRef, memberList, setMemberList, roomsList
 
       {makingRoom && <NewRoom user={user} setState={setState} socket={socket}/>}
 
-      {room.id < 0 && !makingRoom &&
+      {room.id < 0 &&
         <div>
           {roomChangeMessage && <p>{roomChangeMessage}</p>}
           {<h1>starting page</h1>}
         </div>
       }
 
-      {room.id > 0 && !makingRoom &&
+      {room.id > 0 &&
         <div>
           {roomChangeMessage && <p>{roomChangeMessage}</p>}
           <span className='current-activity'>
