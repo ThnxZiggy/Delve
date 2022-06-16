@@ -7,6 +7,7 @@ export default function RoomMembers({room, user, socket, memberList, setMemberLi
   const [addingMember, setAddingMember] = useState(false);
   const [newMember, setNewMember] = useState("");
   const [errMsg, setErrMsg] = useState("");
+  const [inRoom, setInRoom] = useState([]);
 
   useEffect(() => {
     axios.get(`/rooms/members/${room.id}`)
@@ -30,6 +31,15 @@ export default function RoomMembers({room, user, socket, memberList, setMemberLi
         setMemberList(usersNameArray);
       })
   }, [room])
+
+  useEffect(() => {
+    socket.on('user_joined', (joinRoomData) => {
+      console.log('connection made', joinRoomData);
+      const newMember = joinRoomData.user.name;
+      console.log('newMember', newMember);
+      setInRoom(prev => ([...prev, newMember]))
+    })
+  }, [socket])
 
   const confirmAddMember = () => {
     if (newMember === "") {
@@ -70,7 +80,7 @@ export default function RoomMembers({room, user, socket, memberList, setMemberLi
     <div>
       <h3>Room Members:</h3>
       {errMsg && <p>{errMsg}</p>}
-      {memberList.map((member) => {
+      {memberList.map((member, index) => {
         if (member === "ADDMEMBER101"){
           return (
             <div>
@@ -85,13 +95,20 @@ export default function RoomMembers({room, user, socket, memberList, setMemberLi
                   <button onClick={() => {setAddingMember(false); setErrMsg("")}}>cancel</button>
                 </div>
               ) : (
-                <button onClick={() => {setAddingMember(true)}}>+</button>
+                <div>
+                  <button onClick={() => {setAddingMember(true)}}>+</button>
+                </div>
               )}
             </div>
           )
         } else {
           return (
-              <div>{member}</div>
+              <div>{inRoom.includes(member) || member === 'me' ? 
+                  <img width="10em" height="10em" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.clker.com%2Fcliparts%2Fu%2Fg%2FF%2FR%2FX%2F9%2Fgreen-circle-hi.png&f=1&nofb=1"/> : 
+                  <img width="10em" height="10em" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.linganorewines.com%2Fwp-content%2Fuploads%2F2021%2F02%2FBlank-Gray-Circle-1024x1024.png&f=1&nofb=1"/>
+                }
+                {`  ${member}`}
+              </div>
           )
         }
       })}

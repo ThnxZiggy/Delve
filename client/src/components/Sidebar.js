@@ -45,9 +45,19 @@ export default function Sidebar({roomRef, user, setState, socket, state, roomsLi
     // console.log('Target',e.currentTarget);
     // console.log('Target value', e.currentTarget.value);
     // console.log(roomsList);
+    const leaveRoomData = {
+      room: state.room,
+      user,
+    }
 
-    socket.emit('leave_room', state.room.id);
-    socket.emit('join_room', thisRoom.id);
+    console.log('this room', thisRoom);
+    const joinRoomData = {
+      room: thisRoom,
+      user,
+    }
+
+    socket.emit('leave_room', leaveRoomData);
+    socket.emit('join_room', joinRoomData);
     setState(prev => ({...prev, room: thisRoom}));
   }
 

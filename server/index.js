@@ -49,17 +49,17 @@ const io = new Server(server, {
 io.on('connection', (socket) => {
   console.log("user connected", socket.id);
 
-  socket.on('join_room', (roomID) => {
-    socket.join(roomID);
-    // console.log(socket.data);
-    console.log(`User with ID: ${socket.id} has joined room: ${roomID}`);
-    
+  socket.on('join_room', (joinRoomData) => {
+    socket.join(joinRoomData.room.id);
+    console.log('new v')
+    console.log(`User with ID: ${socket.id} has joined room: ${joinRoomData.room.id}`);
+    socket.to(joinRoomData.room.id).emit('user_joined', joinRoomData);
   })
 
-  socket.on('leave_room', (roomID) => {
-    console.log('[socket]','leave room :', roomID);
-    socket.leave(roomID);
-    socket.to(roomID).emit('user left', socket.id);
+  socket.on('leave_room', (leaveRoomData) => {
+    console.log('[socket]','leave room :', leaveRoomData.room.id);
+    socket.leave(leaveRoomData.room.id);
+    socket.to(leaveRoomData.room.id).emit('user_left', leaveRoomData);
   })
 
   socket.on('send_message', (data) => {
