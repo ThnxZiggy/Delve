@@ -257,8 +257,8 @@ h1, h2, h3 {
 .chat-window {
   width: 20rem;
   height: 100%;
-  border-radius: .2rem;
-  margin: 0 1rem;
+  border-radius: .2rem 0 .2rem .2rem;
+  margin: 0 0 0 1rem;
 }
 
 .chat-window p {
@@ -268,9 +268,9 @@ h1, h2, h3 {
 .chat-window .chat-header {
   // height: 45px;
   // border-radius: 6px;
-  background: #263238;
+  // background: #263238;
   position: relative;
-  border-radius: .2rem .2rem 0 0;
+  border-radius: .2rem 0 0 0;
   cursor: default;
   font-size: 1.4rem;
 
@@ -401,6 +401,7 @@ h1, h2, h3 {
   // border: 1px solid #263238;
   // border-top: none;
   display: flex;
+  // border-radius: .2rem 0 .2rem .2rem;
   // background-color: blue !important;
   // border: .08rem solid $dark-700;
   // border-radius: 0 0 .2rem .2rem;
@@ -415,7 +416,9 @@ h1, h2, h3 {
   padding: 0 0.7em;
   font-size: 1em;
   border-right: .05rem dotted;
-  border-top: .1rem inset;
+  border-top: .1rem;
+  border-radius: .2rem 0 .2rem .2rem;
+  // border-radius: .2rem 0 .2rem .2rem;
 
   // outline: none;
   // font-family: "Open Sans", sans-serif;
@@ -432,6 +435,7 @@ h1, h2, h3 {
   background: transparent;
   outline: none;
   font-size: 1.5rem;
+  border-radius: .2rem 0 .2rem .2rem;
   // color: lightgray;
   // background-color: blue !important;
 }
@@ -612,4 +616,66 @@ h1, h2, h3 {
     font-size: 3rem;
     line-height: 1.6rem;
   }
+}
+
+
+//room members sidebar
+
+.room-members {
+  background-color: lighten($blue-000, 5%);
+  border-radius: 0 .2rem .2rem 0;
+  box-shadow: .01rem .05rem .4rem .08rem $teal-700;
+  height: 10rem;
+  width: 8rem;
+  overflow-wrap: break-word;
+  font-size: .8rem;
+  display:flex;
+  flex-direction: column;
+  align-items: left;
+
+  h3 {
+    font-size: 1.5rem;
+    text-align: center;
+    border-radius: 0 .2rem 0 0;
+    background-color: $teal-400;
+    padding-top: .6rem;
+    padding-bottom: .74rem;
+    position: relative;
+    font-size: 1.4rem;
+  }
+  .member-name {
+    padding-left: .5rem;
+  }
+
+  .add-member {
+    height: 1.1rem;
+    width: 1.1rem;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20%;
+    color: $dark-700;
+    border: 0;
+    margin: .5rem;
+    font-size: 1.1rem;
+    box-shadow: .01rem .05rem .05rem .08rem $dark-400;
+    &:hover {
+      transform: translateY(-.05rem) translateX(.05rem);
+      box-shadow: .01rem .04rem .2rem .05rem $dark-400;
+    }
+    
+  }
+
+  .add-member-yes {
+    background-color: blue;
+  }
+
+  .add-member-no {
+    background-color: blue;
+  }
+
+  input {
+    background-color: blue;
+  }
+  // word-break: break-word;
 }

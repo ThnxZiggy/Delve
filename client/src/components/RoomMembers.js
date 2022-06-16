@@ -67,8 +67,8 @@ export default function RoomMembers({room, user, socket, memberList, setMemberLi
   }
 
   return (
-    <div>
-      <h3>Room Members:</h3>
+    <div className="room-members">
+      <h3>Members</h3>
       {errMsg && <p>{errMsg}</p>}
       {memberList.map((member) => {
         if (member === "ADDMEMBER101"){
@@ -81,17 +81,17 @@ export default function RoomMembers({room, user, socket, memberList, setMemberLi
                     value={newMember} 
                     onChange={(e) => setNewMember(e.target.value)}
                   />
-                  <button onClick={confirmAddMember}>ADD</button>
-                  <button onClick={() => {setAddingMember(false); setErrMsg("")}}>cancel</button>
+                  <button onClick={confirmAddMember} className='add-member-yes'>ADD</button>
+                  <button onClick={() => {setAddingMember(false); setErrMsg("")}} className='add-member-no'>cancel</button>
                 </div>
               ) : (
-                <button onClick={() => {setAddingMember(true)}}>+</button>
+                <button onClick={() => {setAddingMember(true)}} className="add-member">+</button>
               )}
             </div>
           )
         } else {
           return (
-              <div>{member}</div>
+              <div className='member-name'>{member}</div>
           )
         }
       })}

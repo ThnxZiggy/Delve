@@ -182,6 +182,30 @@
     }
   }
 
+  //members
+  .room-members {
+    box-shadow: 0rem 0rem .3rem .1rem $party-pale;
+    border: .02rem solid;
+    background-color: $party-pale;
+
+    h3 {
+      background-color: $party-1;
+      color: $party-pale;
+    }
+    .add-member {
+      background-color: $party-1;
+      color: $party-pale;
+      &:hover {
+        background-color: $lime-500;
+        color: $party-1;
+        transform: translateY(-.05rem) translateX(.05rem);
+        // box-shadow: .01rem .05rem .2rem .08rem $dark-400;
+      }
+        
+    }
+
+  }
+
 
   .create-room button {
     background-color: $party-pale !important;

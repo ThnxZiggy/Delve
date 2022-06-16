@@ -125,6 +125,21 @@
   }
 
 
+  //members section
+  .room-members {
+    .add-member {
+      background-color: $blue-200;
+      &:hover {
+        background-color: lighten($blue-200, 5%);
+        transform: translateY(-.05rem) translateX(.05rem);
+        box-shadow: .01rem .05rem .3rem .08rem $dark-400;
+      }
+    }
+  }
+
+
+
+
   //create room page
   .create-room button {
     background-color: $teal-200 !important;
