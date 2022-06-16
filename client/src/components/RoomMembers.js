@@ -1,8 +1,12 @@
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
+import { Socket } from 'socket.io-client';
 
-export default function RoomMembers({room, user}) {
-  const [memberList, setMemberList] = useState([]);
+export default function RoomMembers({room, user, socket, memberList, setMemberList}) {
+  // const [memberList, setMemberList] = useState([]);
+  const [addingMember, setAddingMember] = useState(false);
+  const [newMember, setNewMember] = useState("");
+  const [errMsg, setErrMsg] = useState("");
 
   useEffect(() => {
     axios.get(`/rooms/members/${room.id}`)
@@ -16,19 +20,81 @@ export default function RoomMembers({room, user}) {
             usersNameArray.push('me');
           }
         }
+        for (let i = 0; i < 4; i++) {
+          if (!usersNameArray[i]) {
+            usersNameArray.push("ADDMEMBER101");
+            break;
+          }
+        }
         
         setMemberList(usersNameArray);
       })
   }, [room])
 
+  const confirmAddMember = () => {
+    if (newMember === "") {
+      setErrMsg("member name cannot be blank");
+      return
+    }
+    if (memberList.includes(newMember)) {
+      setErrMsg(`${newMember} is already a member of ${room.name}`)
+      setNewMember('')
+      return
+    }
+    if (newMember === user.name) {
+      setErrMsg(`You can't add yourself to a room`)
+      setNewMember('')
+      return
+    }
+    axios.put(`/rooms/members/add/${room.id}`, {userName: newMember})
+      .then(res => {
+        if (res.data !== 'success') {
+          setErrMsg(res.data);
+          setNewMember('');
+          return
+        }
+        setMemberList(prev => (prev.length < 4 ? [newMember, ...prev] : [newMember, ...prev.filter(user => user !== 'ADDMEMBER101')]));
+        setErrMsg('');
+        setNewMember('');
+        setAddingMember(false);
+        const addedData = {
+          room,
+          addedUser: newMember,
+          adder: user,
+        }
+        socket.emit('added_to_room', addedData)
+      })
+  }
+
   return (
     <div>
       <h3>Room Members:</h3>
-      {memberList.map(member => {
+      {errMsg && <p>{errMsg}</p>}
+      {memberList.map((member) => {
+        if (member === "ADDMEMBER101"){
+          return (
+            <div>
+              {addingMember ? (
+                <div>
+                  <input 
+                    placeholder='member name' 
+                    value={newMember} 
+                    onChange={(e) => setNewMember(e.target.value)}
+                  />
+                  <button onClick={confirmAddMember}>ADD</button>
+                  <button onClick={() => {setAddingMember(false); setErrMsg("")}}>cancel</button>
+                </div>
+              ) : (
+                <button onClick={() => {setAddingMember(true)}}>+</button>
+              )}
+            </div>
+          )
+        } else {
           return (
               <div>{member}</div>
           )
-        })}
+        }
+      })}
     </div>
   )
 }

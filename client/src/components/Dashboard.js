@@ -8,7 +8,7 @@ import axios from 'axios';
 import confetti from 'canvas-confetti';
 // import Video from './Video';
 
-export default function Dashboard({roomsList, setRoomsList, user, room, socket, makingRoom, sessionComplete, setState}) {
+export default function Dashboard({roomRef, memberList, setMemberList, roomsList, setRoomsList, user, room, socket, makingRoom, sessionComplete, setState, state}) {
 
   const [url, setUrl] = useState("");
   const [roomChangeMessage, setRoomChangeMessage] = useState("")
@@ -57,6 +57,21 @@ export default function Dashboard({roomsList, setRoomsList, user, room, socket, 
       }
     })
 
+    socket.on('added_to_room_info', (addedData) => {
+      if (user.name === addedData.addedUser) {
+        setRoomsList(prev => ([...prev, addedData.room]));
+
+        setRoomChangeMessage(`${addedData.adder.name} has added you to room: ${addedData.room.name}`);
+        setTimeout(() => {
+          setRoomChangeMessage('');
+        }, 2000)
+      }
+
+      if (roomRef.current.id === addedData.room.id) {
+        setMemberList(prev => (prev.length < 4 ? [addedData.addedUser, ...prev] : [addedData.addedUser, ...prev.filter(user => user !== 'ADDMEMBER101')]));
+      }
+    })
+
   }, [socket])
 
   const addCompletedSession = () => {
@@ -68,9 +83,17 @@ export default function Dashboard({roomsList, setRoomsList, user, room, socket, 
 
   return (
     <div>
-    { makingRoom ? (
-      <NewRoom user={user} setState={setState} socket={socket}/>
-      ) : (
+
+      {makingRoom && <NewRoom user={user} setState={setState} socket={socket}/>}
+
+      {room.id < 0 && !makingRoom &&
+        <div>
+          {roomChangeMessage && <p>{roomChangeMessage}</p>}
+          {<h1>starting page</h1>}
+        </div>
+      }
+
+      {room.id > 0 && !makingRoom &&
         <div>
           {roomChangeMessage && <p>{roomChangeMessage}</p>}
           <span className='current-activity'>
@@ -89,11 +112,11 @@ export default function Dashboard({roomsList, setRoomsList, user, room, socket, 
               <ReactPlayer playing={true} style={{border: "solid 2px black"}} url={url} controls={true}/>
             </div>
             <Chat socket={socket} user={user} room={room} setUrl={setUrl}/>
-            <RoomMembers room={room} user={user}/>
+            <RoomMembers memberList={memberList} setMemberList={setMemberList} socket={socket} room={room} user={user}/>
           </div>
         </div>
-      )
-    }
+      }
+
     </div>
   )
 }
