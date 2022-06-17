@@ -125,7 +125,71 @@
   }
 
 
+  //members section
+  .room-members {
+    .add-member {
+      background-color: $blue-200;
+      &:hover {
+        background-color: lighten($blue-200, 5%);
+        transform: translateY(-.05rem) translateX(.05rem);
+        box-shadow: .01rem .05rem .3rem .08rem $dark-400;
+      }
+    }
+  }
+
+  .add-member-yes {
+    background-color: $blue-400;
+    &:hover {
+      background-color: lighten($blue-400, 5%);
+      // color: lighten($rose-200, 5%);
+    }
+  }
+
+  .add-member-no {
+    background-color: darken($rose-200, 6%);
+    &:hover {
+      background-color: darken($rose-200, 50%);
+      color: lighten($rose-200, 5%);
+    }
+  }
+
+  input {
+    background-color: $blue-pale;
+  }
+
+
+  // .delete-yes {
+  //   background-color: lighten($rose-200, 6%);
+  //   &:hover {
+  //     background-color: darken($rose-200, 50%);
+  //     color: lighten($rose-200, 5%);
+  //   }
+  // }
+
+  // .delete-no {
+  //   background-color: lighten($rose-200, 6%);
+  //   &:hover {
+  //     background-color: $blue-900;
+  //     color: lighten($rose-200, 5%);
+  //   }
+  // }
+
+
+
+
   //create room page
+
+    //create room
+
+  .create-room {
+      background-color: $teal-100;
+      box-shadow: .01rem .09rem .3rem .08rem $teal-800;
+      
+  }
+
+  // .create-room-form {
+  //   background-color: $teal-100;
+  // }
   .create-room button {
     background-color: $teal-200 !important;
     box-shadow: .01rem .05rem .3rem .08rem $teal-600;

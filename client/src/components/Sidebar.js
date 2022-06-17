@@ -93,7 +93,7 @@ export default function Sidebar({roomRef, user, setState, socket, state, roomsLi
   }
   
   return (
-    <div>
+    <div className="sidebar-container">
       <div>
         {confirmDelete && 
           <div className='delete-confirmation'>
