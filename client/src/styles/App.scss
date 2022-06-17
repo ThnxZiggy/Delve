@@ -189,6 +189,23 @@ h1, h2, h3 {
 
 .current-activity {
   display: flex;
+  flex-direction: row;
+  // justify-content: left;
+  align-items: center;
+  padding: 1rem;
+
+}
+
+
+.progress-bar {
+  margin: 0 !important;
+  padding-left: 1.5rem;
+  border: 0 !important;
+  // color: blue !important;
+  background-color: transparent !important;
+  h5 {
+    margin-bottom: 0 !important;
+  }
 }
 
 .mark-complete {
@@ -201,6 +218,7 @@ h1, h2, h3 {
   font-size: 2.5rem;
   border: .2rem double;
   margin-right: 2rem;
+  // margin-top: .5rem;
   background-color: transparent;
 }
 
@@ -746,6 +764,8 @@ h1, h2, h3 {
   }
 
 }
+
+
 
 
 

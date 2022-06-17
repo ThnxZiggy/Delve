@@ -81,7 +81,6 @@ function App() {
         {state.user.name && <Dashboard roomRef={roomRef} memberList={memberList} setMemberList={setMemberList} state={state} roomsList={roomsList} setRoomsList={setRoomsList} setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} sessionComplete={state.sessionComplete}/> }
         {!state.user.name && !state.signingUp && <Login socket={socket} setState={setState}/>}
         {!state.user.name && state.signingUp && <SignUp socket={socket} setState={setState}/>}
-
       </header>
       </div>
   );
