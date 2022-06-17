@@ -36,7 +36,10 @@ export default function Sidebar({roomRef, user, setState, socket, state, roomsLi
   }, [socket])
 
   const changeRoom = (e) => {
-    const thisRoom = roomsList.filter(room => room.name === e.currentTarget.value)[0];
+    // console.log('rooms list', roomsList[2].id);
+    const currentID = parseInt(e.currentTarget.value);
+    console.log(currentID);
+    const thisRoom = roomsList.filter(el => el.id == currentID)[0];
     setRoom(prev => thisRoom);
     roomRef.current = thisRoom;
     console.log(roomRef);
@@ -59,6 +62,7 @@ export default function Sidebar({roomRef, user, setState, socket, state, roomsLi
     }
 
     socket.emit('join_room', joinRoomData);
+
     setState(prev => ({...prev, room: thisRoom}));
   }
 
@@ -105,13 +109,12 @@ export default function Sidebar({roomRef, user, setState, socket, state, roomsLi
             <div>
               <button 
                 onClick={changeRoom} 
-                value={thisRoom.name}
+                value={thisRoom.id}
                 // style={{border: "2px solid black", width: "200px"}}
-                class={state.room.name === thisRoom.name ? "bg-success" : "bg-primary"}
+                class={state.room.id === thisRoom.id ? "bg-success" : "bg-primary"}
               >
               <h3>{thisRoom.name}</h3>
               <h2>{thisRoom.date_time}</h2>
-              <h6>Sessions Completed:{thisRoom.session_number}</h6>
               <i class="fa-solid fa-trash" onClick={(e) => deleteRoom(e, thisRoom)} ></i>
             </button></div>
           )

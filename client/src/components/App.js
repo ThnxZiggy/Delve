@@ -7,6 +7,7 @@ import Dashboard from './Dashboard';
 import Nav from './Nav';
 import Sidebar from './Sidebar';
 import About from './About';
+import SignUp from './SignUp';
 
 import partyConfetti from "../helpers/confetti.js"
 
@@ -35,24 +36,14 @@ function App() {
     room: {id: -1},
     makingRoom: false,
     aboutPage: false,
-    sessionComplete: false
+    sessionComplete: false, 
+    signingUp: false,
   });
 
   const [roomsList, setRoomsList] = useState([]);
   const [theme, setTheme] = useState('App light');
   const [memberList, setMemberList] = useState([]);
   const roomRef = useRef('');
-  
-  // useEffect(() =>{
-  //   axios.get('/rooms')
-  //     .then(res => {
-  //       const unfilteredRooms = res.data;
-  //       const filteredRooms = unfilteredRooms.filter(room => room.user_1_id === state.user.id || room.user_2_id === state.user.id || room.user_3_id === state.user.id || room.user_4_id === state.user.id)
-  //       console.log('filteredRooms', filteredRooms);
-  //       socket.emit('join_room', filteredRooms[0].id);
-  //       setState(prev => ({...prev, room:filteredRooms[0]}));
-  //     })
-  // }, [state.user])
 
   useEffect(() =>{
     axios.get('/rooms')
@@ -88,7 +79,9 @@ function App() {
       <header className="App-header" style={{display: 'flex',}}>
         {state.user.name && <Sidebar roomRef={roomRef} socket={socket} user={state.user} setState={setState} state={state} roomsList={roomsList} setRoomsList={setRoomsList}/>}
         {state.user.name && <Dashboard roomRef={roomRef} memberList={memberList} setMemberList={setMemberList} state={state} roomsList={roomsList} setRoomsList={setRoomsList} setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} sessionComplete={state.sessionComplete}/> }
-        {!state.user.name && <Login socket={socket} onSubmit={setState}/>}
+        {!state.user.name && !state.signingUp && <Login socket={socket} setState={setState}/>}
+        {!state.user.name && state.signingUp && <SignUp socket={socket} setState={setState}/>}
+
       </header>
       </div>
   );

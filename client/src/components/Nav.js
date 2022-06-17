@@ -39,9 +39,9 @@ export default function Nav({user, onClick, socket, state}) {
 
   const makeRoom = () => {
     if (state.makingRoom) {
-      onClick(prev => ({...prev, makingRoom: false}))
+      onClick(prev => ({...prev, makingRoom: false, aboutPage: false}))
     }else {
-      onClick(prev => ({...prev, makingRoom: true}))
+      onClick(prev => ({...prev, makingRoom: true, aboutPage: false}))
     }
   }
 
@@ -51,6 +51,17 @@ export default function Nav({user, onClick, socket, state}) {
     }else {
       onClick(prev => ({...prev, aboutPage: true}))
     }
+  }
+
+  const homePage = () => {
+    onClick(prev => ({...prev, aboutPage: false, makingRoom: false, room: {id: -1}}))
+
+    const leaveRoomData = {
+      room: state.room,
+      user,
+    }
+
+    socket.emit('leave_room', leaveRoomData);
   }
 
   return (
@@ -74,6 +85,7 @@ export default function Nav({user, onClick, socket, state}) {
         })}
       </div> */}
       <div className="nav-banner buttons">
+        <div><button onClick={homePage} type="button">Home</button></div>
         <div><button onClick={showAboutPage} type="button">About Us</button></div>
         <div><button onClick={makeRoom} type="button">Create New Room</button></div>
         <div><button onClick={logout} type="button">Logout</button></div>

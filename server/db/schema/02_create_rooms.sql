@@ -9,6 +9,7 @@ CREATE TABLE rooms (
   user_3_id integer REFERENCES users(id) ON DELETE CASCADE,
   user_4_id integer REFERENCES users(id) ON DELETE CASCADE,
   session_number integer DEFAULT 0,
+  session_goal integer DEFAULT 10,
   date_time VARCHAR(255),
   url VARCHAR(255)
 );

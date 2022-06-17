@@ -7,16 +7,18 @@ export default function NewRoom({roomsList, setRoomsList, setState, user, socket
   const [user2, setUser2] = useState("");
   const [user3, setUser3] = useState("");
   const [user4, setUser4] = useState("");
-  // const [meetTime, setMeetTime] = useState("");
+  const [sessionGoal, setSessionGoal] = useState("");
   const [errMsg, setErrMsg] = useState('');
 
   const createRoom = (e) => {
     e.preventDefault();
 
-    axios.post(`/rooms/${user.id}`, {name, user2, user3, user4})
+    axios.post(`/rooms/${user.id}`, {name, user2, user3, user4, sessionGoal})
       .then(res => {
         if (typeof res.data !== "string") {
           const roomData = res.data.rows[0];
+          console.log('roomData', roomData);
+          console.log('roomData id', roomData.id)
           roomData.maker = user.name
           setState(prev => ({...prev, makingRoom: false}))
           console.log('new rooms list')
@@ -34,7 +36,6 @@ export default function NewRoom({roomsList, setRoomsList, setState, user, socket
       <button onClick={() => setState(prev => ({...prev, makingRoom: false}))} className='back-button'><span>&#x2190;</span><br/>Back</button>
       <div className="create-room-form">
       <h1>Create a Room</h1>
-    
         <form onSubmit={createRoom} >
         <p className="alert-danger">{errMsg}</p>
           <div className="form-entry">
@@ -74,13 +75,16 @@ export default function NewRoom({roomsList, setRoomsList, setState, user, socket
               value={user4}
             />
           </div>
-            {/* <input 
+          <div className="form-entry">
+            <input 
+              placeholder='# of meet-ups goal'
               type="text"
-              id="meetTime"
-              onChange={(e) => setMeetTime(e.target.value)}
-              value={meetTime}
+              id="sessionGoal"
+              onChange={(e) => setSessionGoal(e.target.value)}
+              value={sessionGoal}
               required 
-            /> */}
+            />
+          </div>  
 
           <button type="submit" className="me-2">Create Room</button>
           

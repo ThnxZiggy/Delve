@@ -80,7 +80,7 @@ export default function Chat({socket, user, room, setUrl}) {
             return (
               <div className="message" id={user.name === messageContent.author ? "you" : "other"}>
                 <div>
-                  <div className="message-content">
+                  <div className={messageContent.content.slice(0,8) === "https://" ? "message-content link_message" : "message-content"}>
                     <p onClick={changeUrl}>{messageContent.content}</p>
                   </div>
                   <div className="message-meta">
