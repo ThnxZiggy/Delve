@@ -2,6 +2,7 @@ import confetti from 'canvas-confetti';
 require('canvas-confetti');
 
 
+
 //confetti
 // require('canvas-confetti');
 // const myCanvas = document.createElement('canvas');
@@ -30,6 +31,8 @@ require('canvas-confetti');
       angle: 60,
       spread: 55,
       origin: { x: 0, y:1 },
+      // colors: ['#1c1c1d']
+      colors: [	'#66FF66','#FF00CC']
     });
     confetti({
       // startVelocity: 55,
@@ -37,6 +40,8 @@ require('canvas-confetti');
       angle: 120,
       spread: 55,
       origin: { x: 1, y:1 },
+      // colors: ['#1c1c1d']
+      colors: ['#66FF66', '#FF00CC']
     });
 
     //top corners
@@ -46,6 +51,8 @@ require('canvas-confetti');
       angle: 120,
       spread: 55,
       origin: { x: 1, y: 0 },
+      // colors: ['#1c1c1d']
+      colors: ['#66FF66', '#FF00CC']
     });
 
     confetti({
@@ -54,6 +61,8 @@ require('canvas-confetti');
       angle: 60,
       spread: 55,
       origin: { x: 0, y: 0 },
+      // colors: ['#1c1c1d']
+      colors: ['#66FF66', '#FF00CC']
     });
 
     //top middle

@@ -90,7 +90,7 @@ function App() {
         {state.user.name && <Dashboard roomRef={roomRef} memberList={memberList} setMemberList={setMemberList} state={state} roomsList={roomsList} setRoomsList={setRoomsList} setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} sessionComplete={state.sessionComplete}/> }
         {!state.user.name && <Login socket={socket} onSubmit={setState}/>}
       </header>
-    </div>
+      </div>
   );
 }
 
