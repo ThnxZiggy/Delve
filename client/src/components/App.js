@@ -63,6 +63,8 @@ function App() {
     <div className={theme}>
       <div className='banner'>
        <h1>DELVE</h1>
+       {theme === "App party" && <div className="party"><span className="smiley-1">🥳</span><span className="smiley-2">🥳</span><span className="smiley-3">🥳</span></div>}
+
         <span className="theme__icons">
           <i className="fa-solid fa-sun" onClick={() => setTheme('App light')}></i>
           <i className="fa-solid fa-moon" onClick={() => {setTheme('App dark')}}></i>
@@ -71,6 +73,8 @@ function App() {
       </div>
 
       {state.user.name && <Nav socket={socket} user={state.user} onClick={setState} state={state}/>}
+      {/* {theme === "App party" && <div className="party"><span className="smiley-1">🥳</span><span className="smiley-2">🥳</span><span className="smiley-3">🥳</span></div>} */}
+
       {state.aboutPage && <About setState={setState}/>}
       <header className="App-header" style={{display: 'flex',}}>
         {state.user.name && <Sidebar roomRef={roomRef} socket={socket} user={state.user} setState={setState} state={state} roomsList={roomsList} setRoomsList={setRoomsList}/>}
@@ -79,7 +83,7 @@ function App() {
         {!state.user.name && state.signingUp && <SignUp socket={socket} setState={setState}/>}
 
       </header>
-    </div>
+      </div>
   );
 }
 

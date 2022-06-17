@@ -2,19 +2,61 @@
 
 
 .dark {
-  background-color: $teal-800;
+////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////
+
+
+  // background-color: $teal-800;
   background: repeating-linear-gradient(
     45deg,
-    #2b2b2b 0%,
-    #2b2b2b 10%,
-    #222222 0%,
-    #222222 50%
+    $dark-700 0%,
+    $teal-700 10%,
+    $dark-700 0%,
+    $teal-900 50%
   )
   0 / 15px 15px;
+
+  // background: repeating-linear-gradient(45deg, $teal-700, $teal-000 15%, $teal-400 20%);
+
+  // background: repeating-linear-gradient(190deg, $teal-700 40px,
+  // $teal-400 50px, $teal-100 60px,
+  // $teal-900 70px, $dark-700 180px, $teal-700 220px,
+  // $teal-400 230px, $teal-100 240px,
+  // $teal-900 250px, $dark-700 300px, $teal-700 370px,
+  // $teal-400 380px, $teal-100 390px,
+  // $teal-900 400px );
+
+  // repeating-linear-gradient(-190deg, $teal-400 30px,
+  // $teal-100 60px, $teal-900 90px,
+  // $teal-700 120px, $teal-400 150px,
+  // $teal-100 180px, $teal-900 210px,
+  // $teal-700 230px);
+  // repeating-linear-gradient(-190deg, rgba(255, 0, 0, 0.5) 30px,
+  // rgba(255, 153, 0, 0.5) 60px, rgba(255, 255, 0, 0.5) 90px,
+  // rgba(0, 255, 0, 0.5) 120px, rgba(0, 0, 255, 0.5) 150px,
+  // rgba(75, 0, 130, 0.5) 180px, rgba(238, 130, 238, 0.5) 210px,
+  // rgba(255, 0, 0, 0.5) 230px);
+// repeating-linear-gradient(23deg, red 50px, orange 100px,
+//   yellow 150px, green 200px, blue 250px,
+//   indigo 300px, violet 350px, red 370px);
+
 
   h1 {
     color: $teal-000;
 
+  }
+
+  input {
+    color: $teal-000;
+    background-color:  $teal-800;
+    border: 0;
+    padding-left: .5rem;
+    box-shadow: .01rem .05rem .2rem .1rem $teal-000;
+    outline: 0 !important;
+    &::placeholder {
+      color: $teal-000;
+    }
   }
 
 
@@ -26,12 +68,12 @@
 
     h1 {
       font-size: 5rem;
-      animation: neon1 1s ease-in-out infinite alternate;
+      animation: neonGlow 1s ease-in-out infinite alternate;
 
 
     }
 
-    @keyframes neon1 {
+    @keyframes neonGlow {
       from {
       text-shadow: 0 0 2px $teal-000, 0 0 4px $teal-100, 0 0 8px $teal-200, 0 0 16px $teal-400,
       0 0 24px $teal-600, 0 0 48px $teal-700;
@@ -118,6 +160,8 @@
 
 
 
+
+
   //chat section
   .chat-window {
     box-shadow: 0rem 0rem .4rem .2rem $teal-000;
@@ -125,23 +169,38 @@
   }
 
   .chat-window .chat-body {
-    background-color: $dark-000;
+    background-color: $dark-700;
+    color: $teal-000;
+
     
   }
 
   .chat-window .chat-header {
     background-color: $teal-700;
     color: $teal-000;
+    // box-shadow: .01rem .05rem .2rem .1rem $teal-000;
+    border-bottom: .02rem solid $teal-000 ;
   }
 
   #other .message-content {
-    background-color: $teal-800;
-    color: $teal-000;
+    background-color: $teal-400;
+    color: $teal-900;
+    // box-shadow: .01rem .05rem .1rem .1rem $teal-000;
+    // margin-bottom: .1rem;
   }
 
   #you .message-content {
     background-color: $teal-600;
     color: $teal-000;
+    // box-shadow: .01rem .05rem .1rem .1rem $teal-000;
+  }
+
+  .chat-window .chat-footer {
+    border-top: .02rem solid $teal-000;
+
+    input {
+      border-right: .02rem solid $teal-000;
+    }
   }
 
   .chat-footer button {
@@ -160,8 +219,9 @@
 
   //members section
   .room-members {
-    background-color: $teal-000;
+    background-color: $dark-700;
     box-shadow: 0rem 0rem .4rem .2rem $teal-000;
+    color: $teal-000;
 
     h3 {
       background-color: $teal-700;
@@ -176,6 +236,14 @@
         // box-shadow: .01rem .05rem .2rem .08rem $dark-400;
       }
         
+    }
+
+    .member-name {
+      img {
+        filter: contrast(200%);
+        filter: rotate(95deg);
+        // filter: brightness(1.2);
+      }
     }
 
   }
@@ -243,7 +311,7 @@
 
 
   input {
-    background-color: $dark-000;
+    background-color: $dark-700;
   }
 
 
