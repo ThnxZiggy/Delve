@@ -101,6 +101,7 @@ export default function Dashboard({roomRef, memberList, setMemberList, roomsList
           <span className='current-activity'>
             {sessionComplete ? <button className='great-work'>&#x2605;</button> :<button onClick={() => {addCompletedSession(); confetti()}} className="mark-complete">&#10003;</button>}
             <h1>{room.name}</h1>
+            <Progress state={state}/>
           </span>
           <div style={{display: "flex"}}>
             <div className={"me-4"}>
@@ -115,7 +116,7 @@ export default function Dashboard({roomRef, memberList, setMemberList, roomsList
             </div>
             <Chat socket={socket} user={user} room={room} setUrl={setUrl}/>
             <RoomMembers memberList={memberList} setMemberList={setMemberList} socket={socket} room={room} user={user}/>
-            <Progress state={state}/>
+            
           </div>
         </div>
       }
