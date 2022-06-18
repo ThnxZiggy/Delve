@@ -10,30 +10,12 @@ export default function Chat({socket, user, room, setUrl}) {
     axios.get(`/messages/${room.id}`)
       .then(res => {
         // console.log(res.data);
-        res.data.forEach(message => message.time = message.time.slice(14,19))
+        console.log('newest')
+        res.data.forEach(message => message.time = message.time.slice(11, 16))
         setMessageList((prev) => [...res.data]); 
       })
   }, [room])
   
-  ////////////////////////// WORKING VERSION BEFORE POST REQUEST //////////////////////////
-  // const sendMessage = async () => {
-  //   // console.log(room);
-  //   if (currentMessage !== '') {
-  //     const messageData = {
-  //       room: room,
-  //       author: user.name,
-  //       content: currentMessage,
-  //       time: new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes(),
-  //     };
-
-  //     await socket.emit('send_message', messageData);
-
-  //     setMessageList((prev) => [...prev, messageData]);
-  //     setCurrentMessage('');
-  //   }
-  // }
-///////////////////////////////////////////////////////////////////////////////////////////
-
   const sendMessage = () => {
     // console.log(room);
     if (currentMessage !== '') {
@@ -44,7 +26,8 @@ export default function Chat({socket, user, room, setUrl}) {
         time: new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes(),
       };
     
-    axios.post(`/messages/${room.id}/${user.id}`, {currentMessage}).then(res => {
+    axios.post(`/messages/${room.id}/${user.id}`, {currentMessage})
+      .then(res => {
       socket.emit('send_message', messageData);
 
       setMessageList((prev) => [...prev, messageData]);
