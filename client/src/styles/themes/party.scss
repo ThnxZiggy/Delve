@@ -340,6 +340,13 @@
   }
 
 
+  .room-change-message {
+    background-color: $party-2;
+    box-shadow: .01rem .05rem .4rem .08rem $party-pale;
+    color: $party-pale;
+  }
+
+
   //chat section
   .chat-window {
     box-shadow: 0rem 0rem .3rem .1rem $party-pale;

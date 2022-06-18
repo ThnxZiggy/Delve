@@ -161,7 +161,11 @@
     color: $teal-100 !important;
   }
 
-
+  .room-change-message {
+    background-color: $teal-600;
+    box-shadow: .01rem .05rem .4rem .08rem $teal-100;
+    color: $teal-000;
+  }
 
 
 

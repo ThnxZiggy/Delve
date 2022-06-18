@@ -105,6 +105,12 @@
     color: $light-800 !important;
   }
 
+  .room-change-message {
+    background-color: $light-200;
+    box-shadow: .01rem .05rem .4rem .08rem $light-800;
+    font-size: 2rem;
+  }
+
 
   //chat section
 
