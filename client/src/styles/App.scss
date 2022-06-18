@@ -8,12 +8,6 @@
 
 
 
-.video-container {
-  background-color: blue !important;
-
-}
-
-
 body {
   min-width: 100vh;
   min-height: 100vh;
@@ -41,6 +35,33 @@ h1, h2, h3 {
   // text-transform: uppercase
 }
 
+
+//login form
+.w-100 {
+  div {
+    input {
+      margin-bottom: 1rem;
+    }
+  }
+  .me-2, button {
+    // background-color: purple;
+    padding: .6rem;
+    border-radius: 10%;
+    border: 0;
+    margin-bottom: 2rem;
+    &:hover {
+      transform: translateY(-.1rem) translateX(.1rem);
+      box-shadow: 0rem .1rem .1rem .05rem $teal-000;
+    }
+
+  }
+
+  h2 {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+
+}
 
 //delve banner
 .banner {

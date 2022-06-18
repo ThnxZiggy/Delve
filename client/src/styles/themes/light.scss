@@ -10,6 +10,30 @@
     color: $light-800;
   }
 
+  // w-100 {
+  //   .me-2, button {
+  //     background-color: $light-200 !important;
+  //     &:hover {
+  //       transform: translateY(-.1rem) translateX(.1rem);
+  //       box-shadow: 0rem .1rem .1rem .05rem $light-800;
+  //     }
+  
+  //   }
+  
+  // }
+
+  .w-100 {
+    .me-2, button {
+      background-color: $light-600 !important;
+      color: $light-100;
+      &:hover {
+        transform: translateY(-.1rem) translateX(.1rem);
+        box-shadow: 0rem .1rem .1rem .05rem $light-800;
+      }
+  
+    }
+  }
+
   input {
     // background-color: $blue-pale;
     background-color: $light-100;
@@ -108,7 +132,6 @@
   .room-change-message {
     background-color: $light-200;
     box-shadow: .01rem .05rem .4rem .08rem $light-800;
-    font-size: 2rem;
   }
 
 

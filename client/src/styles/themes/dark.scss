@@ -47,6 +47,19 @@
 
   }
 
+  .w-100 {
+    color: $teal-000;
+    .me-2, button {
+      background-color: $teal-600 !important;
+      color: $light-100;
+      &:hover {
+        transform: translateY(-.1rem) translateX(.1rem);
+        box-shadow: 0rem .1rem .1rem .05rem $teal-000;
+      }
+  
+    }
+  }
+
   input {
     color: $teal-000;
     background-color:  $teal-800;
