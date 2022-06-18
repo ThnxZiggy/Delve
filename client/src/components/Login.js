@@ -44,7 +44,7 @@ export default function Login({ setState, error, socket, state}) {
       <p className="alert-danger">{errMsg}</p>
       <br></br>
       <h1>Login</h1>
-      <Form onSubmit={handleSubmit} className="w-100" >
+      <Form onSubmit={handleSubmit} className="login" >
         <Form.Group>
           <Form.Label>Enter Your Username</Form.Label>
           <Form.Control 
@@ -73,7 +73,8 @@ export default function Login({ setState, error, socket, state}) {
           /> */}
         </Form.Group>
         <Button type="submit" className="me-2">Login</Button>
-        <h4>Don't have an Account?</h4><button onClick={() => setState(prev => ({...prev, signingUp: true}))}>Sign Up</button>
+        <hr/>
+        <h2>Don't have an Account?</h2><button onClick={() => setState(prev => ({...prev, signingUp: true}))}>Sign Up</button>
         {/* <Button variant="secondary">Create A New Id</Button> */}
       </Form>
       

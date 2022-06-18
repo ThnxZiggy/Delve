@@ -63,6 +63,7 @@ export default function SignUp ({setState}) {
             />
           </Form.Group>
           <Button type="submit" className="me-2">Sign Up</Button>
+          <hr />
           <h4>Already have an account?</h4><button onClick={() => setState(prev => ({...prev, signingUp: false}))}>Login</button>
           {/* <Button variant="secondary">Create A New Id</Button> */}
         </Form>

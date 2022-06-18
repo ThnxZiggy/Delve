@@ -8,12 +8,6 @@
 
 
 
-.video-container {
-  background-color: blue !important;
-
-}
-
-
 body {
   min-width: 100vh;
   min-height: 100vh;
@@ -41,6 +35,63 @@ h1, h2, h3 {
   // text-transform: uppercase
 }
 
+
+
+//login form
+.login {
+  width: 40%;
+
+  div {
+    input {
+      margin-bottom: 1rem;
+      // width: 40%;
+    }
+  }
+  .me-2, button {
+    // background-color: purple;
+    padding: .6rem;
+    border-radius: 10%;
+    border: 0;
+    margin-bottom: 2rem;
+    &:hover {
+      transform: translateY(-.1rem) translateX(.1rem);
+      box-shadow: 0rem .1rem .1rem .05rem $teal-000;
+    }
+
+  }
+
+  h2 {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  //  login {
+  //   width: 40% !important;
+  // }
+  
+
+
+}
+
+.w-100 {
+  .me-2, button {
+    // background-color: purple;
+    padding: .6rem;
+    border-radius: 10%;
+    border: 0;
+    margin-bottom: 2rem;
+    &:hover {
+      transform: translateY(-.1rem) translateX(.1rem);
+      box-shadow: 0rem .1rem .1rem .05rem $teal-000;
+    }
+
+  }
+
+  h2 {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+}
 
 //delve banner
 .banner {
@@ -252,6 +303,18 @@ h1, h2, h3 {
     }
 }
 
+
+.room-change-message {
+  width: 80vw;
+  font-size: 2rem;
+  z-index: 1;
+  position: absolute;
+  padding: 3rem;
+  border-radius: 1%;
+  align-self: center;
+  text-align: center;
+  
+}
 
 
 

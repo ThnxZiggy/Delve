@@ -97,7 +97,9 @@ export default function Dashboard({roomRef, memberList, setMemberList, roomsList
 
       {room.id > 0 &&
         <div>
-          {roomChangeMessage && <p>{roomChangeMessage}</p>}
+          
+          {roomChangeMessage && <div className="room-change-message">{roomChangeMessage}</div>}
+          
           <span className='current-activity'>
             {sessionComplete ? <button className='great-work'>&#x2605;</button> :<button onClick={() => {addCompletedSession(); confetti()}} className="mark-complete">&#10003;</button>}
             <h1>{room.name}</h1>

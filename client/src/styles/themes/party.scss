@@ -216,6 +216,21 @@
     color: $party-pale;
   }
 
+  // #username
+  .login, .w-100 {
+    color: $party-pale;
+
+    .me-2, button {
+      background-color: $party-2 !important;
+      color: $light-100;
+      &:hover {
+        transform: translateY(-.1rem) translateX(.1rem);
+        box-shadow: 0rem .1rem .1rem .05rem $teal-000;
+      }
+  
+    }
+  }
+
   input {
     background-color: $party-pale;
   }
@@ -337,6 +352,13 @@
 
   .progress-bar {
     color: $party-pale !important;
+  }
+
+
+  .room-change-message {
+    background-color: $party-2;
+    box-shadow: .01rem .05rem .4rem .08rem $party-pale;
+    color: $party-pale;
   }
 
 
