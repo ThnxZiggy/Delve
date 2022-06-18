@@ -564,10 +564,26 @@ h1, h2, h3 {
 
 .about-shadow {
   background-color: rgba(50,50,50,0.9);
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
+  // position: absolute;
+  // width: 100vw;
+  // height: 100vh;
   z-index: 4;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  /* this is what centers your element in the fixed wrapper*/
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center; /* aligns on vertical for column */
+  align-items: center; /* aligns on horizontal for column */
+
+  /* just for styling to see the limits */
+  // border: 2px dashed red;
+  box-sizing: border-box;
 }
 
 .about-container {
@@ -698,10 +714,54 @@ h1, h2, h3 {
 
 // create room
 
+.create-room-shadow {
+  background-color: rgba(50,50,50,0.8);
+  // position: absolute;
+  // width: 200vw;
+  // height: 100vh;
+  z-index: 2;
+
+  // position:fixed;
+  // padding:0;
+  // margin:0;
+
+  // top:0;
+  // left: 50%;
+  // margin-left: -37.5%;
+  // // center: 0;
+
+  // width: 300vw;
+  // height: 100%;
+
+
+//   width: 75%;
+// position: fixed;
+// left: 50%;
+
+position: fixed;
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+
+/* this is what centers your element in the fixed wrapper*/
+display: flex;
+flex-flow: column nowrap;
+justify-content: center; /* aligns on vertical for column */
+align-items: center; /* aligns on horizontal for column */
+
+/* just for styling to see the limits */
+// border: 2px dashed red;
+box-sizing: border-box;
+
+
+}
+
+
 .create-room {
   width: 80vw;
   background-color: white;
-  z-index: 1;
+  z-index: 2;
   position: absolute;
   padding: 1rem;
   border-radius: 1%;
