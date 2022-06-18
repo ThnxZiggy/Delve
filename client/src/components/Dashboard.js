@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
+
 import Nav from './Nav';
 import Chat from './Chat';
 import NewRoom from './NewRoom';
 import RoomMembers from './RoomMembers';
 import Progress from './Progress';
+import HomePageRooms from './HomePageRooms';
+import HomePageNoRooms from './HomePageNoRooms';
+
 import axios from 'axios';
 import confetti from 'canvas-confetti';
 // import Video from './Video';
@@ -84,14 +88,17 @@ export default function Dashboard({roomRef, memberList, setMemberList, roomsList
   }
 
   return (
-    <div>
+    <div className="dashboard">
 
       {makingRoom && <NewRoom roomsList={roomsList} setRoomsList={setRoomsList} user={user} setState={setState} socket={socket}/>}
 
       {room.id < 0 &&
         <div>
           {roomChangeMessage && <p>{roomChangeMessage}</p>}
-          {<h1>starting page</h1>}
+          {roomsList.length > 0 ? 
+            <HomePageRooms state={state} setState={setState}/> : 
+            <HomePageNoRooms state={state} setState={setState}/>
+          }
         </div>
       }
 

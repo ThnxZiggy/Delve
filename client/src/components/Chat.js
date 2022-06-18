@@ -63,6 +63,7 @@ export default function Chat({socket, user, room, setUrl}) {
             return (
               <div className="message" id={user.name === messageContent.author ? "you" : "other"}>
                 <div>
+                  {messageContent.content.slice(0,8) === "https://" && <div className="click-to-watch">click to watch</div>}
                   <div className={messageContent.content.slice(0,8) === "https://" ? "message-content link_message" : "message-content"}>
                     <p onClick={changeUrl}>{messageContent.content}</p>
                   </div>

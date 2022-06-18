@@ -69,21 +69,6 @@ export default function Nav({user, onClick, socket, state}) {
       <div className='nav-banner welcome'>
         <h1>Welcome {user.name}!</h1>
       </div>
-      {/* //////// removed list of rooms, replaced in Sidebar ///////////// */}
-      {/* //////// Keep for reference /////////// */}
-      {/* <div>
-        {roomsList.map(thisRoom => {
-          return (
-            <button 
-            onClick={changeRoom} 
-            value={thisRoom.name} 
-            type="button" 
-            class={ room.name === thisRoom.name ? "btn btn-success" : "btn btn-primary"}>
-              {thisRoom.name}
-          </button>
-          )
-        })}
-      </div> */}
       <div className="nav-banner buttons">
         <div><button onClick={homePage} type="button">Home</button></div>
         <div><button onClick={showAboutPage} type="button">About Us</button></div>

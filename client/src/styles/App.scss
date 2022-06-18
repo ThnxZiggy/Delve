@@ -165,7 +165,7 @@ h1, h2, h3 {
 //rooms sidebar
 .sidebar-container {
   max-height: 70vh;
-  // min-width: 30vh;
+  // width:20%;
   overflow-y: scroll;
   overflow-x: visible;
   // z-index: 4;
@@ -958,6 +958,101 @@ h1, h2, h3 {
   100% {
     opacity: 1;
   }
+}
+
+.click-to-watch {
+  color: rgba(135, 132, 132, 0.827);
+  font-size: .8em; 
+}
+
+.link_message::hover {
+  cursor: pointer;
+}
+
+.homepage{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 100px;
+    width: 10em;
+    margin-left: 2em;
+  }
+  .welcome-message {
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+
+  }
+
+  .homepage-message {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size:1.5em;
+
+    div {
+      width: 12em;
+    }
+  }
+  
+  .app-name {
+    font-family: 'Expletus Sans', cursive;
+    font-size: 7rem;
+    margin-left: 10px;
+  }
+}
+
+.homepage-no-rooms{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 17%;
+
+  .welcome-message {
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+
+  }
+
+  .homepage-message-no-rooms {
+    display:flex;
+    flex-direction: column;
+    font-size: 1.4em;
+    text-align: center;
+
+    button {
+      margin: 30px;
+      width: 10em;
+      padding: 0.8em 0.5em;
+      border: 0.1em solid rgba(60, 60, 103, 0.69);
+      border-radius: 5px;
+      background-color: $teal-000;
+      align-self: center;
+    }
+    button:hover {
+      box-shadow: 0 0 4px black;
+    }
+    button:active {
+      background-color: teal;
+      color: white;
+    }
+  }
+  
+  .app-name {
+    font-family: 'Expletus Sans', cursive;
+    font-size: 7rem;
+    margin-left: 10px;
+  }
+}
+
+.dashboard {
+  width:80%;
 }
 
 
