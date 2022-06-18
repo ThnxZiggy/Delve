@@ -17,6 +17,26 @@ body {
 
 
 
+.content {
+  flex: 1;
+  display: flex;
+  overflow: auto;
+}
+
+.box {
+  display: flex;
+  min-height: min-content;
+}
+
+// .room-container {
+//   display: flex;
+//   flex-direction: column;
+  
+// }
+
+
+// #root > div > header > div.dashboard > div
+
 
 
 .App {
@@ -175,8 +195,10 @@ h1, h2, h3 {
 .sidebar-container {
   max-height: 70vh;
   // width:20%;
-  overflow-y: scroll;
-  overflow-x: visible;
+  overflow: auto;
+  // overflow-y: scroll;
+  // overflow-x: visible;
+  // overflow: scroll hidden
   // z-index: 4;
 }
 
@@ -802,7 +824,7 @@ h1, h2, h3 {
   background-color: transparent;
 
 
-  .romm-members-header {
+  .room-members-header {
     background-color: transparent;
     // font-size: .2rem !important;
     text-align: center;

@@ -103,7 +103,7 @@ export default function Dashboard({roomRef, memberList, setMemberList, roomsList
       }
 
       {room.id > 0 &&
-        <div>
+        <div className="room-container">
           
           {roomChangeMessage && <div className="room-change-message">{roomChangeMessage}</div>}
           
@@ -130,7 +130,6 @@ export default function Dashboard({roomRef, memberList, setMemberList, roomsList
           </div>
         </div>
       }
-
     </div>
   )
 }
