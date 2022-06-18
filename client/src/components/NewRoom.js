@@ -32,6 +32,7 @@ export default function NewRoom({roomsList, setRoomsList, setState, user, socket
   }
 
   return (
+    <div className="create-room-shadow">
     <div className="create-room">
       <button onClick={() => setState(prev => ({...prev, makingRoom: false}))} className='back-button'><span>&#x2190;</span><br/>Back</button>
       <div className="create-room-form">
@@ -90,6 +91,7 @@ export default function NewRoom({roomsList, setRoomsList, setState, user, socket
           
         </form>
         </div>
+    </div>
     </div>
   )
 }

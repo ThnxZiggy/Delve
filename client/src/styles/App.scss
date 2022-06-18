@@ -17,6 +17,8 @@ body {
 
 
 
+
+
 .App {
   width: 100%;
   height: 100vh;
@@ -33,6 +35,17 @@ body {
 h1, h2, h3 {
   font-weight: 600 !important;
   // text-transform: uppercase
+}
+
+
+.alert-danger {
+
+  background-color: $rose-200 !important;
+  color: $dark-700 !important;
+  position: center;
+  align-self: center;
+  text-align: center;
+
 }
 
 
@@ -64,10 +77,6 @@ h1, h2, h3 {
     margin-top: 3rem;
     margin-bottom: 1rem;
   }
-
-  //  login {
-  //   width: 40% !important;
-  // }
   
 
 
@@ -560,12 +569,37 @@ h1, h2, h3 {
 
 //about us
 
+.about-shadow {
+  background-color: rgba(50,50,50,0.9);
+  // position: absolute;
+  // width: 100vw;
+  // height: 100vh;
+  z-index: 4;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  /* this is what centers your element in the fixed wrapper*/
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center; /* aligns on vertical for column */
+  align-items: center; /* aligns on horizontal for column */
+
+  /* just for styling to see the limits */
+  // border: 2px dashed red;
+  box-sizing: border-box;
+}
+
 .about-container {
   background-color: $party-2;
   position: absolute;
   width: 100%;
   z-index: 5;
   padding-bottom: 1.5rem;
+  opacity: 100%;
 
   animation-duration: 0.3s;
   animation-name: animate-pop;
@@ -584,19 +618,9 @@ h1, h2, h3 {
   }
 }
 
-// .animate {
-//   animation-duration: 0.5s;
-//   animation-name: animate-fade;
-//   animation-delay: 0.5s;
-//   animation-fill-mode: backwards;
-// }
-
-
-
 .about-us {
   display: flex;
   justify-content: space-around;
-
 
 }
 
@@ -654,9 +678,6 @@ h1, h2, h3 {
   }
 }
 
-// .logo-linkedin {
-//   border: .3rem solid black;
-// }
 
 .close {
   height: 1.4rem;
@@ -677,10 +698,34 @@ h1, h2, h3 {
 
 // create room
 
+.create-room-shadow {
+  background-color: rgba(50,50,50,0.8);
+  z-index: 2;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  /* this is what centers your element in the fixed wrapper*/
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center; /* aligns on vertical for column */
+  align-items: center; /* aligns on horizontal for column */
+
+/* just for styling to see the limits */
+  // border: 2px dashed red;
+  box-sizing: border-box;
+
+
+  }
+
+
 .create-room {
   width: 80vw;
   background-color: white;
-  z-index: 1;
+  z-index: 2;
   position: absolute;
   padding: 1rem;
   border-radius: 1%;
@@ -853,21 +898,10 @@ h1, h2, h3 {
 
 
 .smiley-1 {
-  // display: flex;
   position: absolute;
   left: 35%;
-  // top: 10rem;
-  // left: 30rem;
-  // width: 160px;
-  // height: 160px;
-  // margin-left: 0;
-  // background: #754d32 linear-gradient(transparent, rgba(0, 0, 0, .2));
-  // border-radius: 20px;
-  // border-right: solid 4px #9a6542;
-  // border-bottom: solid 4px #9a6542;
   backface-visibility: hidden;
   transform: rotate(-10deg);
-  // animation: party 2s 15s;
   animation-name: party;
   animation-duration: 1.9s;
   animation-delay: .25s;
@@ -876,19 +910,9 @@ h1, h2, h3 {
 }
 
 .smiley-2 {
-  // display: flex;
   opacity: 0;
   position: absolute;
-  // top: 10rem;
   left: 65%;
-  // width: 160px;
-  // height: 160px;
-  // margin: 0 20px;
-  // margin-left: 10rem;
-  // background: #754d32 linear-gradient(transparent, rgba(0, 0, 0, .2));
-  // border-radius: 20px;
-  // border-right: solid 4px #9a6542;
-  // border-bottom: solid 4px #9a6542;
   backface-visibility: hidden;
   transform: rotate(-10deg);
   animation-name: party;
@@ -899,18 +923,8 @@ h1, h2, h3 {
 
 .smiley-3 {
   opacity: 0;
-  // display: flex;
   position: absolute;
-  // top: 10rem;
   left: 50%;
-  // width: 160px;
-  // height: 160px;
-  // margin: 0 20px;
-  // margin-left: 20rem;
-  // background: #754d32 linear-gradient(transparent, rgba(0, 0, 0, .2));
-  // border-radius: 20px;
-  // border-right: solid 4px #9a6542;
-  // border-bottom: solid 4px #9a6542;
   backface-visibility: hidden;
   transform: rotate(-10deg);
   animation-name: party;
@@ -959,5 +973,6 @@ h1, h2, h3 {
     opacity: 1;
   }
 }
+
 
 
