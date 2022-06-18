@@ -17,6 +17,8 @@ body {
 
 
 
+
+
 .App {
   width: 100%;
   height: 100vh;
@@ -560,16 +562,33 @@ h1, h2, h3 {
 
 //about us
 
+.about-shadow {
+  background-color: rgba(50,50,50,0.9);
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 4;
+}
+
 .about-container {
   background-color: $party-2;
   position: absolute;
   width: 100%;
   z-index: 5;
   padding-bottom: 1.5rem;
+  opacity: 100%;
 
   animation-duration: 0.3s;
   animation-name: animate-pop;
   animation-timing-function: cubic-bezier(.26, .53, .74, 1.48);
+  // border: 1px solid rgba(255, 0, 0, .5);
+  // -webkit-background-clip: padding-box; /* for Safari */
+  // background-clip: padding-box;
+
+
+  // &:not(.about-container) {
+  //   filter: blur(3px);
+  // }
 }
 
 @keyframes animate-pop {
@@ -596,6 +615,8 @@ h1, h2, h3 {
 .about-us {
   display: flex;
   justify-content: space-around;
+
+
 
 
 }
@@ -961,3 +982,23 @@ h1, h2, h3 {
 }
 
 
+
+
+
+// Content we're putting a blur over
+// .background {
+//   // background-image: url(https://source.unsplash.com/Q7PclNhVRI0);
+//   background-position: bottom;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   height: 100vh;
+//   width: 100%;
+// }
+
+// // Background Blur using backdrop-filter
+// .blur {
+//   background: rgba(255, 255, 255, 0.2); // Make sure this color has an opacity of less than 1
+//   backdrop-filter: blur(8px); // This be the blur
+//   height: 100vh;
+// 	// width: 50%;
+// }

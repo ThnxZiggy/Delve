@@ -8,6 +8,7 @@ export default function About({setState}) {
   console.log("hello world");
 
   return (
+    <div className="about-shadow">
     <div className="about-container"> 
             <button onClick={exit} className='close'>&#x2718;</button>
     <div className="about-us"> 
@@ -69,6 +70,7 @@ export default function About({setState}) {
           </a>
         </div>
       </div>
+    </div>
     </div>
     </div>
   )
