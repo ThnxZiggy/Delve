@@ -90,7 +90,7 @@ export default function Dashboard({roomRef, memberList, setMemberList, roomsList
 
       {room.id < 0 &&
         <div>
-          {roomChangeMessage && <p>{roomChangeMessage}</p>}
+          {roomChangeMessage && <div className="room-change-message">{roomChangeMessage}</div>}
           {<h1>starting page</h1>}
         </div>
       }
@@ -114,7 +114,7 @@ export default function Dashboard({roomRef, memberList, setMemberList, roomsList
                 value={url}
                 placeholder="Input video url" 
               />
-              <ReactPlayer playing={true} style={{border: "solid 2px black",   backgroundImage: "url(" + "../images/delve-logo-9.jpg" + ")",
+              <ReactPlayer playing={true} style={{border: "solid 1px black",   backgroundImage: "url(" + "../images/delve-logo-9.jpg" + ")",
 }} url={url} controls={true}/>
             </div>
             <Chat socket={socket} user={user} room={room} setUrl={setUrl}/>
