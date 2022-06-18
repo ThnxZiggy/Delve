@@ -232,7 +232,7 @@
   }
 
   .fa-cake-candles {
-    box-shadow: 0rem 0rem .8rem .5rem $lime-500;
+    box-shadow: 0rem 0rem .8rem .5rem $teal-000;
     animation-name: spin;
     animation-duration: 3000ms;
     animation-iteration-count: infinite;
@@ -256,10 +256,11 @@
   }
 
   .nav-banner.buttons button {
-    background-color: $party-4;
+    background-color: transparent;
     color: $party-pale;
+    border-bottom: .1rem solid $party-pale;
     &:hover {
-      background: lighten($party-4, 3%);
+      background: darken($party-4, 15%);
       box-shadow: .01rem .05rem .2rem .1rem $party-pale;
       // color: $dark-700;
     }
@@ -273,7 +274,7 @@
   }
 
   .bg-success:hover {
-    background-color: $lime-500 !important;
+    background-color: $teal-000 !important;
     color: $dark-700;
 
     .fa-trash {
@@ -290,7 +291,7 @@
   }
 
   .bg-primary:hover {
-    background-color: $lime-500 !important;
+    background-color: $teal-000 !important;
     color: $dark-700;
 
     .fa-trash {
@@ -326,12 +327,12 @@
 
   //middle section
   .mark-complete {
-    border-color: $party-4;
+    border-color: $teal-200;
     color: $party-pale;
   }
   
   .great-work {
-    color: $lime-500
+    color: $teal-000
   }
 
   .progress-bar {
@@ -351,17 +352,17 @@
   }
 
   .chat-window .chat-header {
-    background-color: $party-1;
+    background-color: transparent;
     color: $party-pale;
   }
 
   #other .message-content {
-    background-color: $party-3;
-    color: $party-pale;
+    background-color: $party-4;
+    color: $dark-700
   }
 
   #you .message-content {
-    background-color: $party-2;
+    background-color: $party-1;
     color: $party-pale
   }
 
@@ -370,11 +371,9 @@
     color: $party-pale;
 
     &:hover {
-      background-color: lighten($party-1, 7%)  !important;
+      background-color: lighten($party-1, 2%)  !important;
       box-shadow: .01rem .05rem .3rem .08rem $dark-700;
       transform: translateY(-.03rem) translateX(.03rem);
-      color: $lime-500;
-      // color: $teal-900;
     }
   }
 
@@ -382,18 +381,19 @@
   .room-members {
     box-shadow: 0rem 0rem .3rem .1rem $party-pale;
     border: .02rem solid;
-    background-color: $party-pale;
+    color: $party-pale;
 
     h3 {
-      background-color: $party-1;
       color: $party-pale;
     }
     .add-member {
       background-color: $party-1;
       color: $party-pale;
+      box-shadow: .01rem .03rem .03rem .06rem $party-pale;
+
       &:hover {
-        background-color: $lime-500;
-        color: $party-1;
+        background-color: $party-4;
+        // color: $party-1;
         transform: translateY(-.05rem) translateX(.05rem);
         // box-shadow: .01rem .05rem .2rem .08rem $dark-400;
       }
@@ -403,8 +403,8 @@
     .member-name {
       img {
         filter: contrast(120%);
-        // filter: rotate(75deg);
-        // filter: brightness(1.2);
+        // filter: rotate(45deg);
+        // filter: brightness(.97);
       }
     }
 
@@ -412,20 +412,31 @@
 
   //add member
   .add-member-yes {
-    background-color: $party-4;
-    color: $teal-100;
+    background-color: $party-1;
+    color: $party-pale;
+    border: .4px solid $party-pale !important;
     &:hover {
-      background-color: $lime-500;
-      color: $teal-900;
+      background-color: $party-4;
+      // color: $party-pale;
       // color: lighten($rose-200, 5%);
     }
   }
 
   .add-member-no {
     background-color: darken($rose-200, 6%);
+    border: .4px solid $party-pale !important;
     &:hover {
       background-color: darken($rose-200, 50%);
       color: lighten($rose-200, 5%);
+    }
+  }
+
+
+  .name-error {
+    color: $dark-700;
+    // align-self: center;
+    &:hover {
+      transform: translateY(-.05rem) translateX(.05rem);
     }
   }
 
@@ -446,7 +457,7 @@
     box-shadow: .01rem .1rem .4rem .08rem $teal-200;
     color: $party-2;
     &:hover {
-      background-color: lighten($lime-700, 6%)   !important;
+      // background-color: lighten($lime-700, 6%)   !important;
       box-shadow: .01rem .09rem .3rem .08rem $teal-000;
       transform: translateY(-.03rem) translateX(.03rem);
       // color: $teal-900;

@@ -1,84 +1,88 @@
 @use '../abstracts/colors' as *;
 
 .light {
-  background-color: $blue-000;
+  // background-color: $blue-000;
+  background-color: $light-100;
 
-  // background: repeating-linear-gradient(
-  //   45deg,
-  //   $blue-000 0%,
-  //   $teal-200 10%,
-  //   $blue-000 0%,
-  //   $blue-200 50%
-  // )
-  // 0 / 15px 15px;
 
   h1, h2, h3 {
-    color: $blue-1000;
+    // color: $blue-1000;
+    color: $light-800;
   }
 
   input {
-    background-color: $blue-pale;
+    // background-color: $blue-pale;
+    background-color: $light-100;
     &:focus {
-      background-color: $blue-pale;
+      // background-color: $blue-pale;
+      background-color: $light-100;
     }
   }
 
   //delve banner
   .banner {
-    background-color: $blue-600;
-    color: $blue-1000;
+    background-color: $light-600;
+    // color: $light-100;
   }
 
   .fa-solid {
-    color: $dark-700;
+    color: $light-800;
   }
 
 
   .fa-sun {
-    box-shadow: 0rem 0rem .8rem .5rem $blue-900;
+    box-shadow: 0rem 0rem .8rem .5rem $light-800;
   }
 
   //welcome banner
   .d-flex {
-    background-color: $teal-200;
+    background-color: $light-200;
   }
 
   .nav-banner.buttons button {
-    background-color: $teal-200;
-    color: $dark-700;
-    border-bottom: .3rem ridge $teal-100;
+    background-color: transparent;
+    color: $light-800;
+    border-bottom: .1rem ridge $light-800;
     &:hover {
-      background: lighten($teal-200, 3%)
+      background: lighten($light-200, 3%);
+      box-shadow: .01rem .05rem .2rem .1rem $light-800;
+      border: 0 !important;
     }
   }
 
   //rooms sidebar
   .bg-success {
-    background-color: $teal-400 !important;
-    box-shadow: .01rem .05rem .2rem .1rem $teal-700;
+    background-color: $light-600 !important;
+    box-shadow: .01rem .05rem .2rem .1rem $light-800;
+    &:hover {
+      background-color: $light-200 !important;
+    }
   }
 
   .bg-primary {
-    background-color: $blue-600 !important;
+    background-color: $light-400 !important;
+    &:hover {
+      background-color: $light-200 !important;
+    }
   }
 
   .delete-confirmation {
-    background-color: $rose-200;
+    background-color: $party-pale;
 
 
     .delete-yes {
       background-color: lighten($rose-200, 6%);
       &:hover {
-        background-color: darken($rose-200, 50%);
-        color: lighten($rose-200, 5%);
+        background-color: darken($rose-200, 60%);
+        color: lighten($rose-200, 25%);
       }
     }
 
     .delete-no {
       background-color: lighten($rose-200, 6%);
       &:hover {
-        background-color: $blue-900;
-        color: lighten($rose-200, 5%);
+        background-color: $light-600;
+        color: lighten($rose-200, 25%);
       }
     }
 
@@ -90,68 +94,103 @@
 
   .mark-complete {
     border-color: $teal-400;
-    color: $teal-700;
+    color: $light-800;
   }
 
   .great-work {
-    color: $blue-600;
+    color: $light-800;
   }
 
   .progress-bar {
-    color: $dark-700 !important;
+    color: $light-800 !important;
   }
 
 
   //chat section
 
   .chat-window {
-    box-shadow: .01rem .05rem .4rem .08rem $teal-700;
+    box-shadow: .01rem .05rem .4rem .08rem $light-800;
   }
 
   .chat-window .chat-header {
-    background-color: $teal-400;
-    color: $blue-1000;
+    background-color: $light-600;
+    color: $light-800;
   }
 
   .chat-body {
-    background-color: $blue-pale;
+    background-color: $light-100 !important;
   }
 
   #other .message-content {
-    background-color: $teal-200;
-    color: $blue-1000;
+    background-color: $light-200;
+    color: $light-800;
   }
 
   #you .message-content {
-    background-color: $blue-200;
-    color: $blue-1000;
+    background-color: $light-400;
+    color: $light-800;
   }
 
   .chat-footer button {
-    background-color: $blue-400 !important;
+    background-color: $light-600 !important;
     &:hover {
-      background-color: $blue-200  !important;
-      box-shadow: .01rem .05rem .3rem .08rem $blue-900;
+      background-color: $light-400  !important;
+      box-shadow: .01rem .05rem .3rem .08rem $light-800;
       transform: translateY(-.03rem) translateX(.03rem);
       // color: $teal-900;
     }
   }
 
 
+
+  // .room-members {
+  //   background-color: $dark-700;
+  //   box-shadow: 0rem 0rem .4rem .2rem $teal-000;
+  //   color: $teal-000;
+
+  //   h3 {
+      
+  //     color: $teal-000;
+  //   }
+  //   .add-member {
+  //     background-color: $teal-700;
+  //     color: $teal-000;
+  //     box-shadow: 0rem 0rem .06rem .06rem $teal-100;
+  //     &:hover {
+  //       background-color: lighten($teal-700, 10%);
+  //       transform: translateY(-.05rem) translateX(.05rem);
+  //       // box-shadow: .01rem .05rem .2rem .08rem $dark-400;
+  //     }
+        
+  //   }
+
+  //   .member-name {
+  //     img {
+  //       filter: contrast(200%);
+  //       filter: rotate(95deg);
+  //       // filter: brightness(1.2);
+  //     }
+  //   }
+
+  // }
+
   //members section
   .room-members {
+    background-color: $light-100;
+    box-shadow: .01rem .05rem .4rem .08rem $light-800;
+    color: $light-800;
     .add-member {
-      background-color: $blue-200;
+      background-color: $light-400;
       &:hover {
-        background-color: lighten($blue-200, 5%);
+        background-color: lighten($light-400, 5%);
         transform: translateY(-.05rem) translateX(.05rem);
-        box-shadow: .01rem .05rem .3rem .08rem $dark-400;
+        box-shadow: .01rem .05rem .3rem .08rem $light-800;
       }
     }
 
     .member-name {
       img {
-        filter: contrast(170%);
+        filter: contrast(140%);
         // filter: rotate(75deg);
         // filter: brightness(1.2);
       }
@@ -159,9 +198,9 @@
   }
 
   .add-member-yes {
-    background-color: $blue-400;
+    background-color: $light-200;
     &:hover {
-      background-color: lighten($blue-400, 5%);
+      background-color: lighten($light-200, 5%);
       // color: lighten($rose-200, 5%);
     }
   }
@@ -174,8 +213,14 @@
     }
   }
 
+  .romm-members-header {
+    background-color: $light-600 !important;
+    border-bottom: .1rem solid $light-100;
+    padding-bottom: .09rem !important;
+  }
+
   input {
-    background-color: $blue-pale;
+    background-color: $light-100;
   }
 
 
@@ -203,8 +248,8 @@
     //create room
 
   .create-room {
-      background-color: $teal-100;
-      box-shadow: .01rem .09rem .3rem .08rem $teal-800;
+      background-color: $light-400;
+      box-shadow: .01rem .09rem .3rem .08rem $light-800;
       
   }
 
@@ -212,11 +257,11 @@
   //   background-color: $teal-100;
   // }
   .create-room button {
-    background-color: $teal-200 !important;
-    box-shadow: .01rem .05rem .3rem .08rem $teal-600;
+    background-color: $light-200 !important;
+    box-shadow: .01rem .05rem .3rem .08rem $light-800;
     // color: $blue-pale;
     &:hover {
-      background-color: $teal-000  !important;
+      background-color: $light-100  !important;
       // box-shadow: .01rem .05rem .3rem .08rem $teal-600;
       transform: translateY(-.03rem) translateX(.03rem);
       // color: $teal-900;
