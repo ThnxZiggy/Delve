@@ -125,7 +125,7 @@ export default function RoomMembers({room, user, socket, memberList, setMemberLi
                     onKeyPress={(event) => {event.key === 'Enter' && confirmAddMember()}}
                   />
                   <button onClick={confirmAddMember} className='add-member-yes'>ADD</button>
-                  <button onClick={() => {setAddingMember(false); setErrMsg("")}} className='add-member-no'>cancel</button>
+                  <button onClick={() => {setAddingMember(false); setErrMsg(""); setNewMember('')}} className='add-member-no'>cancel</button>
                 </div>
               ) : (
                 // <button onClick={() => {setAddingMember(true)}} className="add-member">+</button>
