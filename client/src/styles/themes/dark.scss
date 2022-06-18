@@ -58,6 +58,16 @@
       }
   
     }
+    
+    input {
+      &::placeholder {
+        color: $teal-900;
+      }
+  
+      &:defined {
+        color: $teal-900;
+      }
+    }
   }
 
   input {
@@ -69,11 +79,11 @@
     outline: 0 !important;
     
     &::placeholder {
-      color: $teal-900;
+      color: $teal-100;
     }
 
     &:defined {
-      color: $teal-900;
+      color: $teal-100;
     }
   }
 
