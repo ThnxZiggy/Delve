@@ -36,11 +36,15 @@ h1, h2, h3 {
 }
 
 
+
 //login form
-.w-100 {
+.login {
+  width: 40%;
+
   div {
     input {
       margin-bottom: 1rem;
+      // width: 40%;
     }
   }
   .me-2, button {
@@ -61,6 +65,32 @@ h1, h2, h3 {
     margin-bottom: 1rem;
   }
 
+  //  login {
+  //   width: 40% !important;
+  // }
+  
+
+
+}
+
+.w-100 {
+  .me-2, button {
+    // background-color: purple;
+    padding: .6rem;
+    border-radius: 10%;
+    border: 0;
+    margin-bottom: 2rem;
+    &:hover {
+      transform: translateY(-.1rem) translateX(.1rem);
+      box-shadow: 0rem .1rem .1rem .05rem $teal-000;
+    }
+
+  }
+
+  h2 {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
 }
 
 //delve banner

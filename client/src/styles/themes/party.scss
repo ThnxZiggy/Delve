@@ -216,8 +216,10 @@
     color: $party-pale;
   }
 
-  .w-100 {
+  // #username
+  .login, .w-100 {
     color: $party-pale;
+
     .me-2, button {
       background-color: $party-2 !important;
       color: $light-100;

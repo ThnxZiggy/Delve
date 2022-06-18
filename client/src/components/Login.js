@@ -44,7 +44,7 @@ export default function Login({ setState, error, socket, state}) {
       <p className="alert-danger">{errMsg}</p>
       <br></br>
       <h1>Login</h1>
-      <Form onSubmit={handleSubmit} className="w-100" >
+      <Form onSubmit={handleSubmit} className="login" >
         <Form.Group>
           <Form.Label>Enter Your Username</Form.Label>
           <Form.Control 
