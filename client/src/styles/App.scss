@@ -2,8 +2,17 @@
 @import './themes/dark';
 @import './themes/light';
 @import './themes/party';
+
 @import url('https://fonts.googleapis.com/css2?family=Expletus+Sans:ital,wght@1,600&family=Heebo:wght@200;400;600&family=Sue+Ellen+Francisco&display=swap');
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+
+
+
+.video-container {
+  background-color: blue !important;
+
+}
+
 
 body {
   min-width: 100vh;
@@ -87,7 +96,7 @@ h1, h2, h3 {
   padding: .5rem;
   &:hover {
     transform: translateY(-.1rem) translateX(.1rem);
-    box-shadow: 0rem .1rem .1rem .05rem $dark-200;
+    box-shadow: 0rem .1rem .1rem .05rem $teal-000;
   }
 
 }
@@ -672,29 +681,37 @@ h1, h2, h3 {
 //room members sidebar
 
 .room-members {
-  background-color: lighten($blue-000, 5%);
+
   border-radius: 0 .2rem .2rem 0;
   box-shadow: .01rem .05rem .4rem .08rem $teal-700;
   height: 14rem;
-  width: 8.4rem;
+  width: 8.6rem;
   overflow-wrap: break-word;
   font-size: .8rem;
   display:flex;
   flex-direction: column;
   align-items: left;
+  background-color: transparent;
 
-  h3 {
-    font-size: 1.5rem;
+
+  .romm-members-header {
+    background-color: transparent;
+    // font-size: .2rem !important;
     text-align: center;
     border-radius: 0 .2rem 0 0;
-    background-color: $teal-400;
+    background-color: transparent;
     padding-top: .6rem;
-    padding-bottom: .74rem;
+    padding-bottom: .13rem;
     position: relative;
-    font-size: 1.4rem;
+    // margin-bottom: -.09rem;
+
+    h3 {
+      font-size: 1.5rem;
+    }
   }
+
   .member-name {
-    padding-left: .5rem;
+    padding-left: .7rem;
     padding-bottom: .1rem;
   }
 
@@ -708,6 +725,7 @@ h1, h2, h3 {
     color: $dark-700;
     border: 0;
     margin: .5rem;
+    margin-left: .6rem;
     font-size: 1.1rem;
     box-shadow: .01rem .05rem .05rem .08rem $dark-400;
     &:hover {
@@ -718,7 +736,7 @@ h1, h2, h3 {
   }
 
   .add-member-yes {
-    margin-left: .6rem;
+    margin-left: .9rem;
     border: 0;
     border-radius: 10%;
     box-shadow: .01rem .05rem .05rem .08rem $dark-400;
@@ -740,24 +758,26 @@ h1, h2, h3 {
   }
 
   input {
-    margin-left: .5rem;
+    margin-left: .7rem;
     margin-bottom: .5rem;
     width: 85%;
     border: 0;
     border-radius: 4%;
     box-shadow: .03rem .05rem .08rem .08rem $blue-900;
-    outline: 0;
+    // outline: 0 !important;
   }
 
   .name-error {
     padding: 0 .5rem;
+    margin-left: .7rem;
+    margin-top: .2rem;
     width: 85%;
     overflow-wrap: break-word;
     word-break: break-word;
     background-color: $rose-200;
     text-align: center;
     box-shadow: .01rem .04rem .2rem .05rem $dark-400;
-    align-self: center;
+    // align-self: center;
     &:hover {
       transform: translateY(-.05rem) translateX(.05rem);
     }
@@ -876,3 +896,5 @@ h1, h2, h3 {
     opacity: 1;
   }
 }
+
+

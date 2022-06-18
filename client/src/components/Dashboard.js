@@ -112,7 +112,8 @@ export default function Dashboard({roomRef, memberList, setMemberList, roomsList
                 value={url}
                 placeholder="Input video url" 
               />
-              <ReactPlayer playing={true} style={{border: "solid 2px black"}} url={url} controls={true}/>
+              <ReactPlayer playing={true} style={{border: "solid 2px black",   backgroundImage: "url(" + "../images/delve-logo-9.jpg" + ")",
+}} url={url} controls={true}/>
             </div>
             <Chat socket={socket} user={user} room={room} setUrl={setUrl}/>
             <RoomMembers memberList={memberList} setMemberList={setMemberList} socket={socket} room={room} user={user}/>

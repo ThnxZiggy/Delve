@@ -32,10 +32,10 @@ export default function Video({socket, room}) {
   
   return (
     <div>
-      <video playsInline muted ref={myVideo} autoPlay style={{width: "300px", height: "300px"}} />
+      <video playsInline muted ref={myVideo} autoPlay style={{width: "300px", height: "300px"}}/>
       {videos && videos.map(thisVideo => {
         return (
-          <video playsInline muted ref={thisVideo} autoPlay style={{width: "300px", height: "300px"}} />
+          <video playsInline muted ref={thisVideo} autoPlay style={{width: "300px", height: "300px"}}/>
         )
       })}
     </div>

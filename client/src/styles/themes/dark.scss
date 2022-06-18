@@ -7,15 +7,15 @@
 ////////////////////////////////////////////////////////
 
 
-  // background-color: $teal-800;
-  background: repeating-linear-gradient(
-    45deg,
-    $dark-700 0%,
-    $teal-700 10%,
-    $dark-700 0%,
-    $teal-900 50%
-  )
-  0 / 15px 15px;
+  background-color: $teal-800;
+  // background: repeating-linear-gradient(
+  //   45deg,
+  //   $dark-700 0%,
+  //   $teal-700 10%,
+  //   $dark-700 0%,
+  //   $teal-900 50%
+  // )
+  // 0 / 15px 15px;
 
   // background: repeating-linear-gradient(45deg, $teal-700, $teal-000 15%, $teal-400 20%);
 
@@ -101,6 +101,7 @@
   .nav-banner.buttons button {
     background-color: $teal-700;
     color: $teal-000;
+    border-bottom: .1rem  $teal-100;
     &:hover {
       background: lighten($teal-700, 3%);
       box-shadow: .01rem .05rem .2rem .1rem $teal-000;
@@ -123,24 +124,22 @@
   }
 
   .delete-confirmation {
-    background-color: $teal-100;
+    background-color: $party-pale;
     box-shadow: .01rem .05rem .2rem .1rem $teal-000;
 
     .delete-yes {
-      background-color: $teal-600;
-      color: $teal-000;
+      background-color: $party-1;
+      color: $party-pale;
       &:hover {
-        background-color: darken($rose-200, 70%);
-        color: lighten($rose-200, 5%);
+        background-color: lighten($party-1, 5%);
       }
     }
 
     .delete-no {
-      background-color: $teal-600;
-      color: $teal-000;
+      background-color: $party-2;
+      color: $party-pale;
       &:hover {
-        background-color: $teal-800;
-        color: lighten($rose-200, 5%);
+        background-color: darken($party-2, 5%);
       }
     }
 
@@ -194,8 +193,8 @@
   }
 
   #you .message-content {
-    background-color: $teal-600;
-    color: $teal-000;
+    background-color: $teal-200;
+    color: $dark-700;
     // box-shadow: .01rem .05rem .1rem .1rem $teal-000;
   }
 
@@ -228,14 +227,15 @@
     color: $teal-000;
 
     h3 {
-      background-color: $teal-700;
+      
       color: $teal-000;
     }
     .add-member {
-      background-color: $teal-600;
+      background-color: $teal-700;
       color: $teal-000;
+      box-shadow: 0rem 0rem .06rem .06rem $teal-100;
       &:hover {
-        background-color: lighten($teal-600, 10%);
+        background-color: lighten($teal-700, 10%);
         transform: translateY(-.05rem) translateX(.05rem);
         // box-shadow: .01rem .05rem .2rem .08rem $dark-400;
       }
@@ -252,9 +252,15 @@
 
   }
 
+  .romm-members-header {
+    background-color: $teal-700 !important;
+    border-bottom: .01rem solid $teal-000;
+  }
+
   .add-member-yes {
-    background-color: $teal-700;
+    background-color: $teal-600;
     color: $teal-100;
+
     &:hover {
       background-color: lighten($teal-700, 10%);
       // color: lighten($rose-200, 5%);
@@ -269,9 +275,13 @@
     }
   }
 
-  input {
-    background-color: $blue-pale;
+  .name-error {
+    color: $dark-700;
   }
+
+  // input {
+  //   background-color: $blue-pale;
+  // }
 
 
 
