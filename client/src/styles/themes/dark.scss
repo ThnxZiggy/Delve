@@ -58,6 +58,16 @@
       }
   
     }
+    
+    input {
+      &::placeholder {
+        color: $teal-900;
+      }
+  
+      &:defined {
+        color: $teal-900;
+      }
+    }
   }
 
   input {
@@ -67,8 +77,13 @@
     padding-left: .5rem;
     box-shadow: .01rem .05rem .2rem .1rem $teal-000;
     outline: 0 !important;
+    
     &::placeholder {
-      color: $teal-000;
+      color: $teal-100;
+    }
+
+    &:defined {
+      color: $teal-100;
     }
   }
 
@@ -295,11 +310,6 @@
   .name-error {
     color: $dark-700;
   }
-
-  // input {
-  //   background-color: $blue-pale;
-  // }
-
 
 
   //create room 

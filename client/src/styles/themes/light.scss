@@ -10,18 +10,6 @@
     color: $light-800;
   }
 
-  // w-100 {
-  //   .me-2, button {
-  //     background-color: $light-200 !important;
-  //     &:hover {
-  //       transform: translateY(-.1rem) translateX(.1rem);
-  //       box-shadow: 0rem .1rem .1rem .05rem $light-800;
-  //     }
-  
-  //   }
-  
-  // }
-
   .login, .w-100 {
     .me-2, button {
       background-color: $light-600 !important;
@@ -171,38 +159,6 @@
   }
 
 
-
-  // .room-members {
-  //   background-color: $dark-700;
-  //   box-shadow: 0rem 0rem .4rem .2rem $teal-000;
-  //   color: $teal-000;
-
-  //   h3 {
-      
-  //     color: $teal-000;
-  //   }
-  //   .add-member {
-  //     background-color: $teal-700;
-  //     color: $teal-000;
-  //     box-shadow: 0rem 0rem .06rem .06rem $teal-100;
-  //     &:hover {
-  //       background-color: lighten($teal-700, 10%);
-  //       transform: translateY(-.05rem) translateX(.05rem);
-  //       // box-shadow: .01rem .05rem .2rem .08rem $dark-400;
-  //     }
-        
-  //   }
-
-  //   .member-name {
-  //     img {
-  //       filter: contrast(200%);
-  //       filter: rotate(95deg);
-  //       // filter: brightness(1.2);
-  //     }
-  //   }
-
-  // }
-
   //members section
   .room-members {
     background-color: $light-100;
@@ -251,23 +207,6 @@
   input {
     background-color: $light-100;
   }
-
-
-  // .delete-yes {
-  //   background-color: lighten($rose-200, 6%);
-  //   &:hover {
-  //     background-color: darken($rose-200, 50%);
-  //     color: lighten($rose-200, 5%);
-  //   }
-  // }
-
-  // .delete-no {
-  //   background-color: lighten($rose-200, 6%);
-  //   &:hover {
-  //     background-color: $blue-900;
-  //     color: lighten($rose-200, 5%);
-  //   }
-  // }
 
 
 
