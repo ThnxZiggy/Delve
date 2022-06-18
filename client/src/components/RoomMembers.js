@@ -107,7 +107,7 @@ export default function RoomMembers({room, user, socket, memberList, setMemberLi
     //   {errMsg && <p className="name-error">{errMsg}</p>}
     //   {memberList.map((member) => {
     <div className="room-members">
-      <div className='romm-members-header'>
+      <div className='room-members-header'>
       <h3>Members</h3>
       </div>
       <div className='room-members-members'>
