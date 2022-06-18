@@ -16,26 +16,34 @@ body {
 }
 
 
-
-.content {
+.App-header {
   flex: 1;
   display: flex;
   overflow: auto;
+  width: 100vw;
+  // margin-left: 300px !important;
+  // justify-content: space-between;
 }
 
 .box {
   display: flex;
   min-height: min-content;
+  flex-direction: row;
+  // justify-content: space-between;
+  // flex-direction: column;
+  justify-content: space-between;
 }
 
-// .room-container {
-//   display: flex;
-//   flex-direction: column;
+
+
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
   
-// }
+}
 
 
-// #root > div > header > div.dashboard > div
 
 
 
@@ -393,9 +401,9 @@ h1, h2, h3 {
 .chat-window {
   width: 20rem;
   height: 100%;
-  // margin-top: -3rem !important;
+  // margin-top: -4.8rem !important;
   border-radius: .2rem 0 .2rem .2rem;
-  margin: 0 0 0 1rem;
+  margin: 0 0 0 4rem;
 }
 
 .chat-window p {

@@ -76,15 +76,16 @@ function App() {
       {/* {theme === "App party" && <div className="party"><span className="smiley-1">🥳</span><span className="smiley-2">🥳</span><span className="smiley-3">🥳</span></div>} */}
 
       {state.aboutPage && <About setState={setState}/>}
-      <header className="App-header" style={{display: 'flex',}}>
-        <div className="content">
+      <header className="App-header" style={{display: 'flex'}}>
+        {/* <div className="content"> */}
           <div class="box">
         {state.user.name && <Sidebar roomRef={roomRef} socket={socket} user={state.user} setState={setState} state={state} roomsList={roomsList} setRoomsList={setRoomsList}/>}
         {state.user.name && <Dashboard roomRef={roomRef} memberList={memberList} setMemberList={setMemberList} state={state} roomsList={roomsList} setRoomsList={setRoomsList} setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} sessionComplete={state.sessionComplete}/> }
-        </div>
+        {/* </div> */}
         </div>
         {!state.user.name && !state.signingUp && <Login socket={socket} setState={setState}/>}
         {!state.user.name && state.signingUp && <SignUp socket={socket} setState={setState}/>}
+        
       </header>
       </div>
   );
