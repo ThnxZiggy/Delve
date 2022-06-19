@@ -33,7 +33,7 @@ export default function SignUp ({setState}) {
       <Container>
         <p className="alert-danger">{errMsg}</p>
         <br></br>
-        <h1>Login</h1>
+        <h1>Sign Up</h1>
         <Form onSubmit={handleSubmit} className="w-100" >
           <Form.Group>
           <Form.Label>Enter Your Email</Form.Label>

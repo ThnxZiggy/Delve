@@ -458,6 +458,19 @@ h1, h2, h3 {
   // background-color: blue !important;
 }
 
+.link_message *:hover {
+  cursor: pointer;
+  // background-color: blue;
+  text-decoration: underline blue;
+}
+
+.link_message *:active {
+  cursor: pointer;
+  // background-color: blue;
+  text-decoration: underline blue;
+  font-weight: 700;
+}
+
 .message-content p {
     align-items: center;
 }
@@ -977,10 +990,6 @@ h1, h2, h3 {
 .click-to-watch {
   color: rgba(135, 132, 132, 0.827);
   font-size: .8em; 
-}
-
-.link_message::hover {
-  cursor: pointer;
 }
 
 .homepage{
