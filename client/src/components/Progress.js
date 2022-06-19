@@ -10,7 +10,7 @@ export default function Progress({state}) {
     ? 
     <div>
       <h5>
-      <CircleProgress percentage={100} strokeWidth={3} width={55} primaryColor={['#9eecd5', '#45d5aa']} fontSize={'1rem'}/>
+      <CircleProgress percentage={100} strokeWidth={5} width={75} primaryColor={['#9eecd5', '#45d5aa']} fontSize={'1rem'}/>
       &ensp; Goal: {state.room.session_goal}
           {/* Sessions Completed: {state.sessionComplete ? state.room.session_number + 1 : state.room.session_number} */}
           </h5>
@@ -21,7 +21,7 @@ export default function Progress({state}) {
         { state.sessionComplete ?
         <div>
           <h5>
-          <CircleProgress percentage={Math.floor((state.room.session_number + 1) / state.room.session_goal * 100)} strokeWidth={3} width={55} primaryColor={['#9eecd5', '#45d5aa']} fontSize={'1rem'}/>
+          <CircleProgress percentage={Math.floor((state.room.session_number + 1) / state.room.session_goal * 100)} strokeWidth={5} width={75} primaryColor={['#9eecd5', '#45d5aa']} fontSize={'1rem'}/>
           &ensp; Goal: {state.room.session_goal}
           {/* Sessions Completed: {state.room.session_number + 1} */}
           </h5>
@@ -29,7 +29,7 @@ export default function Progress({state}) {
         :
         <div >
           <h5>
-          <CircleProgress percentage={Math.floor(state.room.session_number / state.room.session_goal * 100)} strokeWidth={3} width={55} primaryColor={['#9eecd5', '#45d5aa']} fontSize={'1rem'}/>
+          <CircleProgress percentage={Math.floor(state.room.session_number / state.room.session_goal * 100)} strokeWidth={5} width={75} primaryColor={['#9eecd5', '#45d5aa']} fontSize={'1rem'}/>
           &ensp; Goal: {state.room.session_goal}
           {/* Sessions Completed: {state.room.session_number} */}
           </h5>

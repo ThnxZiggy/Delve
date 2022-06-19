@@ -309,13 +309,13 @@ h1, h2, h3 {
 
 .mark-complete {
   display: block;
-  height: 3rem;
-  width: 3rem;
+  height: 4rem;
+  width: 4rem;
   line-height: 2.9rem;
   border-radius: 50%;
-  text-align: center;
+  // text-align: center;
   font-size: 2.5rem;
-  border: .2rem double;
+  border: .7rem double;
   margin-right: 2rem;
   // margin-top: .5rem;
   background-color: transparent;
@@ -479,9 +479,7 @@ h1, h2, h3 {
   align-items: center;
   margin-right: .2rem;
   margin-left: .2rem;
-  padding-right: .6rem;
-  padding-left:.6rem;
-
+  padding: .4rem .6rem;
   overflow-wrap: break-word;
   word-break: break-word;
   cursor: default;
@@ -823,7 +821,7 @@ h1, h2, h3 {
   border-radius: 0 .2rem .2rem 0;
   box-shadow: .01rem .05rem .4rem .08rem $teal-700;
   height: 14rem;
-  width: 8.6rem;
+  width: 10rem;
   overflow-wrap: break-word;
   font-size: .8rem;
   display:flex;
