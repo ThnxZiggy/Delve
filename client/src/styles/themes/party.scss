@@ -81,6 +81,16 @@
     }
   }
 
+
+
+  //starting page
+  .homepage-message-no-rooms, .homepage-message, .welcome-message {
+    color: $party-pale;
+    img {
+      filter: grayscale(100%) brightness(50%) sepia(100%) hue-rotate(220deg) saturate(200%);
+    }
+  }
+
   //rooms sidebar
   .bg-success {
     background-color: $party-4 !important;
