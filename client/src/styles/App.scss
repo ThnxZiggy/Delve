@@ -16,6 +16,34 @@ body {
 }
 
 
+.App-header {
+  flex: 1;
+  display: flex;
+  overflow: auto;
+  width: 100vw;
+  // margin-left: 300px !important;
+  // justify-content: space-between;
+}
+
+.box {
+  display: flex;
+  min-height: min-content;
+  flex-direction: row;
+  // justify-content: space-between;
+  // flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+
 
 
 
@@ -175,8 +203,10 @@ h1, h2, h3 {
 .sidebar-container {
   max-height: 70vh;
   // width:20%;
-  overflow-y: scroll;
-  overflow-x: visible;
+  overflow: auto;
+  // overflow-y: scroll;
+  // overflow-x: visible;
+  // overflow: scroll hidden
   // z-index: 4;
 }
 
@@ -279,13 +309,13 @@ h1, h2, h3 {
 
 .mark-complete {
   display: block;
-  height: 3rem;
-  width: 3rem;
+  height: 4rem;
+  width: 4rem;
   line-height: 2.9rem;
   border-radius: 50%;
-  text-align: center;
+  // text-align: center;
   font-size: 2.5rem;
-  border: .2rem double;
+  border: .7rem double;
   margin-right: 2rem;
   // margin-top: .5rem;
   background-color: transparent;
@@ -371,9 +401,9 @@ h1, h2, h3 {
 .chat-window {
   width: 20rem;
   height: 100%;
-  // margin-top: -3rem !important;
+  // margin-top: -4.8rem !important;
   border-radius: .2rem 0 .2rem .2rem;
-  margin: 0 0 0 1rem;
+  margin: 0 0 0 4rem;
 }
 
 .chat-window p {
@@ -449,9 +479,7 @@ h1, h2, h3 {
   align-items: center;
   margin-right: .2rem;
   margin-left: .2rem;
-  padding-right: .6rem;
-  padding-left:.6rem;
-
+  padding: .4rem .6rem;
   overflow-wrap: break-word;
   word-break: break-word;
   cursor: default;
@@ -806,7 +834,7 @@ h1, h2, h3 {
   border-radius: 0 .2rem .2rem 0;
   box-shadow: .01rem .05rem .4rem .08rem $teal-700;
   height: 14rem;
-  width: 8.6rem;
+  width: 10rem;
   overflow-wrap: break-word;
   font-size: .8rem;
   display:flex;
@@ -815,7 +843,7 @@ h1, h2, h3 {
   background-color: transparent;
 
 
-  .romm-members-header {
+  .room-members-header {
     background-color: transparent;
     // font-size: .2rem !important;
     text-align: center;

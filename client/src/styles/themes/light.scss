@@ -79,14 +79,14 @@
   }
 
   .delete-confirmation {
-    background-color: $party-pale;
+    background-color: lighten($party-pale, 10%);
 
 
     .delete-yes {
       background-color: lighten($rose-200, 6%);
       &:hover {
         background-color: darken($rose-200, 60%);
-        color: lighten($rose-200, 25%);
+        color: lighten($party-pale, 100%);
       }
     }
 
@@ -94,7 +94,7 @@
       background-color: lighten($rose-200, 6%);
       &:hover {
         background-color: $light-600;
-        color: lighten($rose-200, 25%);
+        color: lighten($party-pale, 25%);
       }
     }
 
@@ -131,7 +131,7 @@
 
   .chat-window .chat-header {
     background-color: $light-600;
-    color: $light-800;
+    color: $light-100;
   }
 
   .chat-body {
@@ -150,6 +150,7 @@
 
   .chat-footer button {
     background-color: $light-600 !important;
+    color: $light-100;
     &:hover {
       background-color: $light-400  !important;
       box-shadow: .01rem .05rem .3rem .08rem $light-800;
@@ -194,14 +195,17 @@
     background-color: darken($rose-200, 6%);
     &:hover {
       background-color: darken($rose-200, 50%);
-      color: lighten($rose-200, 5%);
+      color: lighten($party-pale, 55%);
     }
   }
 
-  .romm-members-header {
+  .room-members-header {
     background-color: $light-600 !important;
     border-bottom: .1rem solid $light-100;
     padding-bottom: .09rem !important;
+    h3 {
+      color: $light-100;
+    }
   }
 
   input {
