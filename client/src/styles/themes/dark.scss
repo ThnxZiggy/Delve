@@ -136,6 +136,17 @@
     }
   }
 
+
+
+  //starting page
+
+  .homepage-message-no-rooms, .homepage-message, .welcome-message {
+    color: $teal-000;
+    img {
+      filter: grayscale(100%) brightness(50%) sepia(100%) hue-rotate(110deg) saturate(200%);
+    }
+  }
+
   //rooms sidebar
   .bg-success {
     background-color: $teal-400 !important;
