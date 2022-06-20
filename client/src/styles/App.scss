@@ -675,17 +675,17 @@ h1, h2, h3 {
 
 
 .profile {
-  border: .2rem solid $party-pale;
+  border: .2rem solid $light-100;
   border-radius: 5%;
   width: 20rem;
   padding: 1rem;
   h1 {
     font-size: 2rem;
-    color: $party-pale;
+    color: $light-100;
   }
   h3 {
     font-size: 1.5rem;
-    color: $party-pale;
+    color: $light-100;
   }
   display: flex;
   flex-direction: column;
@@ -698,7 +698,7 @@ h1, h2, h3 {
 }
 
 .profile-links {
-  background-color: $party-pale;
+  background-color: $light-100;
   display:flex;
   // align-items: center;
   justify-content: space-around;
@@ -709,7 +709,7 @@ h1, h2, h3 {
   color: $party-2;
 
   a {
-    border: .3rem solid $party-pale;
+    border: .3rem solid $light-100;
     padding: 0;
     margin: 0;
     border-radius: 20%;
@@ -718,7 +718,7 @@ h1, h2, h3 {
       background-color: $party-2;
       box-shadow: .01rem .05rem .3rem .08rem $dark-700;
       transform: translateY(-.03rem) translateX(.03rem);
-      color: $party-pale;
+      color: $light-100;
       // color: $teal-900;
     }
     // border: 0;
@@ -733,7 +733,7 @@ h1, h2, h3 {
   align-items: center;
   justify-content: center;
   border-radius: 20%;
-  background-color: $party-pale;
+  background-color: $light-100;
   color: $party-2;
   border: 0;
   margin: .5rem;
@@ -955,6 +955,7 @@ h1, h2, h3 {
   animation-delay: .75s;
   animation-iteration-count: 7;
   opacity: 0;
+  z-index: 3;
 }
 
 .smiley-2 {
@@ -967,6 +968,7 @@ h1, h2, h3 {
   animation-duration: 1.6s;
   animation-delay: 1s;
   animation-iteration-count: 7;
+  z-index: 3;
 }
 
 .smiley-3 {
@@ -979,6 +981,7 @@ h1, h2, h3 {
   animation-duration: 1.7s;
   animation-delay: .5s;
   animation-iteration-count: 7;
+  z-index: 3;
 }
 
 
