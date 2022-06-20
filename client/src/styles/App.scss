@@ -947,41 +947,41 @@ h1, h2, h3 {
 
 .smiley-1 {
   position: absolute;
-  left: 35%;
+  left: 38%;
   backface-visibility: hidden;
   transform: rotate(-10deg);
   animation-name: party;
   animation-duration: 1.7s;
-  animation-delay: .75s;
+  animation-delay: 2.8s;
   animation-iteration-count: 7;
   opacity: 0;
-  z-index: 3;
+  // z-index: 3;
 }
 
 .smiley-2 {
   opacity: 0;
   position: absolute;
-  left: 65%;
+  left: 22%;
   backface-visibility: hidden;
   transform: rotate(-10deg);
   animation-name: party;
   animation-duration: 1.6s;
-  animation-delay: 1s;
+  animation-delay: 3s;
   animation-iteration-count: 7;
-  z-index: 3;
+  // z-index: 3;
 }
 
 .smiley-3 {
   opacity: 0;
   position: absolute;
-  left: 50%;
+  left: 55%;
   backface-visibility: hidden;
   transform: rotate(-10deg);
   animation-name: party;
   animation-duration: 1.7s;
-  animation-delay: .5s;
+  animation-delay: 2.5s;
   animation-iteration-count: 7;
-  z-index: 3;
+  // z-index: 3;
 }
 
 
