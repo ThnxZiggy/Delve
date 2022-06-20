@@ -8,16 +8,16 @@ import Nav from './Nav';
 import Sidebar from './Sidebar';
 import About from './About';
 import SignUp from './SignUp';
-
+import io from 'socket.io-client';
 import partyConfetti from "../helpers/confetti.js"
 
-
+const { connect } = require('twilio-video');
 
 
 // all we need to do is CONNECT to the backend socket server!
 // STEP 0: Install socket.io-client <-- THE VER OF SERVER SOCKET.IO MUST MATCH
 // STEP 1: import socket.io-client
-import io from 'socket.io-client';
+
 
 // STEP 2: make the connection
 const socketURL =
@@ -44,21 +44,41 @@ function App() {
   const [theme, setTheme] = useState('App light');
   const [memberList, setMemberList] = useState([]);
   const roomRef = useRef('');
+  const [twilioRoom, setTwilioRoom] = useState(false);
 
-  useEffect(() =>{
-    axios.get('/rooms')
-      .then(res => {
-        const unfilteredRooms = res.data;
-        const filteredRooms = unfilteredRooms.filter(room => room.user_1_id === state.user.id || room.user_2_id === state.user.id || room.user_3_id === state.user.id || room.user_4_id === state.user.id)
-        console.log('filteredRooms', filteredRooms);
-        if (filteredRooms[0]){
-          ///////////////////// uncomment if we want to start in a room!!!! /////////////////////////////////
-          // socket.emit('join_room', filteredRooms[0].id);
-          // setState(prev => ({...prev, room:filteredRooms[0]}));
-        }
+  // useEffect(() =>{
+  //   axios.get('/rooms')
+  //     .then(res => {
+  //       const unfilteredRooms = res.data;
+  //       const filteredRooms = unfilteredRooms.filter(room => room.user_1_id === state.user.id || room.user_2_id === state.user.id || room.user_3_id === state.user.id || room.user_4_id === state.user.id)
+  //       console.log('filteredRooms', filteredRooms);
+  //       if (filteredRooms[0]){
+  //         ///////////////////// uncomment if we want to start in a room!!!! /////////////////////////////////
+  //         // socket.emit('join_room', filteredRooms[0].id);
+  //         // setState(prev => ({...prev, room:filteredRooms[0]}));
+  //       }
+  //     })
+  // }, [state.user])
+
+  useEffect(() => {
+    if(state.user.name && state.room.id > 0) { 
+      axios.get(`https://token-service3-2274-dev.twil.io/token?identity=${state.room.id}`)
+      .then((res) => {
+        console.log(`RES DATA: `,res.data)
+        connect(res.data.accessToken, {
+          name: state.room.id,
+          audio: false,
+          video: true
+        })
+        .then((res) => {
+          console.log(`SECOND THEN: `,res)
+          setTwilioRoom(res)
+        })
       })
-  }, [state.user])
-
+    }
+  },[state.user, state.room])
+  
+  
   return (
     <div className={theme}>
       <div className='banner'>
@@ -80,7 +100,7 @@ function App() {
         {/* <div className="content"> */}
           <div class="box">
         {state.user.name && <Sidebar roomRef={roomRef} socket={socket} user={state.user} setState={setState} state={state} roomsList={roomsList} setRoomsList={setRoomsList}/>}
-        {state.user.name && <Dashboard roomRef={roomRef} memberList={memberList} setMemberList={setMemberList} state={state} roomsList={roomsList} setRoomsList={setRoomsList} setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} sessionComplete={state.sessionComplete}/> }
+        {state.user.name && <Dashboard roomRef={roomRef} twilioRoom={twilioRoom} memberList={memberList} setMemberList={setMemberList} state={state} roomsList={roomsList} setRoomsList={setRoomsList} setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} sessionComplete={state.sessionComplete}/> }
         {/* </div> */}
         </div>
         {!state.user.name && !state.signingUp && <Login socket={socket} setState={setState}/>}

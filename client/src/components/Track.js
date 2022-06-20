@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.scss';
+import '../styles/App.scss';
 import AVControl from './AVControl';
 
 class Track extends Component {
