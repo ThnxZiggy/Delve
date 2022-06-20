@@ -43,6 +43,7 @@ function App() {
   const [roomsList, setRoomsList] = useState([]);
   const [theme, setTheme] = useState('App light');
   const [memberList, setMemberList] = useState([]);
+  const [url, setUrl] = useState("");
   const roomRef = useRef('');
 
   useEffect(() =>{
@@ -68,7 +69,7 @@ function App() {
         <span className="theme__icons">
           <i className="fa-solid fa-sun" onClick={() => setTheme('App light')}></i>
           <i className="fa-solid fa-moon" onClick={() => {setTheme('App dark')}}></i>
-          <i className="fa-solid fa-cake-candles" onClick={() => {setTheme('App party'); partyConfetti()}}></i>
+          <i className="fa-solid fa-cake-candles" onClick={() => {setTheme('App party'); partyConfetti(); setUrl('https://vimeo.com/636127578')}}></i>
         </span>
       </div>
 
@@ -80,7 +81,7 @@ function App() {
         {/* <div className="content"> */}
           <div class="box">
         {state.user.name && <Sidebar roomRef={roomRef} socket={socket} user={state.user} setState={setState} state={state} roomsList={roomsList} setRoomsList={setRoomsList}/>}
-        {state.user.name && <Dashboard roomRef={roomRef} memberList={memberList} setMemberList={setMemberList} state={state} roomsList={roomsList} setRoomsList={setRoomsList} setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} sessionComplete={state.sessionComplete}/> }
+        {state.user.name && <Dashboard url={url} setUrl={setUrl} roomRef={roomRef} memberList={memberList} setMemberList={setMemberList} state={state} roomsList={roomsList} setRoomsList={setRoomsList} setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} sessionComplete={state.sessionComplete}/> }
         {/* </div> */}
         </div>
         {!state.user.name && !state.signingUp && <Login socket={socket} setState={setState}/>}

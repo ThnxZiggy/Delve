@@ -13,9 +13,8 @@ import axios from 'axios';
 import confetti from 'canvas-confetti';
 // import Video from './Video';
 
-export default function Dashboard({roomRef, memberList, setMemberList, roomsList, setRoomsList, user, room, socket, makingRoom, sessionComplete, setState, state}) {
+export default function Dashboard({url, setUrl, roomRef, memberList, setMemberList, roomsList, setRoomsList, user, room, socket, makingRoom, sessionComplete, setState, state}) {
 
-  const [url, setUrl] = useState("");
   const [roomChangeMessage, setRoomChangeMessage] = useState("")
   // const [sessionComplete, setSessionComplete] = useState(false)
 
