@@ -39,8 +39,8 @@ body {
 
 
 .dashboard {
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
   
 }
 
@@ -79,7 +79,7 @@ h1, h2, h3 {
 
 
 
-//login form
+//LOGIN FORM
 .login {
   width: 40%;
 
@@ -108,9 +108,10 @@ h1, h2, h3 {
   }
   
 
-
 }
 
+
+//SIGN UP FORM
 .w-100 {
   .me-2, button {
     // background-color: purple;
@@ -131,9 +132,11 @@ h1, h2, h3 {
   }
 }
 
-//delve banner
+
+
+//DELVE BANNER
 .banner {
-  font-family: 'Expletus Sans', cursive;
+  font-family: 'Expletus Sans', sans-serif;
   font-size: 5rem;
   display: flex;
   align-items: center;
@@ -143,6 +146,7 @@ h1, h2, h3 {
     font-size: 5rem;
   }
 }
+
 
 .theme__icons {
   padding: 1rem;
@@ -163,7 +167,7 @@ h1, h2, h3 {
 }
 
 
-//welcome banner
+//WELCOME BANNER
 .d-flex {
   padding: .5rem 2rem .3rem;
   display:flex;
@@ -195,7 +199,7 @@ h1, h2, h3 {
 }
 
 
-//main container
+//MAIN CONTENT CONTAINER
 .App-header {
   margin: 1rem;
   // padding: 0;
@@ -204,7 +208,7 @@ h1, h2, h3 {
 }
 
 
-//rooms sidebar
+//ROOMS SIDEBAR
 .sidebar-container {
   max-height: 70vh;
   // width:20%;
@@ -216,6 +220,7 @@ h1, h2, h3 {
 }
 
 
+//selected group
 .bg-success {
   border: 0;
   border-radius: 2%;
@@ -229,6 +234,8 @@ h1, h2, h3 {
   box-shadow: 0rem .2rem .2rem .1rem $dark-200;
 }
 
+
+//unselected group
 .bg-primary {
   border: 0;
   border-radius: 4%;
@@ -240,6 +247,8 @@ h1, h2, h3 {
   transform: translateY(-.2rem) translateX(.2rem);
   box-shadow: 0rem .2rem .2rem .1rem $dark-200;
 }
+
+
 
 .fa-trash {
   border: .1rem solid;
@@ -254,6 +263,8 @@ h1, h2, h3 {
     box-shadow: 0rem .2rem .2rem .1rem $dark-200;
   }
 }
+
+
 
 .delete-confirmation {
   position: absolute;
@@ -289,8 +300,7 @@ h1, h2, h3 {
 
 
 
-//middle section
-
+//MIDDLE SECTION
 .current-activity {
   display: flex;
   flex-direction: row;
@@ -302,13 +312,13 @@ h1, h2, h3 {
 
 
 .progress-bar {
-  margin: 0 !important;
+  // margin: 0;
   padding-left: 1.5rem;
-  border: 0 !important;
+  // border: 0;
   // color: blue !important;
   background-color: transparent !important;
   h5 {
-    margin-bottom: 0 !important;
+    margin-bottom: 0;
   }
 }
 
@@ -347,7 +357,7 @@ h1, h2, h3 {
     }
 }
 
-
+//Added to Room
 .room-change-message {
   width: 80vw;
   font-size: 2rem;
@@ -405,7 +415,7 @@ h1, h2, h3 {
 //chat container
 .chat-window {
   width: 20rem;
-  height: 32rem;
+  height: 31.7rem;
   // margin-top: -4.8rem !important;
   border-radius: .2rem 0 .2rem .2rem;
   margin: -6.2rem 0 0 4rem;
@@ -444,8 +454,8 @@ h1, h2, h3 {
   height: 83.5%;
   // height: calc(450px - (45px + 70px));
   border-bottom: .08rem solid $dark-700;
-  border-top: 0;
-  background: #fff;
+  // border-top: 0;
+  // background: #fff;
 
   position: relative;
   // background-color: blue !important;
@@ -469,14 +479,15 @@ h1, h2, h3 {
   // padding-top: 
   padding-bottom: 0;
   display: flex;
+  
 
 }
 
 .chat-window .chat-body .message .message-content {
   width: auto;
   height: auto;
-  min-height: 2rem;
-  max-width: 120px;
+  // min-height: 2rem;
+  // max-width: 120px;
   max-width: 7.5rem;
   // background-color: #43a047;
 
@@ -506,7 +517,7 @@ h1, h2, h3 {
 }
 
 .message-content p {
-    align-items: center;
+    // align-items: center;
 }
 
 #you {
@@ -521,7 +532,7 @@ h1, h2, h3 {
 }
 
 #you .message-meta {
-  justify-content: flex-start;
+  // justify-content: flex-start;
   margin-left: .5rem;
   margin-top: .2rem;
   // background-color: blue !important;
@@ -540,15 +551,15 @@ h1, h2, h3 {
 }
 
 #other .message-meta {
-  justify-content: flex-end;
+  // justify-content: flex-end;
   margin-right: .6rem;
   margin-top: .2rem;
   // background-color: blue !important;
 }
 
 .message-meta #author {
-  margin-left: 10px;
-  font-weight: bold;
+  // margin-left: 10px;
+  // font-weight: bold;
 }
 
 .chat-window .chat-body .message .message-meta {
@@ -614,7 +625,7 @@ h1, h2, h3 {
 }
 
 
-//about us
+//ABOUT US
 
 .about-shadow {
   background-color: rgba(50,50,50,0.9);
@@ -743,7 +754,7 @@ h1, h2, h3 {
 
 
 
-// create room
+// CREATE ROOM
 
 .create-room-shadow {
   background-color: rgba(50,50,50,0.8);
@@ -833,7 +844,7 @@ h1, h2, h3 {
 }
 
 
-//room members sidebar
+//ROOM MEMBERS SIDEBAR
 
 .room-members {
 
@@ -944,7 +955,7 @@ h1, h2, h3 {
 
 
 
-
+//PARTY SMILEYS
 .smiley-1 {
   position: absolute;
   left: 38%;

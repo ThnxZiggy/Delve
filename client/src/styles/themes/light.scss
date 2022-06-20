@@ -12,7 +12,7 @@
 
   .login, .w-100 {
     .me-2, button {
-      background-color: $light-600 !important;
+      background-color: $light-600;
       color: $light-100;
       &:hover {
         transform: translateY(-.1rem) translateX(.1rem);
@@ -31,7 +31,7 @@
     }
   }
 
-  //delve banner
+  //DELVE BANNER
   .banner {
     background-color: $light-600;
     // color: $light-100;
@@ -46,7 +46,8 @@
     box-shadow: 0rem 0rem .8rem .5rem $light-800;
   }
 
-  //welcome banner
+  
+  //WELCOME BANNER
   .d-flex {
     background-color: $light-200;
   }
@@ -58,7 +59,7 @@
     &:hover {
       background: lighten($light-200, 3%);
       box-shadow: .01rem .05rem .2rem .1rem $light-800;
-      border: 0 !important;
+      // border: 0;
     }
   }
 
@@ -114,7 +115,7 @@
   }
 
   .progress-bar {
-    color: $light-800 !important;
+    color: $light-800;
   }
 
   .room-change-message {
@@ -135,7 +136,7 @@
   }
 
   .chat-body {
-    background-color: $light-100 !important;
+    background-color: $light-100;
   }
 
   #other .message-content {
@@ -229,11 +230,11 @@
   //   background-color: $teal-100;
   // }
   .create-room button {
-    background-color: $light-200 !important;
+    background-color: $light-200;
     box-shadow: .01rem .05rem .3rem .08rem $light-800;
     // color: $blue-pale;
     &:hover {
-      background-color: $light-100  !important;
+      background-color: $light-100;
       // box-shadow: .01rem .05rem .3rem .08rem $teal-600;
       transform: translateY(-.03rem) translateX(.03rem);
       // color: $teal-900;

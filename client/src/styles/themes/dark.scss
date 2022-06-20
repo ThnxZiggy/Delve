@@ -2,45 +2,8 @@
 
 
 .dark {
-////////////////////////////////////////////////////////
-
-////////////////////////////////////////////////////////
-
 
   background-color: $teal-800;
-  // background: repeating-linear-gradient(
-  //   45deg,
-  //   $dark-700 0%,
-  //   $teal-700 10%,
-  //   $dark-700 0%,
-  //   $teal-900 50%
-  // )
-  // 0 / 15px 15px;
-
-  // background: repeating-linear-gradient(45deg, $teal-700, $teal-000 15%, $teal-400 20%);
-
-  // background: repeating-linear-gradient(190deg, $teal-700 40px,
-  // $teal-400 50px, $teal-100 60px,
-  // $teal-900 70px, $dark-700 180px, $teal-700 220px,
-  // $teal-400 230px, $teal-100 240px,
-  // $teal-900 250px, $dark-700 300px, $teal-700 370px,
-  // $teal-400 380px, $teal-100 390px,
-  // $teal-900 400px );
-
-  // repeating-linear-gradient(-190deg, $teal-400 30px,
-  // $teal-100 60px, $teal-900 90px,
-  // $teal-700 120px, $teal-400 150px,
-  // $teal-100 180px, $teal-900 210px,
-  // $teal-700 230px);
-  // repeating-linear-gradient(-190deg, rgba(255, 0, 0, 0.5) 30px,
-  // rgba(255, 153, 0, 0.5) 60px, rgba(255, 255, 0, 0.5) 90px,
-  // rgba(0, 255, 0, 0.5) 120px, rgba(0, 0, 255, 0.5) 150px,
-  // rgba(75, 0, 130, 0.5) 180px, rgba(238, 130, 238, 0.5) 210px,
-  // rgba(255, 0, 0, 0.5) 230px);
-// repeating-linear-gradient(23deg, red 50px, orange 100px,
-//   yellow 150px, green 200px, blue 250px,
-//   indigo 300px, violet 350px, red 370px);
-
 
   h1 {
     color: $teal-000;
