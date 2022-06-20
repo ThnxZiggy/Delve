@@ -18,7 +18,7 @@ exports.handler = function(context, event, callback) {
 
   const response = new Twilio.Response();
 const headers = {
-      "Access-Control-Allow-Origin": "http://localhost:3001",
+      "Access-Control-Allow-Origin": "https://delve-together.herokuapp.com/",
       "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type",
       "Content-Type": "application/json"
