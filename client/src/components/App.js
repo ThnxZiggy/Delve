@@ -64,7 +64,26 @@ function App() {
     <div className={theme}>
       <div className='banner'>
        <h1>DELVE</h1>
-       {theme === "App party" && <div className="party"><span className="smiley-1">🥳</span><span className="smiley-2">🥳</span><span className="smiley-3">🥳</span></div>}
+       {theme === "App party" && <div className="party"><span className="smiley-1"><img 
+          src="../images/face-emojji-2.png" 
+          alt="bouncy-smiley" 
+          width="119" 
+          height="100"
+        /></span>
+        <span className="smiley-2">
+        <img 
+          src="../images/face-emojji-2.png" 
+          alt="bouncy-smiley" 
+          width="119" 
+          height="100"
+        /></span>
+        <span className="smiley-3">
+        <img 
+          src="../images/face-emojji-2.png" 
+          alt="bouncy-smiley" 
+          width="119" 
+          height="100"
+        /></span></div>}
 
         <span className="theme__icons">
           <i className="fa-solid fa-sun" onClick={() => setTheme('App light')}></i>

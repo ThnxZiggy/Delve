@@ -20,6 +20,7 @@ body {
   flex: 1;
   display: flex;
   overflow: auto;
+  // overflow-x: hidden;
   width: 100vw;
   // margin-left: 300px !important;
   // justify-content: space-between;
@@ -362,52 +363,52 @@ h1, h2, h3 {
 
 
 
-.joinChatContainer {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
+// .joinChatContainer {
+//   display: flex;
+//   flex-direction: column;
+//   text-align: center;
+// }
 
-.joinChatContainer h3 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-.joinChatContainer input {
-  width: 210px;
-  height: 40px;
-  margin: 7px;
-  border: 2px solid #43a047;
-  border-radius: 5px;
-  padding: 5px;
-  font-size: 16px;
-}
+// .joinChatContainer h3 {
+//   font-size: 2.5rem;
+//   margin-bottom: 1rem;
+// }
+// .joinChatContainer input {
+//   width: 210px;
+//   height: 40px;
+//   margin: 7px;
+//   border: 2px solid #43a047;
+//   border-radius: 5px;
+//   padding: 5px;
+//   font-size: 16px;
+// }
 
-.joinChatContainer button {
-  width: 225px;
-  height: 50px;
-  margin: 7px;
-  border: none;
-  border-radius: 5px;
-  padding: 5px;
-  font-size: 16px;
-  background: #43a047;
-  color: #fff;
-  cursor: pointer;
-}
+// .joinChatContainer button {
+//   width: 225px;
+//   height: 50px;
+//   margin: 7px;
+//   border: none;
+//   border-radius: 5px;
+//   padding: 5px;
+//   font-size: 16px;
+//   background: #43a047;
+//   color: #fff;
+//   cursor: pointer;
+// }
 
-.joinChatContainer button:hover {
-  background: #2e7d32;
-}
+// .joinChatContainer button:hover {
+//   background: #2e7d32;
+// }
 
 
 
 //chat container
 .chat-window {
   width: 20rem;
-  height: 100%;
+  height: 32rem;
   // margin-top: -4.8rem !important;
   border-radius: .2rem 0 .2rem .2rem;
-  margin: 0 0 0 4rem;
+  margin: -6.2rem 0 0 4rem;
 }
 
 .chat-window p {
@@ -440,7 +441,8 @@ h1, h2, h3 {
 }
 
 .chat-window .chat-body {
-  height: calc(450px - (45px + 70px));
+  height: 83.5%;
+  // height: calc(450px - (45px + 70px));
   border-bottom: .08rem solid $dark-700;
   border-top: 0;
   background: #fff;
@@ -594,7 +596,7 @@ h1, h2, h3 {
   place-items: center;
   cursor: pointer;
   flex: 15%;
-  height: 100%;
+  height: 103%;
   background: transparent;
   outline: none;
   font-size: 1.5rem;
@@ -845,6 +847,7 @@ h1, h2, h3 {
   flex-direction: column;
   align-items: left;
   background-color: transparent;
+  margin-top: -6.2rem;
 
 
   .room-members-header {
@@ -948,9 +951,9 @@ h1, h2, h3 {
   backface-visibility: hidden;
   transform: rotate(-10deg);
   animation-name: party;
-  animation-duration: 1.9s;
-  animation-delay: .25s;
-  animation-iteration-count: 4;
+  animation-duration: 1.7s;
+  animation-delay: .75s;
+  animation-iteration-count: 7;
   opacity: 0;
 }
 
@@ -961,9 +964,9 @@ h1, h2, h3 {
   backface-visibility: hidden;
   transform: rotate(-10deg);
   animation-name: party;
-  animation-duration: 1.8s;
-  animation-delay: .5s;
-  animation-iteration-count: 4;
+  animation-duration: 1.6s;
+  animation-delay: 1s;
+  animation-iteration-count: 7;
 }
 
 .smiley-3 {
@@ -973,8 +976,9 @@ h1, h2, h3 {
   backface-visibility: hidden;
   transform: rotate(-10deg);
   animation-name: party;
-  animation-duration: 1.9s;
-  animation-iteration-count: 4;
+  animation-duration: 1.7s;
+  animation-delay: .5s;
+  animation-iteration-count: 7;
 }
 
 
