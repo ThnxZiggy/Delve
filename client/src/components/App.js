@@ -69,7 +69,6 @@ function App() {
           name: state.room.id,
           audio: false,
           video: true
-
         })
         .then((res) => {
           console.log(`SECOND THEN: `,res)
