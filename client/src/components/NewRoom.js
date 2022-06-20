@@ -1,8 +1,7 @@
 import axios from 'axios';
-import React, { useRef, useState, useEffect } from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+import React, {useState} from 'react';
 
-export default function NewRoom({roomsList, setRoomsList, setState, user, socket}) {
+export default function NewRoom({setRoomsList, setState, user, socket}) {
   const [name, setName] = useState("");
   const [user2, setUser2] = useState("");
   const [user3, setUser3] = useState("");
@@ -17,15 +16,11 @@ export default function NewRoom({roomsList, setRoomsList, setState, user, socket
       .then(res => {
         if (typeof res.data !== "string") {
           const roomData = res.data.rows[0];
-          console.log('roomData', roomData);
-          console.log('roomData id', roomData.id)
           roomData.maker = user.name
-          setState(prev => ({...prev, makingRoom: false}))
-          console.log('new rooms list')
+          setState(prev => ({...prev, makingRoom: false}));
           setRoomsList(prev => ([...prev, roomData]))
           socket.emit('create_room', roomData)
         } else {
-          console.log('false', res.data);
           setErrMsg(res.data);
         }
       })

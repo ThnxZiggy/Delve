@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
+import { useState, useRef } from 'react';
 import '../styles/App.scss';
 
 import Login from './Login';
@@ -45,25 +44,11 @@ function App() {
   const [memberList, setMemberList] = useState([]);
   const roomRef = useRef('');
 
-  useEffect(() =>{
-    axios.get('/rooms')
-      .then(res => {
-        const unfilteredRooms = res.data;
-        const filteredRooms = unfilteredRooms.filter(room => room.user_1_id === state.user.id || room.user_2_id === state.user.id || room.user_3_id === state.user.id || room.user_4_id === state.user.id)
-        console.log('filteredRooms', filteredRooms);
-        if (filteredRooms[0]){
-          ///////////////////// uncomment if we want to start in a room!!!! /////////////////////////////////
-          // socket.emit('join_room', filteredRooms[0].id);
-          // setState(prev => ({...prev, room:filteredRooms[0]}));
-        }
-      })
-  }, [state.user])
-
   return (
     <div className={theme}>
       <div className='banner'>
-       <h1>DELVE</h1>
-       {theme === "App party" && <div className="party"><span className="smiley-1">🥳</span><span className="smiley-2">🥳</span><span className="smiley-3">🥳</span></div>}
+        <h1>DELVE</h1>
+        {theme === "App party" && <div className="party"><span className="smiley-1">🥳</span><span className="smiley-2">🥳</span><span className="smiley-3">🥳</span></div>}
 
         <span className="theme__icons">
           <i className="fa-solid fa-sun" onClick={() => setTheme('App light')}></i>
@@ -72,20 +57,17 @@ function App() {
         </span>
       </div>
 
-      {state.user.name && <Nav socket={socket} user={state.user} onClick={setState} state={state}/>}
+      {state.user.name && <Nav socket={socket} user={state.user} setState={setState} state={state}/>}
       {/* {theme === "App party" && <div className="party"><span className="smiley-1">🥳</span><span className="smiley-2">🥳</span><span className="smiley-3">🥳</span></div>} */}
 
       {state.aboutPage && <About setState={setState}/>}
       <header className="App-header" style={{display: 'flex'}}>
-        {/* <div className="content"> */}
-          <div class="box">
-        {state.user.name && <Sidebar roomRef={roomRef} socket={socket} user={state.user} setState={setState} state={state} roomsList={roomsList} setRoomsList={setRoomsList}/>}
-        {state.user.name && <Dashboard roomRef={roomRef} memberList={memberList} setMemberList={setMemberList} state={state} roomsList={roomsList} setRoomsList={setRoomsList} setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} sessionComplete={state.sessionComplete}/> }
-        {/* </div> */}
+        <div class="box">
+          {state.user.name && <Sidebar roomRef={roomRef} socket={socket} user={state.user} setState={setState} state={state} roomsList={roomsList} setRoomsList={setRoomsList}/>}
+          {state.user.name && <Dashboard roomRef={roomRef} memberList={memberList} setMemberList={setMemberList} state={state} roomsList={roomsList} setRoomsList={setRoomsList} setState={setState} socket={socket}/> }
         </div>
         {!state.user.name && !state.signingUp && <Login socket={socket} setState={setState}/>}
         {!state.user.name && state.signingUp && <SignUp socket={socket} setState={setState}/>}
-        
       </header>
       </div>
   );

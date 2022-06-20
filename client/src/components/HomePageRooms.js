@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-export default function HomePageRooms({state, setState}) {
+export default function HomePageRooms() {
   return (
     <div className="homepage">
       <div className='welcome-message'>

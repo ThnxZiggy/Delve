@@ -9,15 +9,12 @@ export default function Chat({socket, user, room, setUrl}) {
   useEffect(() => {
     axios.get(`/messages/${room.id}`)
       .then(res => {
-        // console.log(res.data);
-        console.log('newest')
         res.data.forEach(message => message.time = message.time.slice(11, 16))
         setMessageList((prev) => [...res.data]); 
       })
   }, [room])
   
   const sendMessage = () => {
-    // console.log(room);
     if (currentMessage !== '') {
       const messageData = {
         room: room,
@@ -40,12 +37,9 @@ export default function Chat({socket, user, room, setUrl}) {
     socket.on('receive_message', (data) => {
       setMessageList((prev) => [...prev, data])
     })
-    // socket.on('receive_url', (data) => {
-
-    // })
   }, [socket])
 
-  const changeUrl = (e) => {
+  const clickForUrl = (e) => {
     const firstEight = e.target.innerHTML.slice(0,8);
     if(firstEight === "https://") {
       setUrl(e.target.innerHTML);
@@ -65,7 +59,7 @@ export default function Chat({socket, user, room, setUrl}) {
                 <div>
                   {messageContent.content.slice(0,8) === "https://" && <div className="click-to-watch">click to watch</div>}
                   <div className={messageContent.content.slice(0,8) === "https://" ? "message-content link_message" : "message-content"}>
-                    <p onClick={changeUrl}>{messageContent.content}</p>
+                    <p onClick={clickForUrl}>{messageContent.content}</p>
                   </div>
                   <div className="message-meta">
                     <p style={{marginRight: "3px"}}>{user.name === messageContent.author ? "me" : messageContent.author}</p>

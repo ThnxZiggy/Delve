@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
-export default function HomePageNoRooms({state, setState}) {
+export default function HomePageNoRooms({setState}) {
 
   return (
     <div className="homepage-no-rooms">

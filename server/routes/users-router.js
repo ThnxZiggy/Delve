@@ -9,10 +9,6 @@ router.get('/', (req, res) => {
 
 router.post('/login', (req, res) => {
   const {user, password} = req.body;
-  // console.log('User:', user)
-  // console.log('Password:', password)
-
-  // let usersArray;
   const command = "SELECT * FROM users";
   db.query(command).then(data => {
     const usersArray = data.rows;
@@ -44,7 +40,6 @@ router.post('/signup', (req, res) => {
       res.send(data.rows);
     })
   })
-  // db.query(command, [user, password, email])
 })
 
 module.exports = router;

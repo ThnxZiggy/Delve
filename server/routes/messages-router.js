@@ -15,7 +15,7 @@ router.post('/:roomID/:userID', (req, res) => {
   const roomID = parseInt(req.params.roomID);
   const userID = parseInt(req.params.userID);
   const content = req.body.currentMessage;
-  console.log(content);
+  
   const command = "INSERT INTO messages (room_id, user_id, content) VALUES ($1, $2, $3)";
   db.query(command, [roomID, userID, content]).then((data) => {
     res.status(201).send();

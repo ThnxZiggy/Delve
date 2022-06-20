@@ -1,33 +1,9 @@
-import axios from 'axios';
-import React, {useState, useEffect} from 'react';
-// import {Tab, Nav} from 'react-bootstrap';
-// const util = require('util')
+import React from 'react';
 
-export default function Nav({user, onClick, socket, state}) {
-  const [roomsList, setRoomsList] = useState([]);
-  const [room, setRoom] = useState({})
-
-  useEffect(() => {
-    axios.get('/rooms')
-      .then(res => {
-        setRoomsList((prev) => [...res.data]);
-        setRoom(res.data[0]);
-      })
-  }, [])
-
-  // const changeRoom = (e) => {
-  //   const thisRoom = roomsList.filter(room => room.name === e.target.value)[0];
-  //   setRoom(prev => thisRoom);
-  //   console.log('This room', thisRoom);
-  //   console.log('Target value', e.target.value);
-  //   console.log(roomsList);
-  //   socket.emit('leave_room', state.room.id);
-  //   socket.emit('join_room', thisRoom.id);
-  //   onClick(prev => ({...prev, room: thisRoom}));
-  // }
+export default function Nav({user, setState, socket, state}) {
 
   const logout = () => {
-    onClick(prev => ({...prev,room:{id: -1}, user:{}, makingRoom: false, aboutPage: false}));
+    setState(prev => ({...prev,room:{id: -1}, user:{}, makingRoom: false, aboutPage: false}));
 
     const leaveRoomData = {
       room: state.room,
@@ -39,22 +15,22 @@ export default function Nav({user, onClick, socket, state}) {
 
   const makeRoom = () => {
     if (state.makingRoom) {
-      onClick(prev => ({...prev, makingRoom: false, aboutPage: false}))
+      setState(prev => ({...prev, makingRoom: false, aboutPage: false}))
     }else {
-      onClick(prev => ({...prev, makingRoom: true, aboutPage: false}))
+      setState(prev => ({...prev, makingRoom: true, aboutPage: false}))
     }
   }
 
   const showAboutPage = () => {
     if (state.aboutPage) {
-      onClick(prev => ({...prev, aboutPage: false}))
+      setState(prev => ({...prev, aboutPage: false}))
     }else {
-      onClick(prev => ({...prev, aboutPage: true}))
+      setState(prev => ({...prev, aboutPage: true}))
     }
   }
 
   const homePage = () => {
-    onClick(prev => ({...prev, aboutPage: false, makingRoom: false, room: {id: -1}}))
+    setState(prev => ({...prev, aboutPage: false, makingRoom: false, room: {id: -1}}))
 
     const leaveRoomData = {
       room: state.room,

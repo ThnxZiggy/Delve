@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 
-import Nav from './Nav';
 import Chat from './Chat';
 import NewRoom from './NewRoom';
 import RoomMembers from './RoomMembers';
@@ -13,33 +12,27 @@ import axios from 'axios';
 import confetti from 'canvas-confetti';
 // import Video from './Video';
 
-export default function Dashboard({roomRef, memberList, setMemberList, roomsList, setRoomsList, user, room, socket, makingRoom, sessionComplete, setState, state}) {
+export default function Dashboard({roomRef, memberList, setMemberList, roomsList, setRoomsList, socket, setState, state}) {
 
   const [url, setUrl] = useState("");
-  const [roomChangeMessage, setRoomChangeMessage] = useState("")
-  // const [sessionComplete, setSessionComplete] = useState(false)
+  const [roomChangeMessage, setRoomChangeMessage] = useState("");
 
   const handleURLChange = (event) => {
     setUrl(event.target.value);
-    console.log(url);
   }
 
   useEffect(() => {
     setUrl('');
     setState(prev => ({...prev, sessionComplete: false}));
 
-  },[room])
+  },[state.room])
 
   useEffect(() => {
     socket.on('send_new_room', (roomData) => {
-      console.log('sent room', roomData);
-      if (roomData.user_1_id === user.id || roomData.user_2_id === user.id || roomData.user_3_id === user.id || roomData.user_4_id === user.id) {
-        console.log('worked');
+      if (roomData.user_1_id === state.user.id || roomData.user_2_id === state.user.id || roomData.user_3_id === state.user.id || roomData.user_4_id === state.user.id) {
         setRoomsList(prev => ([...prev, roomData]));
-        console.log('show')
         setRoomChangeMessage(`${roomData.maker} has added you to room: ${roomData.name}!!`);
         setTimeout(() => {
-          console.log('close')
           setRoomChangeMessage('');
         }, 2000)
       }
@@ -51,8 +44,7 @@ export default function Dashboard({roomRef, memberList, setMemberList, roomsList
     })
 
     socket.on('send_delete_room', (deleteInfo) => {
-      if (deleteInfo.deletedRoom.user_1_id === user.id || deleteInfo.deletedRoom.user_2_id === user.id || deleteInfo.deletedRoom.user_3_id === user.id || deleteInfo.deletedRoom.user_4_id === user.id) {
-        console.log('worked', deleteInfo);
+      if (deleteInfo.deletedRoom.user_1_id === state.user.id || deleteInfo.deletedRoom.user_2_id === state.user.id || deleteInfo.deletedRoom.user_3_id === state.user.id || deleteInfo.deletedRoom.user_4_id === state.user.id) {
         
         setRoomsList(prev => prev.filter(room => room.id !== deleteInfo.deletedRoom.id));
 
@@ -64,7 +56,7 @@ export default function Dashboard({roomRef, memberList, setMemberList, roomsList
     })
 
     socket.on('added_to_room_info', (addedData) => {
-      if (user.name === addedData.addedUser) {
+      if (state.user.name === addedData.addedUser) {
         setRoomsList(prev => ([...prev, addedData.room]));
 
         setRoomChangeMessage(`${addedData.adder.name} has added you to room: ${addedData.room.name}`);
@@ -81,35 +73,35 @@ export default function Dashboard({roomRef, memberList, setMemberList, roomsList
   }, [socket])
 
   const addCompletedSession = () => {
-    axios.post(`/rooms/session/${room.id}`).then(res => {
+    axios.post(`/rooms/session/${state.room.id}`).then(res => {
       setState(prev => ({...prev, sessionComplete: true}));
-      socket.emit('complete_session', room.id);
+      socket.emit('complete_session', state.room.id);
     })
   }
 
   return (
     <div className="dashboard">
 
-      {makingRoom && <NewRoom roomsList={roomsList} setRoomsList={setRoomsList} user={user} setState={setState} socket={socket}/>}
+      {state.makingRoom && <NewRoom roomsList={roomsList} setRoomsList={setRoomsList} user={state.user} setState={setState} socket={socket}/>}
 
-      {room.id < 0 &&
+      {state.room.id < 0 &&
         <div>
           {roomChangeMessage && <div className="room-change-message">{roomChangeMessage}</div>}
           {roomsList.length > 0 ? 
-            <HomePageRooms state={state} setState={setState}/> : 
-            <HomePageNoRooms state={state} setState={setState}/>
+            <HomePageRooms/> : 
+            <HomePageNoRooms setState={setState}/>
           }
         </div>
       }
 
-      {room.id > 0 &&
+      {state.room.id > 0 &&
         <div className="room-container">
           
           {roomChangeMessage && <div className="room-change-message">{roomChangeMessage}</div>}
           
           <span className='current-activity'>
-            {sessionComplete ? <button className='great-work'>&#x2605;</button> :<button onClick={() => {addCompletedSession(); confetti()}} className="mark-complete">&#10003;</button>}
-            <h1>{room.name}</h1>
+            {state.sessionComplete ? <button className='great-work'>&#x2605;</button> :<button onClick={() => {addCompletedSession(); confetti()}} className="mark-complete">&#10003;</button>}
+            <h1>{state.room.name}</h1>
             <Progress state={state}/>
           </span>
           <div style={{display: "flex"}}>
@@ -121,11 +113,10 @@ export default function Dashboard({roomRef, memberList, setMemberList, roomsList
                 value={url}
                 placeholder="Input video url" 
               />
-              <ReactPlayer playing={true} style={{border: "solid 1px black",   backgroundImage: "url(" + "../images/delve-logo-11.jpg" + ")",
-}} url={url} controls={true}/>
-</div>
-            <Chat socket={socket} user={user} room={room} setUrl={setUrl}/>
-            <RoomMembers memberList={memberList} setMemberList={setMemberList} socket={socket} room={room} user={user}/>
+              <ReactPlayer playing={true} style={{border: "solid 1px black",   backgroundImage: "url(" + "../images/delve-logo-11.jpg" + ")",}} url={url} controls={true}/>
+            </div>
+            <Chat socket={socket} user={state.user} room={state.room} setUrl={setUrl}/>
+            <RoomMembers memberList={memberList} setMemberList={setMemberList} socket={socket} room={state.room} user={state.user}/>
             
           </div>
         </div>

@@ -1,11 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 export default function About({setState}) {
   const exit = () => {
     setState(prev => ({...prev, aboutPage: false}))
   }
-
-  console.log("hello world");
 
   return (
     <div className="about-shadow">
