@@ -643,7 +643,7 @@ h1, h2, h3 {
 .about-container {
   background-color: $party-2;
   position: absolute;
-  width: 100%;
+  width: 75%;
   z-index: 5;
   padding-bottom: 1.5rem;
   opacity: 100%;
@@ -667,7 +667,7 @@ h1, h2, h3 {
 
 .about-us {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 
 }
 
@@ -677,8 +677,10 @@ h1, h2, h3 {
 .profile {
   border: .2rem solid $light-100;
   border-radius: 5%;
-  width: 20rem;
+  width: 24rem;
+  height: 24rem;
   padding: 1rem;
+  margin: 0 5rem;
   h1 {
     font-size: 2rem;
     color: $light-100;
@@ -770,7 +772,7 @@ h1, h2, h3 {
 
 
 .create-room {
-  width: 80vw;
+  width: 30vw;
   background-color: white;
   z-index: 2;
   position: absolute;
