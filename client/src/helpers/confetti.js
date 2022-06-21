@@ -21,7 +21,7 @@ require('canvas-confetti');
 
  export default function partyConfetti() {
      
-  var end = Date.now() + (15 * 400);
+  var end = Date.now() + (27 * 400);
   
   (function frame() {
     //bottom

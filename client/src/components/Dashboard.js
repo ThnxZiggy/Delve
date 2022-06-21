@@ -16,24 +16,10 @@ import Participant from "./Participant";
 import Room from "./Room";
 // import Video from './Video';
 const { connect } = require('twilio-video');
-export default function Dashboard({
-  roomRef,
-  memberList,
-  setMemberList,
-  roomsList,
-  setRoomsList,
-  user,
-  room,
-  socket,
-  makingRoom,
-  sessionComplete,
-  setState,
-  state,
-  
-}) {
-  const [url, setUrl] = useState("");
-  const [roomChangeMessage, setRoomChangeMessage] = useState("");
+
+export default function Dashboard({url, setUrl, roomRef, memberList, setMemberList, roomsList, setRoomsList, user, room, socket, makingRoom, sessionComplete, setState, state}) {
   const [twilioRoom, setTwilioRoom] = useState(false);
+  const [roomChangeMessage, setRoomChangeMessage] = useState("")
   // const [sessionComplete, setSessionComplete] = useState(false)
 
   const handleURLChange = (event) => {

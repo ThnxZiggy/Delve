@@ -43,6 +43,7 @@ function App() {
   const [roomsList, setRoomsList] = useState([]);
   const [theme, setTheme] = useState('App light');
   const [memberList, setMemberList] = useState([]);
+  const [url, setUrl] = useState("");
   const roomRef = useRef('');
   const [twilioRoom, setTwilioRoom] = useState(false);
 
@@ -83,12 +84,31 @@ function App() {
     <div className={theme}>
       <div className='banner'>
        <h1>DELVE</h1>
-       {theme === "App party" && <div className="party"><span className="smiley-1">🥳</span><span className="smiley-2">🥳</span><span className="smiley-3">🥳</span></div>}
+       {theme === "App party" && <div className="party"><span className="smiley-1"><img 
+          src="../images/face-emojji-2.png" 
+          alt="bouncy-smiley" 
+          width="119" 
+          height="100"
+        /></span>
+        <span className="smiley-2">
+        <img 
+          src="../images/face-emojji-2.png" 
+          alt="bouncy-smiley" 
+          width="119" 
+          height="100"
+        /></span>
+        <span className="smiley-3">
+        <img 
+          src="../images/face-emojji-2.png" 
+          alt="bouncy-smiley" 
+          width="119" 
+          height="100"
+        /></span></div>}
 
         <span className="theme__icons">
           <i className="fa-solid fa-sun" onClick={() => setTheme('App light')}></i>
           <i className="fa-solid fa-moon" onClick={() => {setTheme('App dark')}}></i>
-          <i className="fa-solid fa-cake-candles" onClick={() => {setTheme('App party'); partyConfetti()}}></i>
+          <i className="fa-solid fa-cake-candles" onClick={() => {setTheme('App party'); partyConfetti(); setUrl('https://vimeo.com/636127578')}}></i>
         </span>
       </div>
 
@@ -100,7 +120,7 @@ function App() {
         {/* <div className="content"> */}
           <div class="box">
         {state.user.name && <Sidebar roomRef={roomRef} socket={socket} user={state.user} setState={setState} state={state} roomsList={roomsList} setRoomsList={setRoomsList}/>}
-        {state.user.name && <Dashboard roomRef={roomRef} twilioRoom={twilioRoom} memberList={memberList} setMemberList={setMemberList} state={state} roomsList={roomsList} setRoomsList={setRoomsList} setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} sessionComplete={state.sessionComplete}/> }
+        {state.user.name && <Dashboard twilioRoom={twilioRoom} url={url} setUrl={setUrl} roomRef={roomRef} memberList={memberList} setMemberList={setMemberList} state={state} roomsList={roomsList} setRoomsList={setRoomsList} setState={setState} socket={socket} user={state.user} room={state.room} makingRoom={state.makingRoom} sessionComplete={state.sessionComplete}/> }
         {/* </div> */}
         </div>
         {!state.user.name && !state.signingUp && <Login socket={socket} setState={setState}/>}
