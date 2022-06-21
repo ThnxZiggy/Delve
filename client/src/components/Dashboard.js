@@ -121,7 +121,7 @@ export default function Dashboard({url, setUrl, roomRef, memberList, setMemberLi
         console.log(`RES DATA: `,res.data)
         connect(res.data.accessToken, {
           name: state.room.id,
-          audio: true,
+          audio: false,
           video: { 
             width: { ideal: 320, min: 320, max: 320 }, 
             height: { ideal: 240, min: 240, max: 240 },
@@ -208,9 +208,7 @@ export default function Dashboard({url, setUrl, roomRef, memberList, setMemberLi
                 url={url}
                 controls={true}
               />
-                
-                  {twilioRoom && <Room room={twilioRoom} state={state} setTwilioRoom={setTwilioRoom} />}
-                
+              {twilioRoom && <Room room={twilioRoom} state={state} setTwilioRoom={setTwilioRoom} />}
             </div>
             <Chat socket={socket} user={user} room={room} setUrl={setUrl} />
             <RoomMembers
