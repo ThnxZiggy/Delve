@@ -136,7 +136,11 @@ export default function Dashboard({
         connect(res.data.accessToken, {
           name: state.room.id,
           audio: false,
-          video: { width: 640 }
+          video: { 
+            width: { ideal: 320, min: 320, max: 320 }, 
+            height: { ideal: 240, min: 240, max: 240 },
+            aspectRatio: 1.77777777778
+           }
         })
         .then((res) => {
           console.log(`SECOND THEN: `,res)
