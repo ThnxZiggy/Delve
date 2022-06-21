@@ -45,22 +45,53 @@ const io = new Server(server, {
 });
 'use strict';
 
+const users = {};
+
+const socketToRoom = {};
+
 
 io.on('connection', (socket) => {
   const myID = socket.id;
 
   socket.on('join_room', (joinRoomData) => {
     socket.join(joinRoomData.room.id);
-    console.log('new v')
-    console.log(`User with ID: ${socket.id} has joined room: ${joinRoomData.room.id}`);
     socket.to(joinRoomData.room.id).emit('user_joined', {joinRoomData, socketID:socket.id});
+
+    if (users[joinRoomData.room.id]) {
+      const length = users[joinRoomData.room.id].length;
+      users[joinRoomData.room.id].push(socket.id);
+    } else {
+      users[joinRoomData.room.id] = [socket.id];
+    }
+    socketToRoom[socket.id] = joinRoomData.room.id;
+    const usersInThisRoom = users[joinRoomData.room.id].filter(id => id !== socket.id);
+    socket.emit("all users", usersInThisRoom);
   })
 
+  socket.on("sending signal", payload => {
+    io.to(payload.userToSignal).emit('user joined', { signal: payload.signal, callerID: payload.callerID });
+  });
+
+  socket.on("returning signal", payload => {
+    io.to(payload.callerID).emit('receiving returned signal', { signal: payload.signal, id: socket.id });
+  });
+
   socket.on('leave_room', (leaveRoomData) => {
-    console.log('[socket]','leave room :', leaveRoomData.room.id);
     socket.leave(leaveRoomData.room.id);
     socket.to(leaveRoomData.room.id).emit('user_left', {leaveRoomData, socketID: myID});
+
+    const roomID = socketToRoom[socket.id];
+      let room = users[roomID];
+      if (room) {
+        room = room.filter(id => id !== socket.id);
+        users[roomID] = room;
+      }
+      socket.broadcast.emit('user left',socket.id)
   })
+
+  socket.on('change', (payload) => {
+    socket.broadcast.emit('change',payload)
+  });
 
   socket.on('send_message', (data) => {
     console.log(data);

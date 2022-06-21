@@ -8,6 +8,7 @@ import RoomMembers from './RoomMembers';
 import Progress from './Progress';
 import HomePageRooms from './HomePageRooms';
 import HomePageNoRooms from './HomePageNoRooms';
+import Room from './Video';
 
 import axios from 'axios';
 import confetti from 'canvas-confetti';
@@ -122,7 +123,9 @@ export default function Dashboard({url, setUrl, roomRef, memberList, setMemberLi
               />
               <ReactPlayer playing={true} style={{border: "solid 1px black",   backgroundImage: "url(" + "../images/delve-logo-11.jpg" + ")",
 }} url={url} controls={true}/>
-</div>
+              <Room socket={socket}/>
+            </div>
+
             <Chat socket={socket} user={user} room={room} setUrl={setUrl}/>
             <RoomMembers memberList={memberList} setMemberList={setMemberList} socket={socket} room={room} user={user}/>
             
