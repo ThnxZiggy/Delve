@@ -1118,4 +1118,68 @@ h1, h2, h3 {
 }
 
 
+// Ziggy SCSS
+// video {
+//   display: block;
+//   -webkit-transform: scale(-1, 1);
+//   transform: scale(-1, 1);
+//   width: 100%;
+// }
+
+.dominantSpeaker:before {
+  z-index: 20;
+  border: 5px solid #ff7878;
+  content: "";
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+.avControl {
+ 
+  top: 15px;
+  left: 15px;
+  z-index: 20;
+  color: rgb(114, 4, 4);
+  opacity: .6;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.avControl:hover {
+  opacity: 1;
+}
+
+.fa-microphone-slash, .fa-video-slash {
+  color: red;
+}
+
+button {
+  background-color: #fe019a;
+  font-weight: bold;
+  display: block;
+  margin: 0 auto;
+  color: white;
+  border: none;
+  // padding: 15px;
+  border-radius: 5px;
+  width: 200px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+button:disabled {
+  opacity: .4;
+  cursor:initial;
+}
+
+// .leaveRoom {
+//   margin-top: 25px;
+//   margin-left: 0;
+// }
 
