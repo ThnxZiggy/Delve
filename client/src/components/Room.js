@@ -28,7 +28,7 @@ class Room extends Component {
 
   leaveRoom() {
     this.props.room.disconnect();
-    this.props.leaveRoom();
+    this.props.setTwilioRoom(false);
   }
 
   addParticipant(participant) {

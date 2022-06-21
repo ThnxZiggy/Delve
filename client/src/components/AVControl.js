@@ -14,6 +14,7 @@ function AVControl(props) {
   return (
     <div className='avControl'>
       <FontAwesomeIcon icon={icon} onClick={() => props.toggleTrac()} />
+      <button id="closevideo" onClick={() => props.toggleTrac()}>Close Feed</button>
     </div>
   )
 }
