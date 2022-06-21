@@ -6,9 +6,9 @@ function AVControl(props) {
   let icon;
 
   if (props.trackOff) {
-    icon = props.type === 'audio' ? faMicrophoneSlash : faVideoSlash;
+    icon = props.type === 'audio' ? faMicrophoneSlash : faMicrophone;
   } else {
-    icon = props.type === 'audio' ? faMicrophone : faVideo;
+    icon = props.type === 'video' ? faVideoSlash : faVideo;
   }
 
   return (
