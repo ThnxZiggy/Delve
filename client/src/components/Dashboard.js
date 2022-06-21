@@ -15,7 +15,7 @@ import confetti from "canvas-confetti";
 import Participant from "./Participant";
 import Room from "./Room";
 // import Video from './Video';
-
+const { connect } = require('twilio-video');
 export default function Dashboard({
   roomRef,
   memberList,
@@ -29,10 +29,11 @@ export default function Dashboard({
   sessionComplete,
   setState,
   state,
-  twilioRoom
+  
 }) {
   const [url, setUrl] = useState("");
   const [roomChangeMessage, setRoomChangeMessage] = useState("");
+  const [twilioRoom, setTwilioRoom] = useState(false);
   // const [sessionComplete, setSessionComplete] = useState(false)
 
   const handleURLChange = (event) => {
@@ -126,6 +127,24 @@ export default function Dashboard({
       socket.emit("complete_session", room.id);
     });
   };
+
+  useEffect(() => {
+    if(state.user.name && state.room.id > 0 && !twilioRoom) { 
+      axios.get(`https://token-service3-2274-dev.twil.io/token?identity=${state.user.name}`)
+      .then((res) => {
+        console.log(`RES DATA: `,res.data)
+        connect(res.data.accessToken, {
+          name: state.room.id,
+          audio: false,
+          video: { width: 640 }
+        })
+        .then((res) => {
+          console.log(`SECOND THEN: `,res)
+          setTwilioRoom(res)
+        })
+      })
+    }
+  },[state.user, state.room])
 
   return (
     <div className="dashboard">
