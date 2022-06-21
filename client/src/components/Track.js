@@ -26,7 +26,7 @@ class Track extends Component {
     if (this.state.trackOff) {
       this.props.track.enable();
     } else {
-      this.props.track.disable()
+      this.props.track.disable();
     }
 
     this.setState({

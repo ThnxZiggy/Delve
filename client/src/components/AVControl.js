@@ -6,14 +6,14 @@ function AVControl(props) {
   let icon;
 
   if (props.trackOff) {
-    icon = props.type === 'audio' ? faMicrophoneSlash : faMicrophone;
+    icon = props.type === 'audio' ? faMicrophoneSlash : faVideoSlash;
   } else {
-    icon = props.type === 'video' ? faVideoSlash : faVideo;
+    icon = props.type === 'audio' ? faMicrophone : faVideo;
   }
 
   return (
     <div className='avControl'>
-      <FontAwesomeIcon icon={icon} onClick={() => props.toggleTrack()} />
+      <FontAwesomeIcon icon={icon} onClick={() => props.toggleTrac()} />
 
     </div>
   )
