@@ -71,8 +71,8 @@ export default function Nav({user, onClick, socket, state}) {
       </div>
       <div className="nav-banner buttons">
         <div><button onClick={homePage} type="button">Home</button></div>
-        <div><button onClick={showAboutPage} type="button">About Us</button></div>
         <div><button onClick={makeRoom} type="button">Create New Room</button></div>
+        <div><button onClick={showAboutPage} type="button">About Us</button></div>
         <div><button onClick={logout} type="button">Logout</button></div>
       </div>
     </div>
