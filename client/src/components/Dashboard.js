@@ -208,9 +208,9 @@ export default function Dashboard({url, setUrl, roomRef, memberList, setMemberLi
                 url={url}
                 controls={true}
               />
-                <div className="webcamContainer">
+                
                   {twilioRoom && <Room room={twilioRoom} state={state} setTwilioRoom={setTwilioRoom} />}
-                </div>
+                
             </div>
             <Chat socket={socket} user={user} room={room} setUrl={setUrl} />
             <RoomMembers

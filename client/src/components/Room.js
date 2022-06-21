@@ -73,7 +73,7 @@ class Room extends Component {
             )
           }
         </div>
-        <button className="leaveRoom" onClick={this.leaveRoom}>Leave Room</button>
+        <button id="leaveRoom" onClick={this.leaveRoom}>Leave Room</button>
       </div>
     );
   }
