@@ -141,8 +141,8 @@ export default function Dashboard({
             name: state.room.id,
             audio: false,
             video: {
-              width: { ideal: 424, min: 424, max: 424 },
-              height: { ideal: 240, min: 240, max: 240 },
+              width: { ideal: 160, min: 160, max: 160 },
+              height: { ideal: 120, min: 120, max: 120 },
               aspectRatio: 1.77777777778,
             },
           }).then((res) => {
