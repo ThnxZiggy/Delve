@@ -13,7 +13,7 @@ function AVControl(props) {
 
   return (
     <div className='avControl'>
-      <FontAwesomeIcon icon={icon} onClick={() => props.toggleTrack()} />
+      {/* <FontAwesomeIcon icon={icon} onClick={() => props.toggleTrack()} /> */}
 
     </div>
   )

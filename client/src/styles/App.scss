@@ -1141,7 +1141,7 @@ h1, h2, h3 {
 // }
 
 .avControl {
- 
+  display: hide;
   top: 15px;
   left: 15px;
   z-index: 20;
@@ -1171,7 +1171,7 @@ h1, h2, h3 {
   width: 200px;
   cursor: pointer;
   font-size: 1em;
-  margin-top: 25px;
+  // margin-top: 25px;
   margin-left: 0;
 }
 
@@ -1180,4 +1180,35 @@ button:disabled {
   cursor:initial;
 }
 
+.participants {
+  // padding-top: 2em;
+  display: flex;
+  flex-direction:column;
+    width: 100%;
+    overflow: hidden;
+    -webkit-column-count: 3;
+    -webkit-column-gap: 1.875em;
+    -webkit-column-fill: auto;
+    -moz-column-count: 3;
+    -moz-column-gap: 1.875em;
+    -moz-column-fill: auto;
+    column-count: 3;
+    column-gap: 1.875em;
+    column-fill: auto;
+    margin-top: -6.2rem;
+}
+  
+  .participant {
+    // padding-top: 2em;
+    overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black); 
+    position: relative;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-bottom: 1.875em;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    column-break-inside: avoid;
+  }
+  
 

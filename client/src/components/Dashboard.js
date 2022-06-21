@@ -15,11 +15,26 @@ import confetti from "canvas-confetti";
 import Participant from "./Participant";
 import Room from "./Room";
 // import Video from './Video';
-const { connect } = require('twilio-video');
+const { connect } = require("twilio-video");
 
-export default function Dashboard({url, setUrl, roomRef, memberList, setMemberList, roomsList, setRoomsList, user, room, socket, makingRoom, sessionComplete, setState, state}) {
+export default function Dashboard({
+  url,
+  setUrl,
+  roomRef,
+  memberList,
+  setMemberList,
+  roomsList,
+  setRoomsList,
+  user,
+  room,
+  socket,
+  makingRoom,
+  sessionComplete,
+  setState,
+  state,
+}) {
   const [twilioRoom, setTwilioRoom] = useState(false);
-  const [roomChangeMessage, setRoomChangeMessage] = useState("")
+  const [roomChangeMessage, setRoomChangeMessage] = useState("");
   // const [sessionComplete, setSessionComplete] = useState(false)
 
   const handleURLChange = (event) => {
@@ -28,7 +43,7 @@ export default function Dashboard({url, setUrl, roomRef, memberList, setMemberLi
   };
 
   useEffect(() => {
-    console.log(`twilio room: , ${twilioRoom}`)
+    console.log(`twilio room: , ${twilioRoom}`);
     setUrl("");
     setState((prev) => ({ ...prev, sessionComplete: false }));
   }, [room]);
@@ -115,26 +130,28 @@ export default function Dashboard({url, setUrl, roomRef, memberList, setMemberLi
   };
 
   useEffect(() => {
-    if(state.user.name && state.room.id > 0 && !twilioRoom) { 
-      axios.get(`https://token-service3-2274-dev.twil.io/token?identity=${state.user.name}`)
-      .then((res) => {
-        console.log(`RES DATA: `,res.data)
-        connect(res.data.accessToken, {
-          name: state.room.id,
-          audio: false,
-          video: { 
-            width: { ideal: 320, min: 320, max: 320 }, 
-            height: { ideal: 240, min: 240, max: 240 },
-            aspectRatio: 1.77777777778
-           }
-        })
+    if (state.user.name && state.room.id > 0 && !twilioRoom) {
+      axios
+        .get(
+          `https://token-service3-2274-dev.twil.io/token?identity=${state.user.name}`
+        )
         .then((res) => {
-          console.log(`SECOND THEN: `,res)
-          setTwilioRoom(res)
-        })
-      })
+          console.log(`RES DATA: `, res.data);
+          connect(res.data.accessToken, {
+            name: state.room.id,
+            audio: false,
+            video: {
+              width: { ideal: 424, min: 424, max: 424 },
+              height: { ideal: 240, min: 240, max: 240 },
+              aspectRatio: 1.77777777778,
+            },
+          }).then((res) => {
+            console.log(`SECOND THEN: `, res);
+            setTwilioRoom(res);
+          });
+        });
     }
-  },[state.user, state.room])
+  }, [state.user, state.room]);
 
   return (
     <div className="dashboard">
@@ -208,8 +225,10 @@ export default function Dashboard({url, setUrl, roomRef, memberList, setMemberLi
                 url={url}
                 controls={true}
               />
-              {twilioRoom && <Room room={twilioRoom} state={state} setTwilioRoom={setTwilioRoom} />}
             </div>
+            {twilioRoom && (
+        <Room room={twilioRoom} state={state} setTwilioRoom={setTwilioRoom} />
+      )}
             <Chat socket={socket} user={user} room={room} setUrl={setUrl} />
             <RoomMembers
               memberList={memberList}

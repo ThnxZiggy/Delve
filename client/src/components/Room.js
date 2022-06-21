@@ -47,21 +47,6 @@ class Room extends Component {
     })
   }
 
-  // useEffect(() => {
-  //   if(state.user.name && state.room.id > 0) { 
-  //     axios.get(`https://token-service3-2274-dev.twil.io/token?identity=${state.room.id}`)
-  //     .then((res) => {
-  //       console.log(`RES DATA: `,res.data)
-  //       const room = connect(res.data.accessToken, {
-  //         name: state.room.id,
-  //         audio: false,
-  //         video: true
-  //       })
-  //       setTwilioRoom(room)
-  //     })
-  //   }
-  // },[])
-
   render() {
     return (
       <div className="room">
