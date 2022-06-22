@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@twilio/runtime-handler": "1.2.3",
     "brew": "0.0.8",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
@@ -23,7 +24,6 @@
     "react-gradient-progress": "^1.0.3",
     "socket.io": "^4.5.1",
     "twilio": "^3.56",
-    "@twilio/runtime-handler": "1.2.3",
     "yarn": "^1.22.19"
   },
   "devDependencies": {
