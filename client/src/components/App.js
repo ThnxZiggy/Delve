@@ -108,7 +108,7 @@ function App() {
         <span className="theme__icons">
           <i className="fa-solid fa-sun" onClick={() => setTheme('App light')}></i>
           <i className="fa-solid fa-moon" onClick={() => {setTheme('App dark')}}></i>
-          <i className="fa-solid fa-cake-candles" onClick={() => {setTheme('App party'); partyConfetti(); setUrl('https://www.youtube.com/watch?v=mUx10WgA1J8')}}></i>
+          <i className="fa-solid fa-cake-candles" onClick={() => {setTheme('App party'); partyConfetti(); setUrl('https://vimeo.com/636127578')}}></i>
         </span>
       </div>
 
