@@ -47,38 +47,7 @@ function App() {
   const roomRef = useRef('');
   const [twilioRoom, setTwilioRoom] = useState(false);
 
-  // useEffect(() =>{
-  //   axios.get('/rooms')
-  //     .then(res => {
-  //       const unfilteredRooms = res.data;
-  //       const filteredRooms = unfilteredRooms.filter(room => room.user_1_id === state.user.id || room.user_2_id === state.user.id || room.user_3_id === state.user.id || room.user_4_id === state.user.id)
-  //       console.log('filteredRooms', filteredRooms);
-  //       if (filteredRooms[0]){
-  //         ///////////////////// uncomment if we want to start in a room!!!! /////////////////////////////////
-  //         // socket.emit('join_room', filteredRooms[0].id);
-  //         // setState(prev => ({...prev, room:filteredRooms[0]}));
-  //       }
-  //     })
-  // }, [state.user])
-
-  // useEffect(() => {
-  //   if(state.user.name && state.room.id > 0) { 
-  //     axios.get(`https://token-service3-2274-dev.twil.io/token?identity=${state.user.name}`)
-  //     .then((res) => {
-  //       console.log(`RES DATA: `,res.data)
-  //       connect(res.data.accessToken, {
-  //         name: state.room.id,
-  //         audio: false,
-  //         video: { width: 640 }
-  //       })
-  //       .then((res) => {
-  //         console.log(`SECOND THEN: `,res)
-  //         setTwilioRoom(res)
-  //       })
-  //     })
-  //   }
-  // },[state.user, state.room])
-  
+ 
   
   return (
     <div className={theme}>
